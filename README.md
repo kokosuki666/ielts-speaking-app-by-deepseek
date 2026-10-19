@@ -133,7 +133,36 @@ npm run backup -- D:\bak  # 指定目录
 
 仓库已用 git 管理；建议每次改完提交一次，并定期把 bundle 放到另一块盘或网盘。
 
+### 发布新版本（一条命令）
+
+```bash
+npm run release -- 1.4.1 "支持导入 Anki 词单"
+```
+
+脚本 `scripts/release.mjs` 会依次完成：
+
+1. 校验分支、工作区干净、版本号递增、标签不重复
+2. 跑 `typecheck` + `build`
+3. 改 `package.json` / `package-lock.json` 版本号并提交
+4. 打标签 `v1.4.1`，推送 `main` 与标签
+5. 创建 GitHub Release（自动生成说明）
+6. 上传 `release/` 下的安装包，并生成 `SHA256SUMS.txt`
+
+前提：
+
+- 需要 `GITHUB_TOKEN`（repo 权限），或本机凭据管理器里已保存过 GitHub 凭据
+- 国内网络可用 `--proxy http://127.0.0.1:7897`（或设置 `HTTPS_PROXY`）
+- 先 `npm run desktop:build` 生成安装包；没有安装包时会只建 Release
+
+常用参数：
+
+```bash
+npm run release -- 1.4.1 --dry-run    # 只检查并打印计划
+npm run release -- 1.4.1 --no-push    # 提交打 tag，不推送
+```
+
 ---
+
 
 ## 配置 AI
 
