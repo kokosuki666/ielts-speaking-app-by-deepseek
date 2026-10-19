@@ -119,11 +119,22 @@ if (!current) fail(`package.json 里的版本号无法解析：${pkg.version}`);
 if (compareVersion(next, current) <= 0) fail(`新版本 ${version} 必须大于当前版本 ${pkg.version}`);
 
 const tag = `v${version}`;
+let tagExists = false;
 try {
-  git(['rev-parse', '--verify', `refs/tags/${tag}`]);
-  fail(`标签 ${tag} 已存在`);
+  execFileSync('git', ['rev-parse', '--verify', '--quiet', `refs/tags/${tag}`], {
+    cwd: root,
+    stdio: 'ignore',
+  });
+  tagExists = true;
 } catch {
-  /* good: tag does not exist */
+  /* tag does not exist */
+}
+if (tagExists) fail(`标签 ${tag} 已存在`);
+
+// Make the proxy available to git push as well as to the API calls below.
+if (proxyUrl) {
+  process.env.HTTPS_PROXY = proxyUrl;
+  process.env.HTTP_PROXY = proxyUrl;
 }
 
 const remoteUrl = git(['remote', 'get-url', 'origin']);
