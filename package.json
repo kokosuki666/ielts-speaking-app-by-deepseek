@@ -1,7 +1,7 @@
 {
   "name": "ielts-speaking-webapp",
   "private": true,
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "IELTS Speaking practice studio: question bank import, paper builder, AI examiner, neural TTS, conversation and vocabulary",
   "author": "IELTS Speaking Studio",
   "type": "module",
