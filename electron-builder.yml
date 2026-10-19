@@ -24,6 +24,8 @@ files:
 extraFiles:
   - from: tools/diagnose.cmd
     to: diagnose.cmd
+  - from: tools/start.cmd
+    to: start.cmd
 
 win:
   target:
