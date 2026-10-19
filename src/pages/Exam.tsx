@@ -6,7 +6,8 @@ import { Icon } from '../components/Icon';
 import { evaluateExam } from '../lib/evaluate';
 import { speak, stopSpeaking, startRecognition, startRecorder, type RecorderHandle } from '../lib/speech';
 import { countWords, fmtDuration } from '../lib/format';
-import { describeAiError } from '../lib/ai';
+import { describeAiError, toConfig } from '../lib/ai';
+import { transcribeAudio } from '../lib/asr';
 
 export default function Exam() {
   const run = useApp((s) => s.examRun);
@@ -23,6 +24,7 @@ export default function Exam() {
   const [phase, setPhase] = useState<'idle' | 'prep' | 'answer'>('idle');
   const [left, setLeft] = useState(0);
   const [recording, setRecording] = useState(false);
+  const [transcribing, setTranscribing] = useState(false);
   const [evaluating, setEvaluating] = useState(false);
   const [stage, setStage] = useState('');
   const stopRecognition = useRef<(() => void) | null>(null);
@@ -97,18 +99,22 @@ export default function Exam() {
   async function startMic() {
     if (recording) return;
     setRecording(true);
-    const stop = startRecognition({
-      onInterim: (text) => setTranscript((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`),
-      onFinal: (text) => {
-        if (text) setTranscript((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`);
-      },
-      onError: (message) => {
-        notify(message, 'err');
-        setRecording(false);
-      },
-      onEnd: () => setRecording(false),
-    });
-    stopRecognition.current = stop;
+    // Chrome's Web Speech API uploads to Google; when a compatible transcription
+    // provider is configured we record locally and transcribe on stop instead.
+    if (settings.asr.provider === 'browser') {
+      const stop = startRecognition({
+        onInterim: (text) => setTranscript((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`),
+        onFinal: (text) => {
+          if (text) setTranscript((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`);
+        },
+        onError: (message) => {
+          notify(message, 'err');
+          setRecording(false);
+        },
+        onEnd: () => setRecording(false),
+      });
+      stopRecognition.current = stop;
+    }
     try {
       recorder.current = await startRecorder();
     } catch {
@@ -120,7 +126,9 @@ export default function Exam() {
     stopRecognition.current?.();
     stopRecognition.current = null;
     setRecording(false);
-    return recorder.current?.stop() ?? Promise.resolve(null);
+    const rec = recorder.current;
+    recorder.current = null;
+    return rec?.stop() ?? Promise.resolve(null);
   }
 
   function stopAll() {
@@ -138,20 +146,41 @@ export default function Exam() {
     if (!item) return;
     const duration = startedAt.current ? (Date.now() - startedAt.current) / 1000 : 0;
     let recordingUrl: string | undefined;
+    let finalText = transcript.trim();
+
     if (recorder.current) {
       const result = await stopMic();
       recordingUrl = result?.url;
+
+      if (settings.asr.provider === 'openai' && result?.blob) {
+        setTranscribing(true);
+        try {
+          const text = await transcribeAudio(result.blob, {
+            config: toConfig(settings.ai),
+            asr: settings.asr,
+          });
+          if (text) {
+            finalText = finalText ? `${finalText} ${text}` : text;
+            setTranscript(finalText);
+          }
+        } catch (err) {
+          notify((err as Error).message, 'err');
+        } finally {
+          setTranscribing(false);
+        }
+      }
     }
+
     setAnswer({
       questionId: item.questionId,
       part: item.part,
       question: item.question,
       bullets: item.bullets,
-      transcript: transcript.trim(),
+      transcript: finalText,
       durationSec: Math.round(duration),
-      wordCount: countWords(transcript),
+      wordCount: countWords(finalText),
       recordingUrl,
-      skipped: !transcript.trim(),
+      skipped: !finalText,
     });
   }
 
@@ -290,6 +319,7 @@ export default function Exam() {
               </Button>
             )}
             <div className="spacer" />
+            {transcribing && <span className="tiny muted">正在转写…</span>}
             <span className="tiny muted">{countWords(transcript)} 词</span>
           </div>
 

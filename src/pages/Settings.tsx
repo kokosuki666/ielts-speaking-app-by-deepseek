@@ -450,6 +450,68 @@ export default function Settings() {
       </Card>
 
       <Card style={{ marginTop: 16 }}>
+        <div className="row">
+          <span className="avatar avatar--teal"><Icon name="mic" size={18} /></span>
+          <div>
+            <div className="card-title">语音识别 · 转写</div>
+            <p className="card-desc">把你说的话变成文字；模考与复盘都靠它。</p>
+          </div>
+          <div className="spacer" />
+          <Tag tone={settings.asr.provider === 'openai' ? 'ok' : 'warn'}>
+            {settings.asr.provider === 'openai' ? '兼容接口转写' : '浏览器识别'}
+          </Tag>
+        </div>
+        <div className="divider" />
+
+        <div className="stack">
+          <Field label="识别方式">
+            <Seg
+              value={settings.asr.provider}
+              onChange={(v) => patchSettings({ asr: { provider: v as 'browser' | 'openai' } })}
+              options={[
+                { value: 'browser', label: '浏览器识别' },
+                { value: 'openai', label: '兼容接口转写' },
+              ]}
+            />
+          </Field>
+
+          {settings.asr.provider === 'openai' ? (
+            <>
+              <div className="grid g2">
+                <Field label="转写模型" hint="OpenAI: whisper-1；SiliconFlow: FunAudioLLM/SenseVoiceSmall">
+                  <Input
+                    value={settings.asr.model}
+                    onChange={(e) => patchSettings({ asr: { model: e.target.value } })}
+                    placeholder="whisper-1"
+                  />
+                </Field>
+                <Field label="语言" hint="en = 英语；留空则自动检测">
+                  <Input
+                    value={settings.asr.language}
+                    onChange={(e) => patchSettings({ asr: { language: e.target.value } })}
+                    placeholder="en"
+                  />
+                </Field>
+              </div>
+              <div className="hint">
+                使用「AI 模型」里配置的 Base URL 与 Key，请求 <code>/audio/transcriptions</code>。
+                录音结束后上传转写，不再依赖 Google。
+              </div>
+            </>
+          ) : (
+            <div className="hint">
+              Chrome 的浏览器识别会把音频发往 Google 服务器，国内网络通常连不上；
+              能连 Google 时可用，否则建议改用 <strong>兼容接口转写</strong>（如 OpenAI whisper-1、SiliconFlow SenseVoice）。
+            </div>
+          )}
+
+          <div className="hint">
+            提示：也可以直接用 Edge 打开本应用，Edge 的语音识别走 Microsoft 服务，国内通常可用。
+          </div>
+        </div>
+      </Card>
+
+      <Card style={{ marginTop: 16 }}>
         <div className="card-title">考试节奏</div>
         <p className="card-desc">按真实考试设置每题时长</p>
         <div className="grid g2" style={{ marginTop: 10 }}>

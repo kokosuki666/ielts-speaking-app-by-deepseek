@@ -215,8 +215,15 @@ export interface Settings {
   appearance: Appearance;
   ai: AiSettings;
   speech: SpeechSettings;
+  asr: AsrSettings;
   exam: ExamPrefs;
   dailyGoal: number;
+}
+
+export interface AsrSettings {
+  provider: 'browser' | 'openai';
+  model: string;
+  language: string;
 }
 
 export type ThemeId =

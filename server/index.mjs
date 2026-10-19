@@ -710,6 +710,74 @@ function serveStatic(req, res, urlPath) {
   res.end(data);
 }
 
+/**
+ * Speech-to-text proxy. Browsers' Web Speech API sends audio to Google in
+ * Chrome, which is unreachable in mainland China; this endpoint lets the app
+ * use any OpenAI-compatible /audio/transcriptions provider instead.
+ */
+async function handleAsr(req, res) {
+  let payload;
+  try {
+    payload = JSON.parse(await readBody(req, 30 * 1024 * 1024));
+  } catch (err) {
+    return sendJSON(res, err.status || 400, { error: '请求格式错误', detail: err.message });
+  }
+
+  const audio = String(payload.audio || '');
+  if (!audio) return sendJSON(res, 400, { error: '缺少音频数据' });
+
+  let cfg;
+  try {
+    cfg = resolveConfig(payload.config);
+  } catch (err) {
+    return sendJSON(res, err.status || 400, { error: err.message, detail: err.detail });
+  }
+
+  const model = String(payload.model || '').trim() || 'whisper-1';
+  const buffer = Buffer.from(audio, 'base64');
+  if (!buffer.length) return sendJSON(res, 400, { error: '音频为空' });
+
+  const form = new FormData();
+  form.append('file', new Blob([buffer], { type: payload.mime || 'audio/webm' }), 'answer.webm');
+  form.append('model', model);
+  form.append('response_format', 'json');
+  if (payload.language) form.append('language', String(payload.language));
+
+  const endpoint = `${cfg.baseUrl.replace(/\/+$/, '')}/audio/transcriptions`;
+  const headers = {};
+  if (cfg.apiKey) headers.Authorization = `Bearer ${cfg.apiKey}`;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 120_000);
+  try {
+    const up = await fetch(endpoint, { method: 'POST', headers, body: form, signal: controller.signal });
+    const text = await up.text().catch(() => '');
+    if (!up.ok) {
+      let detail = text.slice(0, 500);
+      try {
+        const parsed = JSON.parse(text);
+        detail = parsed.error?.message || parsed.message || detail;
+      } catch {
+        /* keep raw */
+      }
+      const status = up.status === 401 || up.status === 403 ? 401 : up.status === 429 ? 429 : 502;
+      return sendJSON(res, status, { error: `转写服务返回 ${up.status}`, detail });
+    }
+    let data = {};
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { text: text.trim() };
+    }
+    return sendJSON(res, 200, { text: data.text || data.result || '' });
+  } catch (err) {
+    const detail = err.name === 'AbortError' ? '转写超时（120s）' : err.message;
+    return sendJSON(res, 504, { error: '无法连接转写服务', detail });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
   const pathname = url.pathname;
@@ -754,6 +822,17 @@ const server = http.createServer(async (req, res) => {
       return await handleExtract(req, res, url.searchParams.get('name'));
     } catch (err) {
       if (!res.headersSent) sendJSON(res, 500, { error: '解析服务内部错误', detail: err.message });
+      else res.end();
+      return;
+    }
+  }
+
+  if (pathname === '/api/asr') {
+    if (req.method !== 'POST') return sendJSON(res, 405, { error: 'method not allowed' });
+    try {
+      return await handleAsr(req, res);
+    } catch (err) {
+      if (!res.headersSent) sendJSON(res, 500, { error: '转写服务内部错误', detail: err.message });
       else res.end();
       return;
     }

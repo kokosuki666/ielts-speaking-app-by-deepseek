@@ -452,6 +452,27 @@ resilience 韧性
 
 > Edge 神经音色走的是微软 Read Aloud 的公开接口，不是官方付费 API，可能随微软策略变化或限流；出现问题时切到 OpenAI TTS 或系统音色即可。
 
+### 语音识别（语音转文字）
+
+模考里的转写有两条通道，可在「设置 → 语音识别」切换：
+
+| 方式 | 原理 | 适用 |
+| --- | --- | --- |
+| 浏览器识别（默认） | Web Speech API：Chrome 把音频发往 **Google 服务器**，Edge 走 Microsoft | 能访问 Google 时最快；国内通常不可用 |
+| 兼容接口转写 | 录音后上传到本地服务，转发给 `/audio/transcriptions`（OpenAI whisper-1、SiliconFlow SenseVoice 等） | 国内推荐；用「AI 模型」里同一套 Base URL / Key |
+
+**为什么 Chrome 提示“需要联网”但网是通的？**
+
+Chrome 的语音识别不是本地识别，音频要送到 Google 的语音服务；国内网络到不了那台服务器，于是返回 `network` 错误。这不是断网，也不是麦克风问题。解决办法：
+
+1. 用 **Edge** 打开应用（Edge 走 Microsoft 服务，国内通常可用）；或
+2. 「设置 → 语音识别」选 **兼容接口转写**，模型填：
+   - OpenAI：`whisper-1`
+   - SiliconFlow：`FunAudioLLM/SenseVoiceSmall`
+   - 其他兼容实现：填它们文档里的模型名
+
+兼容接口模式下，作答过程中照常录音，点「结束这道题」时会把音频发到本地 `/api/asr` 转写，再写入作答文本和报告。
+
 ## 隐私
 
 - 题库、作答、录音、成绩、词卡全部保存在本机浏览器

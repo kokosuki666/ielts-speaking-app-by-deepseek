@@ -285,7 +285,8 @@ export function startRecognition(handlers: {
     const map: Record<string, string> = {
       'not-allowed': '麦克风权限被拒绝，请在浏览器地址栏允许麦克风',
       'no-speech': '没有听到声音，请靠近麦克风',
-      network: '语音识别需要联网（Chrome 使用 Google 服务）',
+      network:
+        'Chrome 的语音识别把音频发往 Google 服务器，国内网络通常连不上（不是你断网）。可改用 Edge，或在「设置 → 语音识别」里配置 OpenAI 兼容的转写接口',
       'service-not-allowed': '浏览器禁止了语音识别服务',
     };
     handlers.onError?.(map[event.error] ?? `语音识别出错：${event.error}`);

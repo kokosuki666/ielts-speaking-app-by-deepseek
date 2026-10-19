@@ -26,10 +26,20 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 
 const flags = new Set(args.filter((a) => a.startsWith('--')));
-const positional = args.filter((a) => !a.startsWith('--'));
+const valueFlags = new Set(['--proxy']);
+const positional = [];
+for (let i = 0; i < args.length; i++) {
+  const arg = args[i];
+  if (arg.startsWith('--')) {
+    if (valueFlags.has(arg)) i += 1;
+    continue;
+  }
+  positional.push(arg);
+}
 const dryRun = flags.has('--dry-run');
 const skipBuild = flags.has('--skip-build');
 const noPush = flags.has('--no-push');
+const buildDesktop = flags.has('--desktop');
 
 const proxyFlagIndex = args.indexOf('--proxy');
 const proxyUrl =
@@ -88,6 +98,7 @@ if (flags.has('--help') || !version) {
 
   --dry-run       只检查并打印计划，不修改文件、不推送
   --skip-build    跳过 typecheck / build（调试用）
+  --desktop       额外打包桌面版（Setup / portable / ZIP），再上传
   --no-push       提交打 tag，但不 push、不建 Release
   --proxy <url>   指定 HTTP 代理（默认读 HTTPS_PROXY）
 
@@ -177,6 +188,11 @@ if (fs.existsSync(lockPath)) {
   fs.writeFileSync(lockPath, `${JSON.stringify(lock, null, 2)}\n`, 'utf8');
 }
 log(`已更新版本号到 ${version}`);
+
+if (buildDesktop) {
+  log('正在打包桌面版（Setup / portable / ZIP）…');
+  run('npx', ['electron-builder', '--win']);
+}
 
 /* ------------------------------ commit + tag ------------------------------ */
 
@@ -302,13 +318,15 @@ const notes = [
   '',
   extraNotes || '本版本更新。',
   '',
-  '### 安装',
+  '### 下载',
   '',
+  '- `IELTS-Speaking-Studio-*-win64.zip`：解压即用（不经过 NSIS，最稳）',
   '- `IELTS-Speaking-Studio-Setup-*.exe`：安装版',
-  '- `IELTS-Speaking-Studio-*-portable.exe`：免安装版',
+  '- `IELTS-Speaking-Studio-*-portable.exe`：免安装单文件',
   '- `SHA256SUMS.txt`：校验和',
   '',
-  '> 未做代码签名，Windows 可能提示「未知发布者」，选择「更多信息 → 仍要运行」即可。',
+  '> 若安装包报 `NSIS Error: Error writing temporary file`，是解压到 `%TEMP%` 失败，改用 ZIP 版即可。',
+  '> 安装包未签名，Windows 可能提示「未知发布者」，选择「更多信息 → 仍要运行」。',
   '',
   `**完整说明见 [README](https://github.com/${owner}/${repo}#readme)。**`,
 ].join('\n');
@@ -331,7 +349,9 @@ log(`Release: ${release.html_url}`);
 
 const releaseDir = path.join(root, 'release');
 const assets = fs.existsSync(releaseDir)
-  ? fs.readdirSync(releaseDir).filter((f) => f.toLowerCase().endsWith('.exe'))
+  ? fs
+      .readdirSync(releaseDir)
+      .filter((f) => /\.(exe|zip)$/i.test(f) && f.includes(version) && !f.toLowerCase().endsWith('.blockmap'))
   : [];
 
 if (assets.length) {

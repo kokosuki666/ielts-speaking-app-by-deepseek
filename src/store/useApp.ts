@@ -51,9 +51,10 @@ interface AppState {
   toast: Toast | null;
 
   notify: (text: string, tone?: Toast['tone']) => void;
-  patchSettings: (patch: Partial<Omit<Settings, 'ai' | 'speech' | 'exam'>> & {
+  patchSettings: (patch: Partial<Omit<Settings, 'ai' | 'speech' | 'asr' | 'exam'>> & {
     ai?: Partial<Settings['ai']>;
     speech?: Partial<Settings['speech']>;
+    asr?: Partial<Settings['asr']>;
     exam?: Partial<Settings['exam']>;
   }) => void;
 
@@ -110,6 +111,11 @@ const DEFAULT_SETTINGS: Settings = {
     autoSpeak: true,
     autoTranscribe: true,
   },
+  asr: {
+    provider: 'browser',
+    model: 'whisper-1',
+    language: 'en',
+  },
   exam: {
     part1Seconds: 180,
     prepSeconds: 60,
@@ -156,6 +162,7 @@ export const useApp = create<AppState>()(
             ...patch,
             ai: { ...state.settings.ai, ...(patch.ai ?? {}) },
             speech: { ...state.settings.speech, ...(patch.speech ?? {}) },
+            asr: { ...state.settings.asr, ...(patch.asr ?? {}) },
             exam: { ...state.settings.exam, ...(patch.exam ?? {}) },
           },
         })),
@@ -448,6 +455,7 @@ export const useApp = create<AppState>()(
             appearance: { ...DEFAULT_APPEARANCE, ...(p.settings?.appearance ?? {}) },
             ai: { ...DEFAULT_SETTINGS.ai, ...(p.settings?.ai ?? {}) },
             speech: { ...DEFAULT_SETTINGS.speech, ...(p.settings?.speech ?? {}) },
+            asr: { ...DEFAULT_SETTINGS.asr, ...(p.settings?.asr ?? {}) },
             exam: { ...DEFAULT_SETTINGS.exam, ...(p.settings?.exam ?? {}) },
           },
         };
