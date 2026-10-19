@@ -1,6 +1,10 @@
 # IELTS Speaking Studio · 雅思口语工作台
 
+[![CI](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/actions/workflows/ci.yml/badge.svg)](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 一个完全本地运行的雅思口语学习与练习 Web App：**导入口语题库 → 自由组卷 → 限时模考 → AI 考官打分 → 话题词背诵**，形成完整训练闭环。
+
 
 界面采用「液态玻璃」风格（Apple 式排版 + 毛玻璃层次 + 柔和网格渐变），内置 **10 套主题背景**与可调节的毛玻璃参数，支持深色模式与移动端底部导航。
 
