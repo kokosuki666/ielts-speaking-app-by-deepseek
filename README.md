@@ -110,10 +110,24 @@ npm run desktop:build   # 构建 + 生成 Windows 安装包与便携版（输出
 产物：
 
 - `release/IELTS Speaking Studio-Setup-1.4.0.exe`（NSIS 安装包）
-- `release/IELTS Speaking Studio-1.4.0-portable.exe`（免安装）
+- `release/IELTS Speaking Studio-1.4.0-portable.exe`（免安装单文件）
+- `release/IELTS Speaking Studio-1.4.0-x64.zip`（免 NSIS 的 ZIP 便携版，解压即用）
 - `release/win-unpacked/`（解包目录，便于排查）
 
 桌面版主进程是 `electron/main.cjs`：启动时用当前 Node 拉起 `server/index.mjs`（端口 47119），再用窗口加载 `http://127.0.0.1:47119`，因此文档解析、AI 代理、神经语音全部可用，不依赖外部服务。
+
+**安装包报 `NSIS Error: Error writing temporary file`？**
+
+NSIS 运行时会先把自己解压到 `%TEMP%`（约 660MB），这一步失败就会弹这个框，和安装包完整性无关。任选一种：
+
+1. 用 **ZIP 便携版**：解压到任意目录，双击 `IELTS Speaking Studio.exe`（最稳，不经过 NSIS）
+2. 把临时目录指到可写位置后再运行：
+
+   ```bat
+   set TEMP=D:\temp&& set TMP=D:\temp&& start "" "IELTS Speaking Studio-Setup-1.4.0.exe"
+   ```
+
+3. 清理 `%TEMP%` 里的旧文件；确认 C 盘至少留有 2GB 空间
 
 打包注意：
 

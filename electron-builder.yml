@@ -26,6 +26,8 @@ win:
       arch: [x64]
     - target: portable
       arch: [x64]
+    - target: zip
+      arch: [x64]
   artifactName: ${productName}-${version}-${arch}.${ext}
   # Signing is not configured for this project; skip the sign/rename step so
   # `electron-builder --dir` works on machines without a certificate.
