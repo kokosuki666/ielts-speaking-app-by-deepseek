@@ -1,5 +1,5 @@
-import type { AsrSettings } from '../types';
-import type { AiConfig } from './ai';
+import type { AsrSettings, Settings } from '../types';
+import { sanitizeApiKey, toConfig, type AiConfig } from './ai';
 
 function toBase64(bytes: Uint8Array): string {
   let binary = '';
@@ -41,4 +41,21 @@ export async function transcribeAudio(
 
 export function asrReady(asr: AsrSettings): boolean {
   return asr.provider === 'openai' && Boolean(asr.model.trim());
+}
+
+/**
+ * ASR can run on its own provider (e.g. SiliconFlow for transcription while
+ * chat stays on DeepSeek). An empty Base URL falls back to the AI config;
+ * once a Base URL is set, its key is used as-is (local servers need none).
+ */
+export function buildAsrConfig(settings: Settings): AiConfig {
+  const base = settings.asr.baseUrl.trim();
+  if (!base) return toConfig(settings.ai);
+  return {
+    ...toConfig(settings.ai),
+    baseUrl: base,
+    apiKey: sanitizeApiKey(settings.asr.apiKey),
+    model: settings.asr.model.trim() || 'whisper-1',
+    useServerDefault: false,
+  };
 }

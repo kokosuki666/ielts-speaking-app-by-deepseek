@@ -6,8 +6,8 @@ import { Icon } from '../components/Icon';
 import { evaluateExam } from '../lib/evaluate';
 import { speak, stopSpeaking, startRecognition, startRecorder, type RecorderHandle } from '../lib/speech';
 import { countWords, fmtDuration } from '../lib/format';
-import { describeAiError, toConfig } from '../lib/ai';
-import { transcribeAudio } from '../lib/asr';
+import { describeAiError } from '../lib/ai';
+import { buildAsrConfig, transcribeAudio } from '../lib/asr';
 
 export default function Exam() {
   const run = useApp((s) => s.examRun);
@@ -152,11 +152,12 @@ export default function Exam() {
       const result = await stopMic();
       recordingUrl = result?.url;
 
-      if (settings.asr.provider === 'openai' && result?.blob) {
+      // Skip tiny blobs: the user probably typed instead of speaking.
+      if (settings.asr.provider === 'openai' && result?.blob && result.blob.size > 1500) {
         setTranscribing(true);
         try {
           const text = await transcribeAudio(result.blob, {
-            config: toConfig(settings.ai),
+            config: buildAsrConfig(settings),
             asr: settings.asr,
           });
           if (text) {

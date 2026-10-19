@@ -493,9 +493,27 @@ export default function Settings() {
                   />
                 </Field>
               </div>
+
+              <Field label="独立 Base URL（可选）" hint="留空则复用「AI 模型」的地址；填了就用这里的，适合聊天 DeepSeek + 转写 SiliconFlow">
+                <Input
+                  value={settings.asr.baseUrl}
+                  onChange={(e) => patchSettings({ asr: { baseUrl: e.target.value } })}
+                  placeholder="https://api.siliconflow.cn/v1"
+                />
+              </Field>
+              <Field label="独立 API Key（可选）" hint="留空则复用「AI 模型」的 Key；本地 whisper 服务可留空">
+                <Input
+                  type="password"
+                  value={settings.asr.apiKey}
+                  onChange={(e) => patchSettings({ asr: { apiKey: sanitizeApiKey(e.target.value) } })}
+                  placeholder="sk-..."
+                  autoComplete="off"
+                />
+              </Field>
+
               <div className="hint">
-                使用「AI 模型」里配置的 Base URL 与 Key，请求 <code>/audio/transcriptions</code>。
-                录音结束后上传转写，不再依赖 Google。
+                请求 <code>{(settings.asr.baseUrl.trim() || settings.ai.baseUrl || '').replace(/\/+$/, '') + '/audio/transcriptions'}</code>
+                ；录音结束后上传转写，不依赖 Google。
               </div>
             </>
           ) : (

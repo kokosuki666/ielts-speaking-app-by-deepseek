@@ -224,6 +224,10 @@ export interface AsrSettings {
   provider: 'browser' | 'openai';
   model: string;
   language: string;
+  /** Empty = reuse the AI model's Base URL. */
+  baseUrl: string;
+  /** Empty = reuse the AI model's key. */
+  apiKey: string;
 }
 
 export type ThemeId =

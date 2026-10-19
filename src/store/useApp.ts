@@ -115,6 +115,8 @@ const DEFAULT_SETTINGS: Settings = {
     provider: 'browser',
     model: 'whisper-1',
     language: 'en',
+    baseUrl: '',
+    apiKey: '',
   },
   exam: {
     part1Seconds: 180,
@@ -227,8 +229,6 @@ export const useApp = create<AppState>()(
       deleteQuestions: (ids) =>
         set((state) => {
           const questions = state.questions.filter((q) => !ids.includes(q.id));
-          const counts = new Map<string, number>();
-          questions.forEach((q) => counts.set(q.bankId, (counts.get(q.bankId) ?? 0) + 1));
           return {
             questions,
             papers: state.papers.map((p) => ({
@@ -237,11 +237,14 @@ export const useApp = create<AppState>()(
               part3Ids: p.part3Ids.filter((x) => !ids.includes(x)),
               part2Id: p.part2Id && ids.includes(p.part2Id) ? null : p.part2Id,
             })),
-            banks: state.banks.map((b) =>
-              b.source === 'import'
-                ? { ...b, questionCount: counts.get(b.id) ?? 0, topics: [...new Set(questions.filter((q) => q.bankId === b.id).map((q) => q.topic))] }
-                : b,
-            ),
+            banks: state.banks.map((b) => {
+              const own = questions.filter((q) => q.bankId === b.id);
+              return {
+                ...b,
+                questionCount: own.length,
+                topics: [...new Set(own.map((q) => q.topic))],
+              };
+            }),
           };
         }),
 

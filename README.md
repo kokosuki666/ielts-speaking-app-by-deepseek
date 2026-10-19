@@ -459,7 +459,7 @@ resilience 韧性
 | 方式 | 原理 | 适用 |
 | --- | --- | --- |
 | 浏览器识别（默认） | Web Speech API：Chrome 把音频发往 **Google 服务器**，Edge 走 Microsoft | 能访问 Google 时最快；国内通常不可用 |
-| 兼容接口转写 | 录音后上传到本地服务，转发给 `/audio/transcriptions`（OpenAI whisper-1、SiliconFlow SenseVoice 等） | 国内推荐；用「AI 模型」里同一套 Base URL / Key |
+| 兼容接口转写 | 录音后上传到本地服务，转发给 `/audio/transcriptions`（OpenAI whisper-1、SiliconFlow SenseVoice 等） | 国内推荐；可独立配置 Base URL / Key，留空则复用「AI 模型」 |
 
 **为什么 Chrome 提示“需要联网”但网是通的？**
 
@@ -472,6 +472,12 @@ Chrome 的语音识别不是本地识别，音频要送到 Google 的语音服�
    - 其他兼容实现：填它们文档里的模型名
 
 兼容接口模式下，作答过程中照常录音，点「结束这道题」时会把音频发到本地 `/api/asr` 转写，再写入作答文本和报告。
+
+「独立 Base URL / Key」留空时复用 AI 配置；填了就用它自己的，因此可以**聊天用 DeepSeek、转写用 SiliconFlow**：
+
+- Base URL：`https://api.siliconflow.cn/v1`
+- Key：硅基流动的 Key
+- 模型：`FunAudioLLM/SenseVoiceSmall`
 
 ## 隐私
 
@@ -490,6 +496,16 @@ Chrome 的语音识别不是本地识别，音频要送到 Google 的语音服�
 - **语音合成连接复用**：按音色池化复用 WebSocket，空闲 2 分钟回收；遇到微软接口 429 自动退避重试，失败才降级到系统音色。
 - **页面有连接状态点**（右上角）：绿色＝本地服务正常，红色＝已断开；断开时顶部出现「正在自动重连…」，服务恢复后自动变绿并提示「已重新连接」，**不需要刷新页面**。
 - **Ctrl+C 干净退出**：Windows 下用 `taskkill /T` 结束整个进程树，不会残留占用 8787 / 5199 的孤儿进程。
+
+### 安全边界
+
+- 本地服务只监听 `127.0.0.1`，不对外网开放
+- `/api/*` 会校验 `Origin` / `Sec-Fetch-Site`，**拒绝其他网站的跨站调用**（否则任意网页都能借你的本地代理消耗 Key、探测内网）
+- 请求体有上限：TTS 文本 1200 字、文档解析 25MB、网页抓取 5MB（流式读取，超限立即中断）、音频转写 30MB
+- 静态服务只暴露 `dist/`，路径穿越会回落到 `index.html`，不会读到源码
+- Electron：`contextIsolation` / `sandbox` 开启、`nodeIntegration` 关闭、站外链接交给系统浏览器
+
+API Key 保存在浏览器 `localStorage`（桌面版存在应用数据目录），不会上传；但仍建议只在个人设备上使用。
 
 如果曾经用任务管理器强制结束过进程、导致端口被占：按启动器打印的 `taskkill` 命令清理一次即可，或重启终端。
 

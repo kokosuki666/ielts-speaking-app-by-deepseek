@@ -20,5 +20,15 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        // Keep the framework in a long-lived chunk; pages are split by route.
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          state: ['zustand'],
+        },
+      },
+    },
   },
 });

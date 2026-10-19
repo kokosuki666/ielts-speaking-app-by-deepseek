@@ -53,6 +53,24 @@ const ENV = {
 };
 const PORT = Number(process.env.PORT || process.env.IELTS_PORT || 8787);
 const HOST = process.env.HOST || '127.0.0.1';
+const PKG = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+
+/**
+ * Blocks cross-site use of the local API. Without this, any website the user
+ * visits could POST /api/ai/chat (draining the server key) or call /api/fetch
+ * against intranet hosts while the app is running.
+ */
+const LOCAL_HOSTS = new Set(['127.0.0.1', 'localhost', '::1', '[::1]']);
+function isTrustedRequest(req) {
+  if (String(req.headers['sec-fetch-site'] || '') === 'cross-site') return false;
+  const origin = String(req.headers.origin || '');
+  if (!origin) return true;
+  try {
+    return LOCAL_HOSTS.has(new URL(origin).hostname);
+  } catch {
+    return false;
+  }
+}
 
 /* --------------------------- process resilience --------------------------- */
 // This is a long-running local tool: a dropped WebSocket or a stray rejected
@@ -547,10 +565,22 @@ async function handleFetchPage(req, res, target) {
         detail: upstream.statusText || '对方服务器拒绝了请求',
       });
     }
-    const buffer = Buffer.from(await upstream.arrayBuffer());
-    if (buffer.length > FETCH_LIMIT) {
+    const declared = Number(upstream.headers.get('content-length') || 0);
+    if (declared > FETCH_LIMIT) {
       return sendJSON(res, 413, { error: '网页内容超过 5 MB，请改用文件导入' });
     }
+    // Stream with a hard cap: a chunked response could otherwise exhaust memory.
+    const chunks = [];
+    let total = 0;
+    for await (const chunk of upstream.body) {
+      total += chunk.length;
+      if (total > FETCH_LIMIT) {
+        controller.abort();
+        return sendJSON(res, 413, { error: '网页内容超过 5 MB，请改用文件导入' });
+      }
+      chunks.push(chunk);
+    }
+    const buffer = Buffer.concat(chunks);
     let text;
     try {
       text = new TextDecoder('utf-8', { fatal: true }).decode(buffer);
@@ -688,7 +718,10 @@ function serveStatic(req, res, urlPath) {
   let rel = decodeURIComponent(urlPath.split('?')[0]);
   if (rel === '/' || rel === '') rel = '/index.html';
   const filePath = path.join(DIST, path.normalize(rel).replace(/^(\.\.[/\\])+/, ''));
-  if (!filePath.startsWith(DIST)) return sendJSON(res, 403, { error: 'forbidden' });
+  const relative = path.relative(DIST, filePath);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) {
+    return sendJSON(res, 403, { error: 'forbidden' });
+  }
 
   let target = filePath;
   if (!fs.existsSync(target) || fs.statSync(target).isDirectory()) {
@@ -782,6 +815,10 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
   const pathname = url.pathname;
 
+  if (pathname.startsWith('/api/') && !isTrustedRequest(req)) {
+    return sendJSON(res, 403, { error: '拒绝跨站请求', detail: '请从应用页面访问本地服务' });
+  }
+
   if (pathname === '/api/health') {
     return sendJSON(res, 200, {
       ok: true,
@@ -791,7 +828,8 @@ const server = http.createServer(async (req, res) => {
       static: SERVE_STATIC && fs.existsSync(DIST),
       extract: true,
       tts: ['edge', 'openai'],
-      version: '1.2.0',
+      asr: true,
+      version: PKG.version,
     });
   }
 

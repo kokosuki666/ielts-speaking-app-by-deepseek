@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { HashRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { useApp, ensureSeeded } from './store/useApp';
 import { configureTts, TTS_ERROR_EVENT, TTS_FALLBACK_EVENT } from './lib/speech';
 import { applyAccent, applyAppearance } from './lib/appearance';
 import { Icon, type IconName } from './components/Icon';
-import Home from './pages/Home';
-import Library from './pages/Library';
-import Papers from './pages/Papers';
-import Builder from './pages/Builder';
-import Exam from './pages/Exam';
-import Reports from './pages/Reports';
-import Chat from './pages/Chat';
-import Vocab from './pages/Vocab';
-import Settings from './pages/Settings';
+
+// Route-level code splitting keeps the first paint small; each page loads on demand.
+const Home = lazy(() => import('./pages/Home'));
+const Library = lazy(() => import('./pages/Library'));
+const Papers = lazy(() => import('./pages/Papers'));
+const Builder = lazy(() => import('./pages/Builder'));
+const Exam = lazy(() => import('./pages/Exam'));
+const Reports = lazy(() => import('./pages/Reports'));
+const Chat = lazy(() => import('./pages/Chat'));
+const Vocab = lazy(() => import('./pages/Vocab'));
+const Settings = lazy(() => import('./pages/Settings'));
 
 interface NavItem {
   to: string;
@@ -219,22 +221,34 @@ function Shell() {
             </div>
           )}
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/papers" element={<Papers />} />
-            <Route path="/papers/new" element={<Builder />} />
-            <Route path="/papers/:id" element={<Builder />} />
-            <Route path="/exam" element={<Exam />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/reports/:id" element={<Reports />} />
-            <Route path="/report" element={<Reports />} />
-            <Route path="/report/:id" element={<Reports />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/vocab" element={<Vocab />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <Suspense
+            fallback={
+              <div className="page">
+                <div className="card">
+                  <div className="skeleton" style={{ height: 22, width: '40%' }} />
+                  <div className="skeleton" style={{ height: 14, width: '70%', marginTop: 12 }} />
+                  <div className="skeleton" style={{ height: 120, marginTop: 18 }} />
+                </div>
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/papers" element={<Papers />} />
+              <Route path="/papers/new" element={<Builder />} />
+              <Route path="/papers/:id" element={<Builder />} />
+              <Route path="/exam" element={<Exam />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/reports/:id" element={<Reports />} />
+              <Route path="/report" element={<Reports />} />
+              <Route path="/report/:id" element={<Reports />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/vocab" element={<Vocab />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Suspense>
         </div>
       </div>
 
