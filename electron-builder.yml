@@ -1,0 +1,48 @@
+appId: com.speakingstudio.ielts
+productName: IELTS Speaking Studio
+copyright: IELTS Speaking Studio
+
+directories:
+  output: release
+  buildResources: build
+
+# The desktop build ships the built frontend, the local server and the Electron shell.
+# asar is disabled on purpose: the server is spawned as a real node process and
+# must be able to read its files from disk.
+asar: false
+files:
+  - dist/**/*
+  - server/**/*
+  - electron/**/*
+  - package.json
+  - node_modules/**/*
+  - '!node_modules/.bin'
+  - '!node_modules/**/{test,tests,__tests__,docs,examples,*.md}'
+  - '!**/*.map'
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  # Signing is not configured for this project; skip the sign/rename step so
+  # `electron-builder --dir` works on machines without a certificate.
+  signAndEditExecutable: false
+  sign: null
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: IELTS Speaking Studio
+  artifactName: ${productName}-Setup-${version}.${ext}
+  deleteAppDataOnUninstall: false
+
+portable:
+  artifactName: ${productName}-${version}-portable.${ext}
+
+publish: null

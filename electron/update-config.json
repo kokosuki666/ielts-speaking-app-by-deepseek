@@ -1,0 +1,4 @@
+{
+  "url": "https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases/latest/download",
+  "notes": "静态更新源地址；应用启动后会自动检查更新，留空则关闭检查。CI 发布会按实际仓库地址覆盖此值。"
+}

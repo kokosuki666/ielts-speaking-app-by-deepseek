@@ -1,0 +1,1516 @@
+{
+  "topics": [
+    {
+      "topic": "Hometown",
+      "topicZh": "家乡",
+      "items": [
+        {
+          "term": "a tight-knit community",
+          "phonetic": "/ə ˌtaɪt ˈnɪt kəˈmjuːnəti/",
+          "meaningZh": "联系紧密、互相帮助的社区",
+          "meaningEn": "a community where people know and support each other",
+          "example": "I grew up in a tight-knit community where everyone helped each other out.",
+          "exampleZh": "我在一个联系紧密的社区长大，邻里之间都会互相帮忙。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a stone's throw away",
+          "phonetic": "/ə ˌstəʊnz ˈθrəʊ əˈweɪ/",
+          "meaningZh": "很近，一步之遥",
+          "meaningEn": "very close, a short distance away",
+          "example": "My old school is just a stone's throw away from my parents' house.",
+          "exampleZh": "我的母校离我父母家只有一步之遥。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a close-knit neighbourhood",
+          "phonetic": "/ə ˌkləʊs ˈnɪt ˈneɪbəhʊd/",
+          "meaningZh": "邻里关系紧密的社区",
+          "meaningEn": "an area where neighbours know and help one another",
+          "example": "I live in a close-knit neighbourhood where people stop to chat in the street.",
+          "exampleZh": "我住在一个关系紧密的社区，人们会在街上停下来聊天。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "the local buzz",
+          "phonetic": "/ðə ˌləʊkl ˈbʌz/",
+          "meaningZh": "当地热闹的生活气息",
+          "meaningEn": "the lively atmosphere created by people and activity nearby",
+          "example": "I love the local buzz around the new market because it makes my town feel alive.",
+          "exampleZh": "我喜欢新市场带来的本地热闹气氛，它让我的小镇充满活力。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "off the beaten track",
+          "phonetic": "/ˌɒf ðə ˌbiːtn ˈtræk/",
+          "meaningZh": "远离常规旅游路线",
+          "meaningEn": "away from the usual tourist routes",
+          "example": "I stayed in a village off the beaten track, where tourists rarely go.",
+          "exampleZh": "我住在一个远离常规路线的村庄，那里很少有游客去。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "like the back of my hand",
+          "phonetic": "/laɪk ðə ˌbæk əv maɪ ˈhænd/",
+          "meaningZh": "对某地了如指掌",
+          "meaningEn": "very familiar with a place",
+          "example": "I know the old town like the back of my hand after living here for years.",
+          "exampleZh": "在这里住了多年，我对老城区了如指掌。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "a breath of fresh air",
+          "phonetic": "/ə ˌbreθ əv ˌfreʃ ˈeə/",
+          "meaningZh": "令人耳目一新的事物",
+          "meaningEn": "something refreshing and pleasantly different",
+          "example": "I find the weekend market a breath of fresh air compared with my usual shopping centre.",
+          "exampleZh": "与平常的购物中心相比，我觉得周末市场让人耳目一新。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "what I like most about it is",
+          "phonetic": "/ˌwɒt aɪ ˈlaɪk ˈməʊst əˈbaʊt ɪt ɪz/",
+          "meaningZh": "我最喜欢它的一点是",
+          "meaningEn": "the feature I appreciate most is",
+          "example": "What I like most about it is the slow pace of life and the friendly people.",
+          "exampleZh": "我最喜欢它的一点是缓慢的生活节奏和友好的人们。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it's got a real sense of",
+          "phonetic": "/ɪts ɡɒt ə ˌrɪəl ˈsens əv/",
+          "meaningZh": "它有一种真正的……感",
+          "meaningEn": "it has a strong feeling of",
+          "example": "It's got a real sense of history, and I can feel it as I walk around.",
+          "exampleZh": "它有一种真正的历史感，你走着就能感受到。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "you won't find anywhere quite like it",
+          "phonetic": "/ju ˌwəʊnt ˈfaɪnd ˌenɪweə ˌkwaɪt ˈlaɪk ɪt/",
+          "meaningZh": "你找不到和它完全一样的地方",
+          "meaningEn": "it is unique and hard to match",
+          "example": "I promise you won't find anywhere quite like it because the whole town feels like a family.",
+          "exampleZh": "我保证你找不到和它完全一样的地方，因为整个小镇就像一个大家庭。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "to be honest",
+          "phonetic": "/tə bi ˈɒnɪst/",
+          "meaningZh": "说实话",
+          "meaningEn": "used to introduce a frank opinion",
+          "example": "To be honest, I didn't appreciate my hometown until I moved away.",
+          "exampleZh": "说实话，直到搬走我才懂得欣赏我的家乡。",
+          "type": "discourse",
+          "level": "band6"
+        },
+        {
+          "term": "having said that",
+          "phonetic": "/ˌhævɪŋ ˈsed ðæt/",
+          "meaningZh": "话虽如此",
+          "meaningEn": "used to add a contrasting point",
+          "example": "Having said that, the traffic in my hometown has become much worse.",
+          "exampleZh": "话虽如此，我家乡的交通已经变得差多了。",
+          "type": "discourse",
+          "level": "band8"
+        }
+      ]
+    },
+    {
+      "topic": "Work or study",
+      "topicZh": "工作与学习",
+      "items": [
+        {
+          "term": "a nine-to-five job",
+          "phonetic": "/ə ˌnaɪn tə ˈfaɪv ˈdʒɒb/",
+          "meaningZh": "朝九晚五的固定工作",
+          "meaningEn": "a regular office job with fixed hours",
+          "example": "I don't want a nine-to-five job because I'd rather have flexible hours.",
+          "exampleZh": "我不想要朝九晚五的工作，因为我更希望有灵活的时间。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "work under pressure",
+          "phonetic": "/ˌwɜːk ˌʌndə ˈpreʃə/",
+          "meaningZh": "在压力下工作",
+          "meaningEn": "cope with a demanding, deadline-driven situation",
+          "example": "I can work under pressure, but I prefer to have a clear plan.",
+          "exampleZh": "我在压力下工作得不错，尤其是截止日期临近的时候。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a steep learning curve",
+          "phonetic": "/ə ˌstiːp ˈlɜːnɪŋ kɜːv/",
+          "meaningZh": "陡峭的学习曲线",
+          "meaningEn": "a period when you have to learn a lot quickly",
+          "example": "Starting my new course was a steep learning curve, but I enjoyed the challenge.",
+          "exampleZh": "开始新课程的学习曲线很陡，但我喜欢这个挑战。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "climb the career ladder",
+          "phonetic": "/ˌklaɪm ðə kəˈrɪə ˈlædə/",
+          "meaningZh": "在职业上步步高升",
+          "meaningEn": "move up to more senior jobs",
+          "example": "I'd like to climb the career ladder without letting work take over my life.",
+          "exampleZh": "我想在职业上步步高升，但不想让工作占据我的生活。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "learn by heart",
+          "phonetic": "/ˌlɜːn baɪ ˈhɑːt/",
+          "meaningZh": "背熟；记住",
+          "meaningEn": "memorise something word for word",
+          "example": "At school we had to learn by heart long poems, which I actually enjoyed.",
+          "exampleZh": "在学校我们得背下长诗，我其实还挺喜欢的。",
+          "type": "idiom",
+          "level": "band6"
+        },
+        {
+          "term": "get to grips with",
+          "phonetic": "/ˌɡet tə ˈɡrɪps wɪð/",
+          "meaningZh": "开始掌握；着手处理",
+          "meaningEn": "begin to understand or handle something",
+          "example": "It took me a while to get to grips with the software at work.",
+          "exampleZh": "我花了一段时间才熟练掌握工作上的软件。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "burn the midnight oil",
+          "phonetic": "/ˌbɜːn ðə ˈmɪdnaɪt ˈɔɪl/",
+          "meaningZh": "熬夜工作或学习",
+          "meaningEn": "work or study late into the night",
+          "example": "I used to burn the midnight oil before every exam, which left me exhausted.",
+          "exampleZh": "我以前每次考试前都熬夜，结果累得不行。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "I'm really passionate about",
+          "phonetic": "/aɪm ˌrɪəli ˈpæʃənət əˈbaʊt/",
+          "meaningZh": "我非常热爱",
+          "meaningEn": "I care deeply about",
+          "example": "I'm really passionate about teaching because I love seeing students improve.",
+          "exampleZh": "我真的很热爱教学，因为我喜欢看到学生进步。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it gives me a sense of achievement",
+          "phonetic": "/ɪt ˌɡɪvz mi ə ˌsens əv əˈtʃiːvmənt/",
+          "meaningZh": "它给我成就感",
+          "meaningEn": "it makes me feel I have accomplished something",
+          "example": "It gives me a sense of achievement when I finally solve a tricky problem.",
+          "exampleZh": "当我最终解决一个棘手的问题时，我会有成就感。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "I've always been drawn to",
+          "phonetic": "/aɪv ˌɔːlweɪz biːn ˈdrɔːn tə/",
+          "meaningZh": "我一直被……吸引",
+          "meaningEn": "I have always been attracted to",
+          "example": "I've always been drawn to jobs where I can work with people.",
+          "exampleZh": "我一直被能和人们打交道的工作吸引。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "if I'm honest",
+          "phonetic": "/ɪf aɪm ˈɒnɪst/",
+          "meaningZh": "说实话",
+          "meaningEn": "used to give a candid opinion",
+          "example": "If I'm honest, I chose this course mainly because it sounded interesting.",
+          "exampleZh": "说实话，我选这门课主要是因为它听起来有趣。",
+          "type": "discourse",
+          "level": "band6"
+        },
+        {
+          "term": "the thing is",
+          "phonetic": "/ðə ˈθɪŋ ɪz/",
+          "meaningZh": "问题是；关键是",
+          "meaningEn": "used to introduce the real issue",
+          "example": "The thing is, I enjoy the theory but the exams stress me out.",
+          "exampleZh": "问题是，我喜欢理论，但考试让我压力很大。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Home & accommodation",
+      "topicZh": "住房",
+      "items": [
+        {
+          "term": "a cosy little flat",
+          "phonetic": "/ə ˌkəʊzi ˈlɪtl ˈflæt/",
+          "meaningZh": "温馨的小公寓",
+          "meaningEn": "a small, warm and comfortable apartment",
+          "example": "I live in a cosy little flat near the city centre with my sister.",
+          "exampleZh": "我和姐姐住在市中心附近一间温馨的小公寓里。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "plenty of natural light",
+          "phonetic": "/ˌplenti əv ˌnætʃrəl ˈlaɪt/",
+          "meaningZh": "充足的自然光",
+          "meaningEn": "a lot of daylight coming in",
+          "example": "My favourite room has plenty of natural light, which makes it feel welcoming.",
+          "exampleZh": "我最喜欢的房间自然光充足，让人觉得很温馨。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "open-plan layout",
+          "phonetic": "/ˌəʊpən ˈplæn ˈleɪaʊt/",
+          "meaningZh": "开放式布局",
+          "meaningEn": "a design with few internal walls",
+          "example": "I love the open-plan layout because the kitchen and living room feel like one space.",
+          "exampleZh": "我喜欢开放式布局，因为厨房和客厅感觉像一个空间。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "within walking distance",
+          "phonetic": "/wɪˌðɪn ˈwɔːkɪŋ ˈdɪstəns/",
+          "meaningZh": "步行可达",
+          "meaningEn": "close enough to reach on foot",
+          "example": "Everything I need is within walking distance, so I hardly use my car.",
+          "exampleZh": "我需要的一切都在步行范围内，所以我几乎不用车。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a home away from home",
+          "phonetic": "/ə ˌhəʊm əˈweɪ frəm ˈhəʊm/",
+          "meaningZh": "第二个家；像家一样的地方",
+          "meaningEn": "a place that feels as comfortable as home",
+          "example": "My grandmother's house has always been a home away from home for me.",
+          "exampleZh": "我奶奶家一直是我的第二个家。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "settle in",
+          "phonetic": "/ˌsetl ˈɪn/",
+          "meaningZh": "安顿下来；适应新环境",
+          "meaningEn": "become comfortable in a new place",
+          "example": "It took me a few weeks to settle in after moving to a new city.",
+          "exampleZh": "搬到新城市后，我花了几个星期才安顿下来。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "make ends meet",
+          "phonetic": "/ˌmeɪk ˈendz ˈmiːt/",
+          "meaningZh": "勉强维持生计",
+          "meaningEn": "have just enough money to cover basic costs",
+          "example": "I had to take a second job just to make ends meet last year.",
+          "exampleZh": "去年我不得不打第二份工才能勉强维持生计。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "it feels like home",
+          "phonetic": "/ɪt ˌfiːlz laɪk ˈhəʊm/",
+          "meaningZh": "有家的感觉",
+          "meaningEn": "it feels comfortable and familiar",
+          "example": "As soon as I walk in, it feels like home because of the warm colours.",
+          "exampleZh": "一进门就有家的感觉，因为颜色很温暖。",
+          "type": "phrase",
+          "level": "band6"
+        },
+        {
+          "term": "the best part about it is",
+          "phonetic": "/ðə ˌbest ˈpɑːt əˈbaʊt ɪt ɪz/",
+          "meaningZh": "它最好的地方是",
+          "meaningEn": "its most enjoyable feature is",
+          "example": "The best part about it is the balcony, where I have my morning coffee.",
+          "exampleZh": "它最好的地方是阳台，我早上会在那里喝咖啡。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "I couldn't imagine living anywhere else",
+          "phonetic": "/aɪ ˌkʊdnt ɪˈmædʒɪn ˈlɪvɪŋ ˈenɪweə ˈels/",
+          "meaningZh": "我无法想象住在别处",
+          "meaningEn": "I would not want to live anywhere else",
+          "example": "I've been here for years now and I couldn't imagine living anywhere else.",
+          "exampleZh": "我在这里住了好多年了，无法想象住在别处。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "as I see it",
+          "phonetic": "/əz aɪ ˈsiː ɪt/",
+          "meaningZh": "在我看来",
+          "meaningEn": "in my opinion",
+          "example": "As I see it, a home should be comfortable rather than perfectly stylish.",
+          "exampleZh": "在我看来，家应该舒适，而不是多么时尚。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "if you ask me",
+          "phonetic": "/ɪf ju ˈɑːsk miː/",
+          "meaningZh": "依我看",
+          "meaningEn": "in my view",
+          "example": "If you ask me, location matters more than having a huge living room.",
+          "exampleZh": "依我看，位置比拥有一个大客厅更重要。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Food",
+      "topicZh": "饮食",
+      "items": [
+        {
+          "term": "grab a bite",
+          "phonetic": "/ˌɡræb ə ˈbaɪt/",
+          "meaningZh": "随便吃点；快速吃一口",
+          "meaningEn": "get a quick, casual meal",
+          "example": "I usually grab a bite near the office because my lunch break is short.",
+          "exampleZh": "我通常在公司附近随便吃点，因为午休时间很短。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "home-cooked meal",
+          "phonetic": "/ˌhəʊm ˈkʊkt ˈmiːl/",
+          "meaningZh": "家常饭菜",
+          "meaningEn": "food prepared at home",
+          "example": "I think nothing beats a home-cooked meal after a long day at work.",
+          "exampleZh": "我觉得辛苦一天后，没有什么比得上一顿家常饭。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a balanced diet",
+          "phonetic": "/ə ˌbælənst ˈdaɪət/",
+          "meaningZh": "均衡饮食",
+          "meaningEn": "a diet with the right mix of nutrients",
+          "example": "I try to keep a balanced diet, but I do love the occasional takeaway.",
+          "exampleZh": "我尽量保持均衡饮食，但我确实偶尔爱吃外卖。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a fussy eater",
+          "phonetic": "/ə ˌfʌsi ˈiːtə/",
+          "meaningZh": "挑食的人",
+          "meaningEn": "someone who is very selective about food",
+          "example": "My brother is a fussy eater, so we always let him choose the restaurant.",
+          "exampleZh": "我弟弟很挑食，所以我们总是让他选餐厅。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "eat like a horse",
+          "phonetic": "/ˌiːt laɪk ə ˈhɔːs/",
+          "meaningZh": "食量很大",
+          "meaningEn": "eat a large amount",
+          "example": "I eat like a horse after the gym, so I always cook a big dinner.",
+          "exampleZh": "健身之后我食量很大，所以我总会做一顿丰盛的晚餐。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "have a sweet tooth",
+          "phonetic": "/ˌhæv ə ˈswiːt tuːθ/",
+          "meaningZh": "爱吃甜食",
+          "meaningEn": "love sugary food",
+          "example": "I have a sweet tooth, so I can never resist dessert after dinner.",
+          "exampleZh": "我爱吃甜食，所以晚饭后总是忍不住吃甜点。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "bite off more than I can chew",
+          "phonetic": "/ˌbaɪt ɒf ˈmɔː ðən aɪ kən ˈtʃuː/",
+          "meaningZh": "贪多嚼不烂；承担过多",
+          "meaningEn": "take on more than I can handle",
+          "example": "I always bite off more than I can chew when I plan a dinner party.",
+          "exampleZh": "我计划晚宴时总是贪多嚼不烂。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "I'm a big fan of",
+          "phonetic": "/aɪm ə ˌbɪɡ ˈfæn əv/",
+          "meaningZh": "我非常喜欢",
+          "meaningEn": "I like something very much",
+          "example": "I'm a big fan of spicy food, especially Sichuan hotpot.",
+          "exampleZh": "我非常喜欢辛辣食物，尤其是四川火锅。",
+          "type": "phrase",
+          "level": "band6"
+        },
+        {
+          "term": "it's a real treat",
+          "phonetic": "/ɪts ə ˌrɪəl ˈtriːt/",
+          "meaningZh": "真是难得的享受",
+          "meaningEn": "it is a special pleasure",
+          "example": "We only order sushi occasionally, so it's a real treat when we do.",
+          "exampleZh": "我们只是偶尔点寿司，所以每次吃都像一种难得的享受。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "you can't go wrong with",
+          "phonetic": "/ju ˌkɑːnt ɡəʊ ˈrɒŋ wɪð/",
+          "meaningZh": "选……准没错",
+          "meaningEn": "that is a safe, reliable choice",
+          "example": "I'd say you can't go wrong with a bowl of noodles if you want something simple.",
+          "exampleZh": "如果你想吃点简单的，我觉得来碗面准没错。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "to put it simply",
+          "phonetic": "/tə ˌpʊt ɪt ˈsɪmpli/",
+          "meaningZh": "简单来说",
+          "meaningEn": "to express it in plain terms",
+          "example": "To put it simply, I'd rather eat at home than wait in a queue.",
+          "exampleZh": "简单来说，我宁愿在家吃也不想排队。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "I suppose",
+          "phonetic": "/aɪ səˈpəʊz/",
+          "meaningZh": "我想；大概吧",
+          "meaningEn": "used to give a hesitant opinion",
+          "example": "I suppose I eat out more now because I'm too busy to cook.",
+          "exampleZh": "我想我现在更常出去吃，因为我太忙没时间做饭。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Weather & seasons",
+      "topicZh": "天气与季节",
+      "items": [
+        {
+          "term": "pouring with rain",
+          "phonetic": "/ˌpɔːrɪŋ wɪð ˈreɪn/",
+          "meaningZh": "下着倾盆大雨",
+          "meaningEn": "raining heavily",
+          "example": "It was pouring with rain this morning, so I took a taxi to work.",
+          "exampleZh": "今天早上大雨倾盆，所以我打车去上班。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a bit of a heatwave",
+          "phonetic": "/ə ˌbɪt əv ə ˈhiːtweɪv/",
+          "meaningZh": "有点热浪",
+          "meaningEn": "a short period of unusually hot weather",
+          "example": "We had a bit of a heatwave last summer, and nobody could sleep.",
+          "exampleZh": "去年夏天有点热浪，谁都睡不好。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "clear blue skies",
+          "phonetic": "/ˌklɪə bluː ˈskaɪz/",
+          "meaningZh": "晴朗的蓝天",
+          "meaningEn": "bright weather with no clouds",
+          "example": "I love autumn because we get clear blue skies without the summer crowds.",
+          "exampleZh": "我喜欢秋天，因为我们有晴朗的蓝天，又没有夏天的拥挤。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a mild climate",
+          "phonetic": "/ə ˌmaɪld ˈklaɪmət/",
+          "meaningZh": "温和的气候",
+          "meaningEn": "weather that is never very hot or very cold",
+          "example": "I love the south because it has a mild climate and rarely gets too hot.",
+          "exampleZh": "我喜欢南方，因为那里气候温和，很少太热。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "on cloud nine",
+          "phonetic": "/ɒn ˌklaʊd ˈnaɪn/",
+          "meaningZh": "欣喜若狂",
+          "meaningEn": "extremely happy",
+          "example": "I was on cloud nine when the sun finally came out after a week of rain.",
+          "exampleZh": "经过一周的雨天，太阳终于出来时我欣喜若狂。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "under the weather",
+          "phonetic": "/ˌʌndə ðə ˈweðə/",
+          "meaningZh": "身体有点不舒服",
+          "meaningEn": "feeling slightly ill",
+          "example": "I've been feeling a bit under the weather since the temperature dropped.",
+          "exampleZh": "气温下降后，我一直觉得有点不舒服。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "come rain or shine",
+          "phonetic": "/ˌkʌm reɪn ɔː ˈʃaɪn/",
+          "meaningZh": "无论晴雨；无论如何",
+          "meaningEn": "whatever the weather or circumstances",
+          "example": "I go for a run every morning, come rain or shine.",
+          "exampleZh": "我每天早上都去跑步，风雨无阻。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "I'm not a big fan of",
+          "phonetic": "/aɪm nɒt ə ˌbɪɡ ˈfæn əv/",
+          "meaningZh": "我不太喜欢",
+          "meaningEn": "I do not like something much",
+          "example": "I'm not a big fan of humid weather because it makes me feel tired.",
+          "exampleZh": "我不太喜欢潮湿的天气，因为它让我觉得累。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it's perfect weather for",
+          "phonetic": "/ɪts ˌpɜːfɪkt ˈweðə fə/",
+          "meaningZh": "这样的天气正适合",
+          "meaningEn": "the conditions are ideal for",
+          "example": "It's perfect weather for a picnic, so I'm heading to the park.",
+          "exampleZh": "这样的天气正适合野餐，所以我要去公园。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "you can never predict",
+          "phonetic": "/ju kən ˌnevə prɪˈdɪkt/",
+          "meaningZh": "你永远无法预料",
+          "meaningEn": "it is impossible to know in advance",
+          "example": "I find you can never predict the weather here, so I always carry an umbrella.",
+          "exampleZh": "我发现这里的天气永远无法预料，所以我总带着伞。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "I mean",
+          "phonetic": "/aɪ ˈmiːn/",
+          "meaningZh": "我是说",
+          "meaningEn": "used to explain or soften what you say",
+          "example": "I mean, I enjoy the snow, but the ice on the roads is dangerous.",
+          "exampleZh": "我是说，我喜欢雪，但路上的冰很危险。",
+          "type": "discourse",
+          "level": "band6"
+        },
+        {
+          "term": "to be fair",
+          "phonetic": "/tə bi ˈfeə/",
+          "meaningZh": "公平地说",
+          "meaningEn": "used to add a balanced view",
+          "example": "To be fair, I love the summers here, even if the winters drag on.",
+          "exampleZh": "公平地说，我喜欢这里的夏天，即使冬天很漫长。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Hobbies",
+      "topicZh": "兴趣爱好",
+      "items": [
+        {
+          "term": "take up a hobby",
+          "phonetic": "/ˌteɪk ʌp ə ˈhɒbi/",
+          "meaningZh": "开始培养一项爱好",
+          "meaningEn": "start doing a hobby",
+          "example": "I decided to take up a hobby that would get me away from screens.",
+          "exampleZh": "我决定培养一项能让我远离屏幕的爱好。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "unwind after work",
+          "phonetic": "/ʌnˈwaɪnd ˌɑːftə ˈwɜːk/",
+          "meaningZh": "下班后放松",
+          "meaningEn": "relax after work",
+          "example": "I go for a swim to unwind after work, even when I'm tired.",
+          "exampleZh": "下班后我会去游泳放松，即使很累也去。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "get hooked on",
+          "phonetic": "/ˌɡet ˈhʊkt ɒn/",
+          "meaningZh": "迷上；对……上瘾",
+          "meaningEn": "become addicted to something",
+          "example": "I get hooked on new hobbies easily, so I try to choose cheap ones.",
+          "exampleZh": "一个朋友带我去室内攀岩馆后，我就迷上了攀岩。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a great way to switch off",
+          "phonetic": "/ə ˌɡreɪt ˈweɪ tə ˈswɪtʃ ɒf/",
+          "meaningZh": "一种很好的放松方式",
+          "meaningEn": "a good way to stop thinking about work",
+          "example": "I find gardening is a great way to switch off after a busy day.",
+          "exampleZh": "我觉得园艺是忙碌一天后放松的好方式。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "kill two birds with one stone",
+          "phonetic": "/ˌkɪl tuː ˈbɜːdz wɪð ˌwʌn ˈstəʊn/",
+          "meaningZh": "一举两得",
+          "meaningEn": "achieve two things with one action",
+          "example": "I cycle to work, so I kill two birds with one stone: exercise and commuting.",
+          "exampleZh": "我骑车上班，这样一举两得：锻炼和通勤。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "let my hair down",
+          "phonetic": "/ˌlet maɪ ˈheə ˈdaʊn/",
+          "meaningZh": "放松一下；尽情享受",
+          "meaningEn": "relax and enjoy myself",
+          "example": "At the weekend I like to let my hair down and dance with friends.",
+          "exampleZh": "周末我喜欢放松一下，和朋友们跳舞。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "in my element",
+          "phonetic": "/ɪn maɪ ˈelɪmənt/",
+          "meaningZh": "如鱼得水",
+          "meaningEn": "completely comfortable and confident",
+          "example": "When I'm cooking for friends, I'm in my element and totally relaxed.",
+          "exampleZh": "给朋友做饭时，我如鱼得水，完全放松。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "I've got into the habit of",
+          "phonetic": "/aɪv ˌɡɒt ˈɪntu ðə ˈhæbɪt əv/",
+          "meaningZh": "我养成了……的习惯",
+          "meaningEn": "I have started doing something regularly",
+          "example": "I've got into the habit of reading for twenty minutes before bed.",
+          "exampleZh": "我养成了睡前读二十分钟书的习惯。",
+          "type": "phrase",
+          "level": "band6"
+        },
+        {
+          "term": "it helps me clear my head",
+          "phonetic": "/ɪt ˌhelps mi ˌklɪə maɪ ˈhed/",
+          "meaningZh": "它帮我理清思绪",
+          "meaningEn": "it helps me think clearly and relax",
+          "example": "I go running in the park because it helps me clear my head.",
+          "exampleZh": "我去公园跑步，因为这能帮我理清思绪。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "there's nothing I enjoy more than",
+          "phonetic": "/ðeəz ˌnʌθɪŋ aɪ ɪnˈdʒɔɪ ˈmɔː ðən/",
+          "meaningZh": "我最喜欢做的事就是",
+          "meaningEn": "this is my favourite thing to do",
+          "example": "There's nothing I enjoy more than a long walk in the countryside.",
+          "exampleZh": "我最喜欢做的事就是在乡间长时间散步。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "the way I see it",
+          "phonetic": "/ðə ˈweɪ aɪ ˈsiː ɪt/",
+          "meaningZh": "在我看来",
+          "meaningEn": "in my opinion",
+          "example": "The way I see it, hobbies are just as important as work.",
+          "exampleZh": "在我看来，爱好和工作一样重要。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "more often than not",
+          "phonetic": "/ˌmɔːr ˈɒfn ðən ˈnɒt/",
+          "meaningZh": "多半；通常",
+          "meaningEn": "usually",
+          "example": "More often than not, I spend my free time at home rather than going out.",
+          "exampleZh": "我多半待在家里，而不是出去玩。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Music",
+      "topicZh": "音乐",
+      "items": [
+        {
+          "term": "catchy tune",
+          "phonetic": "/ˌkætʃi ˈtjuːn/",
+          "meaningZh": "朗朗上口的旋律",
+          "meaningEn": "a tune that is easy to remember",
+          "example": "The song has a catchy tune, and I found myself humming it all day.",
+          "exampleZh": "这首歌旋律朗朗上口，我一整天都在哼。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "background music",
+          "phonetic": "/ˈbækɡraʊnd ˌmjuːzɪk/",
+          "meaningZh": "背景音乐",
+          "meaningEn": "music played quietly while doing something else",
+          "example": "I put on background music while I study, but only instrumental tracks.",
+          "exampleZh": "我学习时会放背景音乐，但只听纯音乐。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "live music",
+          "phonetic": "/ˌlaɪv ˈmjuːzɪk/",
+          "meaningZh": "现场音乐",
+          "meaningEn": "music performed in front of an audience",
+          "example": "I love live music because the energy in a small venue is amazing.",
+          "exampleZh": "我喜欢现场音乐，因为小场地里的气氛特别棒。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "an acquired taste",
+          "phonetic": "/ən əˌkwaɪəd ˈteɪst/",
+          "meaningZh": "慢慢才会喜欢的东西",
+          "meaningEn": "something you only start to like after repeated exposure",
+          "example": "Jazz was an acquired taste for me, but now I listen to it daily.",
+          "exampleZh": "爵士乐对我来说是慢慢才喜欢上的，但现在我每天都听。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "hit the right note",
+          "phonetic": "/ˌhɪt ðə ˈraɪt ˈnəʊt/",
+          "meaningZh": "恰到好处；定对基调",
+          "meaningEn": "create exactly the right mood or effect",
+          "example": "I think the playlist hit the right note for a relaxed dinner party.",
+          "exampleZh": "我觉得这个歌单为一顿轻松的晚餐定对了基调。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "music to my ears",
+          "phonetic": "/ˌmjuːzɪk tə maɪ ˈɪəz/",
+          "meaningZh": "悦耳的话；好消息",
+          "meaningEn": "something very pleasant to hear",
+          "example": "Hearing my favourite song on the radio is music to my ears.",
+          "exampleZh": "在收音机里听到我最喜欢的歌，真是悦耳。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "play it by ear",
+          "phonetic": "/ˌpleɪ ɪt baɪ ˈɪə/",
+          "meaningZh": "见机行事",
+          "meaningEn": "decide what to do as things happen",
+          "example": "We usually play it by ear when we go on a road trip.",
+          "exampleZh": "我们去公路旅行时通常见机行事。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "I'm really into",
+          "phonetic": "/aɪm ˌrɪəli ˈɪntu/",
+          "meaningZh": "我非常喜欢",
+          "meaningEn": "I am very enthusiastic about",
+          "example": "I'm really into indie music at the moment, especially bands from Manchester.",
+          "exampleZh": "我现在非常喜欢独立音乐，尤其是曼彻斯特的乐队。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it takes me back to",
+          "phonetic": "/ɪt ˌteɪks mi ˈbæk tə/",
+          "meaningZh": "它让我回想起",
+          "meaningEn": "it reminds me of",
+          "example": "It takes me back to my school days whenever I hear that song.",
+          "exampleZh": "每次听到那首歌，它都让我回想起学生时代。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "I can't help singing along",
+          "phonetic": "/aɪ ˌkɑːnt help ˈsɪŋɪŋ əˈlɒŋ/",
+          "meaningZh": "我忍不住跟着唱",
+          "meaningEn": "I cannot stop myself from joining in",
+          "example": "Whenever that chorus comes on, I can't help singing along.",
+          "exampleZh": "每当副歌响起，我都忍不住跟着唱。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "for me personally",
+          "phonetic": "/fə ˌmiː ˈpɜːsənəli/",
+          "meaningZh": "对我个人而言",
+          "meaningEn": "speaking for myself",
+          "example": "For me personally, music is a way to relax after a stressful day.",
+          "exampleZh": "对我个人而言，音乐是压力一天后放松的方式。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "that's why",
+          "phonetic": "/ˌðæts ˈwaɪ/",
+          "meaningZh": "所以",
+          "meaningEn": "for that reason",
+          "example": "I grew up around musicians, and that's why I love playing the guitar.",
+          "exampleZh": "我在音乐人身边长大，所以我很喜欢弹吉他。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Films & TV",
+      "topicZh": "电影电视",
+      "items": [
+        {
+          "term": "a gripping plot",
+          "phonetic": "/ə ˌɡrɪpɪŋ ˈplɒt/",
+          "meaningZh": "扣人心弦的情节",
+          "meaningEn": "an exciting story that holds your attention",
+          "example": "The film has a gripping plot, so I stayed up until two in the morning.",
+          "exampleZh": "这部电影情节扣人心弦，所以我熬到凌晨两点。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a binge-worthy series",
+          "phonetic": "/ə ˈbɪndʒ wɜːði ˈsɪəriːz/",
+          "meaningZh": "让人想一口气看完的剧",
+          "meaningEn": "a show you want to watch episode after episode",
+          "example": "It's a binge-worthy series, and I finished the whole season in one weekend.",
+          "exampleZh": "这是一部让人想一口气看完的剧，我一个周末就看完了整季。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "special effects",
+          "phonetic": "/ˌspeʃl ɪˈfekts/",
+          "meaningZh": "特效",
+          "meaningEn": "visual tricks used in films",
+          "example": "I thought the special effects were impressive, but the story felt a bit weak.",
+          "exampleZh": "我觉得特效很震撼，但故事有点弱。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a household name",
+          "phonetic": "/ə ˈhaʊshəʊld ˈneɪm/",
+          "meaningZh": "家喻户晓的名字",
+          "meaningEn": "a person or thing everyone knows",
+          "example": "That actor is a household name now, though I remember her in tiny roles.",
+          "exampleZh": "那位演员现在家喻户晓，但我还记得她演小角色的时候。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "a couch potato",
+          "phonetic": "/ə ˈkaʊtʃ pəˌteɪtəʊ/",
+          "meaningZh": "电视迷；总窝在沙发上看电视的人",
+          "meaningEn": "someone who spends a lot of time watching TV",
+          "example": "I become a couch potato at weekends and watch old comedies for hours.",
+          "exampleZh": "我周末会变成电视迷，连看几个小时老喜剧。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "on the edge of my seat",
+          "phonetic": "/ɒn ðə ˌedʒ əv maɪ ˈsiːt/",
+          "meaningZh": "紧张地屏息以待",
+          "meaningEn": "very excited and anxious about what happens next",
+          "example": "During the final episode I was on the edge of my seat the whole time.",
+          "exampleZh": "看最后一集时，我全程都紧张地屏住呼吸。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "give it a go",
+          "phonetic": "/ˌɡɪv ɪt ə ˈɡəʊ/",
+          "meaningZh": "试一试",
+          "meaningEn": "try something",
+          "example": "I wasn't sure about the show, but I decided to give it a go.",
+          "exampleZh": "我一开始不确定这节目，但还是决定试一试。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "I can't get enough of",
+          "phonetic": "/aɪ ˌkɑːnt ɡet ɪˈnʌf əv/",
+          "meaningZh": "对……百看不厌",
+          "meaningEn": "enjoy something so much you want more",
+          "example": "I can't get enough of crime dramas at the moment, especially British ones.",
+          "exampleZh": "我现在对犯罪剧百看不厌，尤其是英国的。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it's well worth watching",
+          "phonetic": "/ɪts ˌwel ˈwɜːθ ˈwɒtʃɪŋ/",
+          "meaningZh": "很值得一看",
+          "meaningEn": "it deserves to be watched",
+          "example": "Even though I'm not into sci-fi, I think it's well worth watching for the visuals.",
+          "exampleZh": "虽然我不太喜欢科幻，但我觉得它很值得为视觉效果一看。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "the ending completely blew me away",
+          "phonetic": "/ði ˌendɪŋ kəmˈpliːtli ˌbluː mi əˈweɪ/",
+          "meaningZh": "结局完全震撼了我",
+          "meaningEn": "the ending amazed me",
+          "example": "The ending completely blew me away, and I sat there in silence.",
+          "exampleZh": "结局完全震撼了我，我坐在那里一言不发。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "saying that",
+          "phonetic": "/ˈseɪɪŋ ðæt/",
+          "meaningZh": "话虽如此",
+          "meaningEn": "used to introduce a contrasting point",
+          "example": "Saying that, I still prefer going to the cinema to watching at home.",
+          "exampleZh": "话虽如此，我还是更喜欢去电影院而不是在家看。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "I'd say",
+          "phonetic": "/aɪd ˈseɪ/",
+          "meaningZh": "我会说",
+          "meaningEn": "in my opinion",
+          "example": "I'd say comedies are my favourite because they help me switch off.",
+          "exampleZh": "我会说喜剧是我的最爱，因为它们帮我放松。",
+          "type": "discourse",
+          "level": "band6"
+        }
+      ]
+    },
+    {
+      "topic": "Reading",
+      "topicZh": "阅读",
+      "items": [
+        {
+          "term": "a page-turner",
+          "phonetic": "/ə ˈpeɪdʒ tɜːnə/",
+          "meaningZh": "引人入胜的书",
+          "meaningEn": "a book that is very exciting to read",
+          "example": "The novel was such a page-turner that I finished it in two days.",
+          "exampleZh": "这本小说太引人入胜了，我两天就看完了。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "curl up with a book",
+          "phonetic": "/ˌkɜːl ʌp wɪð ə ˈbʊk/",
+          "meaningZh": "惬意地蜷着看书",
+          "meaningEn": "sit comfortably and read",
+          "example": "On rainy Sundays I love to curl up with a book and a cup of tea.",
+          "exampleZh": "下雨的星期天，我喜欢蜷着看书，喝杯茶。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a wide range of",
+          "phonetic": "/ə ˌwaɪd ˈreɪndʒ əv/",
+          "meaningZh": "各种各样的",
+          "meaningEn": "a large variety of",
+          "example": "I use the library because it offers a wide range of books, from thrillers to history.",
+          "exampleZh": "我利用图书馆，因为它有各种各样的书，从惊悚小说到历史。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "lose myself in a story",
+          "phonetic": "/ˌluːz maɪself ɪn ə ˈstɔːri/",
+          "meaningZh": "沉浸在故事中",
+          "meaningEn": "become fully absorbed in a story",
+          "example": "I read before bed because I can lose myself in a story and forget my worries.",
+          "exampleZh": "我睡前读书，因为我能沉浸在故事里，忘掉烦恼。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "read between the lines",
+          "phonetic": "/ˌriːd bɪˈtwiːn ðə ˈlaɪnz/",
+          "meaningZh": "读懂言外之意",
+          "meaningEn": "understand the hidden meaning",
+          "example": "When I read the email, I could read between the lines and sense bad news.",
+          "exampleZh": "读那封邮件时，我能读懂言外之意，感觉到坏消息。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "a bookworm",
+          "phonetic": "/ə ˈbʊkwɜːm/",
+          "meaningZh": "书虫",
+          "meaningEn": "someone who loves reading",
+          "example": "I was a bookworm as a child and spent every break in the library.",
+          "exampleZh": "我小时候是个书虫，每个课间都待在图书馆。",
+          "type": "idiom",
+          "level": "band6"
+        },
+        {
+          "term": "turn over a new leaf",
+          "phonetic": "/ˌtɜːn əʊvər ə ˌnjuː ˈliːf/",
+          "meaningZh": "改过自新；重新开始",
+          "meaningEn": "start behaving in a better way",
+          "example": "I've decided to turn over a new leaf and read for half an hour each day.",
+          "exampleZh": "我决定改过自新，每天读半小时书。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "I'm a big reader",
+          "phonetic": "/aɪm ə ˌbɪɡ ˈriːdə/",
+          "meaningZh": "我很爱读书",
+          "meaningEn": "I read a lot",
+          "example": "I'm a big reader, though I mostly choose fiction rather than non-fiction.",
+          "exampleZh": "我很爱读书，不过我大多选小说而不是非虚构。",
+          "type": "phrase",
+          "level": "band6"
+        },
+        {
+          "term": "it's hard to put down",
+          "phonetic": "/ɪts ˌhɑːd tə ˌpʊt ˈdaʊn/",
+          "meaningZh": "让人爱不释手",
+          "meaningEn": "it is difficult to stop reading",
+          "example": "Once I start a good thriller, it's hard to put down until the last page.",
+          "exampleZh": "一旦开始一本好的惊悚小说，就很难放下，直到最后一页。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "I'd recommend it to anyone",
+          "phonetic": "/aɪd ˌrekəˈmend ɪt tə ˈeniwʌn/",
+          "meaningZh": "我会向任何人推荐它",
+          "meaningEn": "I think everyone should read it",
+          "example": "It's a brilliant memoir, and I'd recommend it to anyone.",
+          "exampleZh": "这是一本很棒的回忆录，我会向任何人推荐它。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "in all honesty",
+          "phonetic": "/ɪn ˌɔːl ˈɒnɪsti/",
+          "meaningZh": "说实话",
+          "meaningEn": "speaking completely truthfully",
+          "example": "In all honesty, I read more online articles than actual books these days.",
+          "exampleZh": "说实话，我现在读的网上文章比实体书还多。",
+          "type": "discourse",
+          "level": "band8"
+        },
+        {
+          "term": "the way I look at it",
+          "phonetic": "/ðə ˈweɪ aɪ ˈlʊk ət ɪt/",
+          "meaningZh": "在我看来",
+          "meaningEn": "in my opinion",
+          "example": "The way I look at it, reading is a cheap way to travel without leaving home.",
+          "exampleZh": "在我看来，阅读是一种不用离家就能旅行的廉价方式。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Shopping",
+      "topicZh": "购物",
+      "items": [
+        {
+          "term": "shop around",
+          "phonetic": "/ˌʃɒp əˈraʊnd/",
+          "meaningZh": "货比三家",
+          "meaningEn": "compare prices in different shops",
+          "example": "I always shop around before buying a laptop because prices vary so much.",
+          "exampleZh": "我买笔记本电脑前总是货比三家，因为价格差别很大。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a bargain hunter",
+          "phonetic": "/ə ˈbɑːɡən hʌntə/",
+          "meaningZh": "爱淘便宜货的人",
+          "meaningEn": "someone who looks for good deals",
+          "example": "I'm a bargain hunter, so I never buy anything at full price.",
+          "exampleZh": "我爱淘便宜货，所以从不原价买东西。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "impulse buy",
+          "phonetic": "/ˈɪmpʌls baɪ/",
+          "meaningZh": "冲动购买的东西",
+          "meaningEn": "something bought suddenly without planning",
+          "example": "That fancy coffee machine was an impulse buy, and I barely use it.",
+          "exampleZh": "那台高级咖啡机是我一时冲动买的，我几乎不用它。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "window shopping",
+          "phonetic": "/ˈwɪndəʊ ˌʃɒpɪŋ/",
+          "meaningZh": "只逛不买",
+          "meaningEn": "looking at shops without buying",
+          "example": "I enjoy window shopping, even when I have no intention of buying anything.",
+          "exampleZh": "我喜欢只逛不买，即使完全没打算买东西。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "cost an arm and a leg",
+          "phonetic": "/ˌkɒst ən ˌɑːm ən ə ˈleɡ/",
+          "meaningZh": "贵得要命",
+          "meaningEn": "be extremely expensive",
+          "example": "Those designer trainers cost an arm and a leg, so I waited for the sale.",
+          "exampleZh": "那双名牌运动鞋贵得要命，所以我等到打折才买。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "rip-off",
+          "phonetic": "/ˈrɪp ɒf/",
+          "meaningZh": "宰人的东西；太贵的东西",
+          "meaningEn": "something that is much too expensive",
+          "example": "The drinks at that concert were a complete rip-off, so we left early.",
+          "exampleZh": "那场演唱会的饮料完全是宰人，所以我们早早离开了。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "cost a fortune",
+          "phonetic": "/ˌkɒst ə ˈfɔːtʃuːn/",
+          "meaningZh": "花一大笔钱",
+          "meaningEn": "be very expensive",
+          "example": "I didn't buy the coat because it would have cost a fortune.",
+          "exampleZh": "我没买那件外套，因为它会花一大笔钱。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "I'm just browsing",
+          "phonetic": "/aɪm dʒʌst ˈbraʊzɪŋ/",
+          "meaningZh": "我只是随便看看",
+          "meaningEn": "I am only looking, not ready to buy",
+          "example": "When an assistant asks if I need help, I usually say I'm just browsing.",
+          "exampleZh": "店员问我要不要帮忙时，我通常说我只是随便看看。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it was a real steal",
+          "phonetic": "/ɪt wəz ə ˌrɪəl ˈstiːl/",
+          "meaningZh": "真是捡了个大便宜",
+          "meaningEn": "it was an excellent bargain",
+          "example": "I bought the coat in the sale, and it was a real steal.",
+          "exampleZh": "我在打折时买了那件外套，真是捡了个大便宜。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "I tend to go for",
+          "phonetic": "/aɪ ˌtend tə ˈɡəʊ fə/",
+          "meaningZh": "我倾向于选择",
+          "meaningEn": "I usually choose",
+          "example": "I tend to go for simple designs rather than flashy logos.",
+          "exampleZh": "我倾向于选择简单的设计，而不是花哨的标志。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "to be frank",
+          "phonetic": "/tə bi ˈfræŋk/",
+          "meaningZh": "坦率地说",
+          "meaningEn": "to speak honestly",
+          "example": "To be frank, I'd rather save my money than buy more clothes.",
+          "exampleZh": "坦率地说，我宁愿存钱也不愿多买衣服。",
+          "type": "discourse",
+          "level": "band8"
+        },
+        {
+          "term": "mind you",
+          "phonetic": "/ˈmaɪnd juː/",
+          "meaningZh": "不过话说回来",
+          "meaningEn": "used to add a contrasting point",
+          "example": "I like the local shops, mind you, they're often packed at weekends.",
+          "exampleZh": "我喜欢当地的商店，不过话说回来，周末通常很挤。",
+          "type": "discourse",
+          "level": "band7"
+        }
+      ]
+    },
+    {
+      "topic": "Travel",
+      "topicZh": "旅行",
+      "items": [
+        {
+          "term": "a once-in-a-lifetime trip",
+          "phonetic": "/ə ˌwʌns ɪn ə ˈlaɪftaɪm ˈtrɪp/",
+          "meaningZh": "一生一次的旅行",
+          "meaningEn": "a trip you are unlikely ever to repeat",
+          "example": "Seeing the northern lights was a once-in-a-lifetime trip, and I'd do it again.",
+          "exampleZh": "看到北极光是一生一次的旅行，我还想再去。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "travel light",
+          "phonetic": "/ˌtrævl ˈlaɪt/",
+          "meaningZh": "轻装出行",
+          "meaningEn": "take very little luggage",
+          "example": "I always travel light, so I only take a small backpack.",
+          "exampleZh": "我总是轻装出行，所以只带一个小背包。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "get away from it all",
+          "phonetic": "/ˌɡet əˈweɪ frəm ɪt ˈɔːl/",
+          "meaningZh": "远离一切；摆脱日常压力",
+          "meaningEn": "escape from daily routine and stress",
+          "example": "I go to the mountains to get away from it all for a few days.",
+          "exampleZh": "我去山里待几天，远离一切。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a hidden gem",
+          "phonetic": "/ə ˌhɪdn ˈdʒem/",
+          "meaningZh": "鲜为人知的宝地",
+          "meaningEn": "a wonderful place that few people know about",
+          "example": "I found a little fishing village that was a hidden gem, with hardly any tourists.",
+          "exampleZh": "我发现一个小渔村，那是个鲜为人知的宝地，几乎没有游客。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "go with the flow",
+          "phonetic": "/ˌɡəʊ wɪð ðə ˈfləʊ/",
+          "meaningZh": "顺其自然",
+          "meaningEn": "adapt to events without a fixed plan",
+          "example": "I don't plan every detail, I prefer to go with the flow when I travel.",
+          "exampleZh": "我不会计划每个细节，旅行时更喜欢顺其自然。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "hit the road",
+          "phonetic": "/ˌhɪt ðə ˈrəʊd/",
+          "meaningZh": "上路；出发",
+          "meaningEn": "start a journey",
+          "example": "We usually hit the road early to avoid the traffic.",
+          "exampleZh": "我们通常早早出发，避开交通拥堵。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "at a snail's pace",
+          "phonetic": "/ət ə ˈsneɪlz ˌpeɪs/",
+          "meaningZh": "极其缓慢地",
+          "meaningEn": "extremely slowly",
+          "example": "The traffic was moving at a snail's pace, so we missed our train.",
+          "exampleZh": "车流以极其缓慢的速度移动，所以我们错过了火车。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "it was absolutely breathtaking",
+          "phonetic": "/ɪt wəz ˌæbsəˈluːtli ˈbreθteɪkɪŋ/",
+          "meaningZh": "那真是美得令人窒息",
+          "meaningEn": "it was stunningly beautiful",
+          "example": "It was absolutely breathtaking when we reached the top of the mountain.",
+          "exampleZh": "当我们到达山顶时，那真是美得令人窒息。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "I'd go back in a heartbeat",
+          "phonetic": "/aɪd ˌɡəʊ ˈbæk ɪn ə ˈhɑːtbiːt/",
+          "meaningZh": "我会立刻回去",
+          "meaningEn": "I would return immediately",
+          "example": "I loved Lisbon, and I'd go back in a heartbeat.",
+          "exampleZh": "我很喜欢里斯本，我会立刻回去。",
+          "type": "phrase",
+          "level": "band8"
+        },
+        {
+          "term": "what struck me most was",
+          "phonetic": "/ˌwɒt ˈstrʌk mi ˈməʊst wəz/",
+          "meaningZh": "最让我印象深刻的是",
+          "meaningEn": "the thing I noticed most was",
+          "example": "What struck me most was how friendly everyone was, even in busy areas.",
+          "exampleZh": "最让我印象深刻的是每个人都很友好，即使在繁忙地区。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "as far as I'm concerned",
+          "phonetic": "/əz ˌfɑːr əz aɪm kənˈsɜːnd/",
+          "meaningZh": "就我而言",
+          "meaningEn": "in my opinion",
+          "example": "As far as I'm concerned, travelling is about experiences, not souvenirs.",
+          "exampleZh": "就我而言，旅行重在体验，而不是纪念品。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "on top of that",
+          "phonetic": "/ˌɒn ˈtɒp əv ðæt/",
+          "meaningZh": "除此之外",
+          "meaningEn": "in addition",
+          "example": "I chose the hotel because it was cheap, and on top of that, breakfast was included.",
+          "exampleZh": "我选这家酒店是因为它便宜，而且除此之外，早餐还包含在内。",
+          "type": "discourse",
+          "level": "band6"
+        }
+      ]
+    },
+    {
+      "topic": "Technology",
+      "topicZh": "科技",
+      "items": [
+        {
+          "term": "user-friendly",
+          "phonetic": "/ˌjuːzə ˈfrendli/",
+          "meaningZh": "易于使用的",
+          "meaningEn": "easy to use",
+          "example": "The app is really user-friendly, so even my grandparents can use it.",
+          "exampleZh": "这个应用非常易于使用，连我祖父母都会用。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "a game-changer",
+          "phonetic": "/ə ˈɡeɪm tʃeɪndʒə/",
+          "meaningZh": "改变格局的事物",
+          "meaningEn": "something that changes a situation radically",
+          "example": "For me, smartphones were a game-changer because they keep me in touch with family.",
+          "exampleZh": "对我来说，智能手机改变了格局，因为它们让我和家人保持联系。",
+          "type": "collocation",
+          "level": "band8"
+        },
+        {
+          "term": "tech-savvy",
+          "phonetic": "/ˌtek ˈsævi/",
+          "meaningZh": "精通科技的",
+          "meaningEn": "good at using technology",
+          "example": "My little brother is incredibly tech-savvy, so he fixes all my devices.",
+          "exampleZh": "我弟弟非常精通科技，所以他会修我所有的设备。",
+          "type": "collocation",
+          "level": "band7"
+        },
+        {
+          "term": "screen time",
+          "phonetic": "/ˈskriːn taɪm/",
+          "meaningZh": "屏幕使用时间",
+          "meaningEn": "time spent looking at a phone or computer screen",
+          "example": "I try to limit my screen time in the evening so I can sleep better.",
+          "exampleZh": "我尽量在晚上限制屏幕使用时间，以便睡得更好。",
+          "type": "collocation",
+          "level": "band6"
+        },
+        {
+          "term": "a double-edged sword",
+          "phonetic": "/ə ˌdʌbl edʒd ˈsɔːd/",
+          "meaningZh": "双刃剑",
+          "meaningEn": "something with both benefits and drawbacks",
+          "example": "For me, social media is a double-edged sword because it saves time but distracts me.",
+          "exampleZh": "对我来说，社交媒体是一把双刃剑，因为它省时间，但也让我分心。",
+          "type": "idiom",
+          "level": "band8"
+        },
+        {
+          "term": "cutting-edge",
+          "phonetic": "/ˌkʌtɪŋ ˈedʒ/",
+          "meaningZh": "最前沿的",
+          "meaningEn": "the most advanced",
+          "example": "I love cutting-edge gadgets, but I wait until the price drops.",
+          "exampleZh": "我喜欢最前沿的小玩意，但我会等价格降下来。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "glued to my phone",
+          "phonetic": "/ˌɡluːd tə maɪ ˈfəʊn/",
+          "meaningZh": "盯着手机不放",
+          "meaningEn": "unable to stop looking at my phone",
+          "example": "I'm glued to my phone on the train, even when I could read instead.",
+          "exampleZh": "我在火车上总是盯着手机，即使本可以看书。",
+          "type": "idiom",
+          "level": "band7"
+        },
+        {
+          "term": "I can't imagine life without",
+          "phonetic": "/aɪ ˌkɑːnt ɪˈmædʒɪn ˈlaɪf wɪˈðaʊt/",
+          "meaningZh": "我无法想象没有……的生活",
+          "meaningEn": "I rely completely on",
+          "example": "I can't imagine life without my phone, which sounds a bit sad.",
+          "exampleZh": "我无法想象没有手机的生活，这听起来有点可悲。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "it saves me a lot of time",
+          "phonetic": "/ɪt ˌseɪvz mi ə ˈlɒt əv ˈtaɪm/",
+          "meaningZh": "它帮我节省很多时间",
+          "meaningEn": "it makes me more efficient",
+          "example": "Online banking is convenient because it saves me a lot of time.",
+          "exampleZh": "网上银行很方便，因为它帮我节省很多时间。",
+          "type": "phrase",
+          "level": "band7"
+        },
+        {
+          "term": "I use it mainly for",
+          "phonetic": "/aɪ ˈjuːz ɪt ˈmeɪnli fə/",
+          "meaningZh": "我主要用它来",
+          "meaningEn": "my main purpose for using it is",
+          "example": "I use it mainly for work, though I do watch videos too.",
+          "exampleZh": "我主要用它来工作，不过我也会看视频。",
+          "type": "phrase",
+          "level": "band6"
+        },
+        {
+          "term": "then again",
+          "phonetic": "/ðen əˈɡen/",
+          "meaningZh": "不过话说回来",
+          "meaningEn": "used to add a contrasting thought",
+          "example": "Then again, technology can be distracting when I'm trying to study.",
+          "exampleZh": "不过话说回来，我想学习的时候，科技会让人分心。",
+          "type": "discourse",
+          "level": "band7"
+        },
+        {
+          "term": "if anything",
+          "phonetic": "/ɪf ˈeniθɪŋ/",
+          "meaningZh": "要说的话；实际上",
+          "meaningEn": "used to suggest a stronger or opposite point",
+          "example": "If anything, I spend too much time online, so I take regular breaks.",
+          "exampleZh": "要说的话，我上网时间太多了，所以我定期休息。",
+          "type": "discourse",
+          "level": "band8"
+        }
+      ]
+    }
+  ]
+}

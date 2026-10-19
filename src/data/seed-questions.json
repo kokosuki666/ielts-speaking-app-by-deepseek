@@ -1,0 +1,1336 @@
+{
+  "name": "内置题库 · 当季高频话题",
+  "version": 1,
+  "questions": [
+    {
+      "part": 1,
+      "topic": "Hometown",
+      "topicZh": "家乡",
+      "question": "Where is your hometown?",
+      "questionZh": "你的家乡在哪里？",
+      "tags": [
+        "高频",
+        "地点"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Hometown",
+      "topicZh": "家乡",
+      "question": "What do you like most about your hometown?",
+      "questionZh": "你最喜欢家乡的什么？",
+      "tags": [
+        "高频",
+        "地点"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Hometown",
+      "topicZh": "家乡",
+      "question": "Has your hometown changed much in recent years?",
+      "questionZh": "近年来你的家乡变化大吗？",
+      "tags": [
+        "地点",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Hometown",
+      "topicZh": "家乡",
+      "question": "Would you like to live in your hometown in the future?",
+      "questionZh": "你将来想在家乡生活吗？",
+      "tags": [
+        "地点",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Work or study",
+      "topicZh": "工作或学习",
+      "question": "Do you work or are you a student?",
+      "questionZh": "你是在工作还是在上学？",
+      "tags": [
+        "高频",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Work or study",
+      "topicZh": "工作或学习",
+      "question": "What do you like most about your work or studies?",
+      "questionZh": "你最喜欢工作或学习的哪一点？",
+      "tags": [
+        "个人",
+        "基础"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Work or study",
+      "topicZh": "工作或学习",
+      "question": "Which part of your work or studies do you find most challenging?",
+      "questionZh": "你的工作或学习中最有挑战性的是哪一部分？",
+      "tags": [
+        "个人",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Work or study",
+      "topicZh": "工作或学习",
+      "question": "What would you like to change about your work or studies?",
+      "questionZh": "你想改变工作或学习中的什么？",
+      "tags": [
+        "个人",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Home & accommodation",
+      "topicZh": "住所与住宿",
+      "question": "Do you live in a house or a flat?",
+      "questionZh": "你住在独栋房子还是公寓里？",
+      "tags": [
+        "基础",
+        "地点"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Home & accommodation",
+      "topicZh": "住所与住宿",
+      "question": "Which room in your home do you like best?",
+      "questionZh": "你家里最喜欢的房间是哪个？",
+      "tags": [
+        "基础",
+        "地点"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Home & accommodation",
+      "topicZh": "住所与住宿",
+      "question": "What would you like to change about your home?",
+      "questionZh": "你想改变住所的什么？",
+      "tags": [
+        "地点",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Home & accommodation",
+      "topicZh": "住所与住宿",
+      "question": "How important is it to have a quiet place to study or work at home?",
+      "questionZh": "在家里有一个安静的学习或工作空间有多重要？",
+      "tags": [
+        "个人",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Daily routine",
+      "topicZh": "日常作息",
+      "question": "What time do you usually get up?",
+      "questionZh": "你通常几点起床？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Daily routine",
+      "topicZh": "日常作息",
+      "question": "Is your weekday routine different from your weekend routine?",
+      "questionZh": "你工作日的作息和周末不同吗？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Daily routine",
+      "topicZh": "日常作息",
+      "question": "What is the busiest part of your day?",
+      "questionZh": "你一天中最忙的是什么时候？",
+      "tags": [
+        "高频",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Daily routine",
+      "topicZh": "日常作息",
+      "question": "Is there anything you would like to change about your daily routine?",
+      "questionZh": "你想改变日常作息中的什么吗？",
+      "tags": [
+        "个人",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Food",
+      "topicZh": "食物",
+      "question": "What kind of food do you enjoy eating?",
+      "questionZh": "你喜欢吃什么样的食物？",
+      "tags": [
+        "高频",
+        "文化"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Food",
+      "topicZh": "食物",
+      "question": "Do you prefer eating at home or eating out?",
+      "questionZh": "你更喜欢在家吃饭还是外出就餐？",
+      "tags": [
+        "高频",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Food",
+      "topicZh": "食物",
+      "question": "How often do you cook for yourself?",
+      "questionZh": "你多久给自己做一次饭？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Food",
+      "topicZh": "食物",
+      "question": "Are there any foods you dislike?",
+      "questionZh": "有什么食物是你不喜欢的吗？",
+      "tags": [
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Weather & seasons",
+      "topicZh": "天气与季节",
+      "question": "What is the weather like in your city?",
+      "questionZh": "你所在城市的天气怎么样？",
+      "tags": [
+        "基础",
+        "环境"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Weather & seasons",
+      "topicZh": "天气与季节",
+      "question": "Which season do you enjoy most?",
+      "questionZh": "你最喜欢哪个季节？",
+      "tags": [
+        "高频",
+        "环境"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Weather & seasons",
+      "topicZh": "天气与季节",
+      "question": "Does the weather affect your mood?",
+      "questionZh": "天气会影响你的情绪吗？",
+      "tags": [
+        "个人",
+        "环境"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Weather & seasons",
+      "topicZh": "天气与季节",
+      "question": "How do people in your country prepare for extreme weather?",
+      "questionZh": "你们国家的人如何应对极端天气？",
+      "tags": [
+        "环境",
+        "社会"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Hobbies",
+      "topicZh": "兴趣爱好",
+      "question": "What do you like doing in your free time?",
+      "questionZh": "你空闲时间喜欢做什么？",
+      "tags": [
+        "高频",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Hobbies",
+      "topicZh": "兴趣爱好",
+      "question": "Have you taken up any new hobbies recently?",
+      "questionZh": "你最近培养了什么新爱好吗？",
+      "tags": [
+        "个人",
+        "基础"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Hobbies",
+      "topicZh": "兴趣爱好",
+      "question": "Do you prefer spending your free time alone or with other people?",
+      "questionZh": "你更喜欢独处还是和别人一起度过空闲时间？",
+      "tags": [
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Hobbies",
+      "topicZh": "兴趣爱好",
+      "question": "Is there a hobby you would like to try in the future?",
+      "questionZh": "将来有你想尝试的爱好吗？",
+      "tags": [
+        "个人",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Music",
+      "topicZh": "音乐",
+      "question": "What kind of music do you usually listen to?",
+      "questionZh": "你通常听什么类型的音乐？",
+      "tags": [
+        "高频",
+        "文化"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Music",
+      "topicZh": "音乐",
+      "question": "When do you usually listen to music?",
+      "questionZh": "你通常什么时候听音乐？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Music",
+      "topicZh": "音乐",
+      "question": "Have your musical tastes changed since you were younger?",
+      "questionZh": "你的音乐品味和年轻时相比有变化吗？",
+      "tags": [
+        "文化",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Music",
+      "topicZh": "音乐",
+      "question": "Is there any music that you dislike?",
+      "questionZh": "有什么音乐是你不喜欢的吗？",
+      "tags": [
+        "文化",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Films & TV",
+      "topicZh": "电影与电视",
+      "question": "How often do you watch films?",
+      "questionZh": "你多久看一次电影？",
+      "tags": [
+        "高频",
+        "文化"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Films & TV",
+      "topicZh": "电影与电视",
+      "question": "What kind of films do you enjoy?",
+      "questionZh": "你喜欢哪类电影？",
+      "tags": [
+        "高频",
+        "文化"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Films & TV",
+      "topicZh": "电影与电视",
+      "question": "Do you prefer watching films at home or at the cinema?",
+      "questionZh": "你更喜欢在家还是去电影院看电影？",
+      "tags": [
+        "文化",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Films & TV",
+      "topicZh": "电影与电视",
+      "question": "Has a film or TV programme ever changed the way you think about something?",
+      "questionZh": "有没有哪部电影或电视节目改变过你对某件事的看法？",
+      "tags": [
+        "文化",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Reading",
+      "topicZh": "阅读",
+      "question": "Do you enjoy reading?",
+      "questionZh": "你喜欢阅读吗？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Reading",
+      "topicZh": "阅读",
+      "question": "What kind of things do you like to read?",
+      "questionZh": "你喜欢读什么样的内容？",
+      "tags": [
+        "高频",
+        "教育"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Reading",
+      "topicZh": "阅读",
+      "question": "Do you read more on paper or on a screen?",
+      "questionZh": "你在纸上阅读更多还是在屏幕上阅读更多？",
+      "tags": [
+        "教育",
+        "科技"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Reading",
+      "topicZh": "阅读",
+      "question": "Did anyone encourage you to read when you were a child?",
+      "questionZh": "你小时候有人鼓励你阅读吗？",
+      "tags": [
+        "教育",
+        "人物"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Shopping",
+      "topicZh": "购物",
+      "question": "Do you enjoy shopping?",
+      "questionZh": "你喜欢购物吗？",
+      "tags": [
+        "基础",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Shopping",
+      "topicZh": "购物",
+      "question": "How often do you go shopping for clothes?",
+      "questionZh": "你多久买一次衣服？",
+      "tags": [
+        "高频",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Shopping",
+      "topicZh": "购物",
+      "question": "Do you prefer shopping online or in shops?",
+      "questionZh": "你更喜欢网上购物还是去实体店购物？",
+      "tags": [
+        "科技",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Shopping",
+      "topicZh": "购物",
+      "question": "Have your shopping habits changed in recent years?",
+      "questionZh": "近年来你的购物习惯有变化吗？",
+      "tags": [
+        "个人",
+        "社会"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Travel",
+      "topicZh": "旅行",
+      "question": "Do you enjoy travelling?",
+      "questionZh": "你喜欢旅行吗？",
+      "tags": [
+        "高频",
+        "地点"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Travel",
+      "topicZh": "旅行",
+      "question": "What is the best way to travel around your city?",
+      "questionZh": "游览你所在城市的最好方式是什么？",
+      "tags": [
+        "地点",
+        "基础"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Travel",
+      "topicZh": "旅行",
+      "question": "Do you prefer travelling alone or with other people?",
+      "questionZh": "你更喜欢独自旅行还是和别人一起旅行？",
+      "tags": [
+        "个人",
+        "地点"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Travel",
+      "topicZh": "旅行",
+      "question": "What do you usually do before going on a trip?",
+      "questionZh": "你旅行前通常做什么？",
+      "tags": [
+        "地点",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Technology",
+      "topicZh": "科技",
+      "question": "Which piece of technology do you use most often?",
+      "questionZh": "你最常使用的一件科技产品是什么？",
+      "tags": [
+        "高频",
+        "科技"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Technology",
+      "topicZh": "科技",
+      "question": "How do you use technology in your daily life?",
+      "questionZh": "你在日常生活中如何使用科技？",
+      "tags": [
+        "科技",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Technology",
+      "topicZh": "科技",
+      "question": "Is there any technology you find difficult to use?",
+      "questionZh": "有没有什么科技产品你觉得难以使用？",
+      "tags": [
+        "科技",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Technology",
+      "topicZh": "科技",
+      "question": "Do you think people spend too much time on their phones?",
+      "questionZh": "你认为人们花在手机上的时间太多了吗？",
+      "tags": [
+        "科技",
+        "社会"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 1,
+      "topic": "Friends & family",
+      "topicZh": "朋友与家人",
+      "question": "Do you spend much time with your family?",
+      "questionZh": "你花很多时间和家人在一起吗？",
+      "tags": [
+        "高频",
+        "人物"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Friends & family",
+      "topicZh": "朋友与家人",
+      "question": "Who are you closest to in your family?",
+      "questionZh": "你和家里谁最亲近？",
+      "tags": [
+        "人物",
+        "个人"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Friends & family",
+      "topicZh": "朋友与家人",
+      "question": "How often do you see your friends?",
+      "questionZh": "你多久见一次朋友？",
+      "tags": [
+        "基础",
+        "人物"
+      ],
+      "difficulty": 1
+    },
+    {
+      "part": 1,
+      "topic": "Friends & family",
+      "topicZh": "朋友与家人",
+      "question": "What qualities do you look for in a friend?",
+      "questionZh": "你交友时看重哪些品质？",
+      "tags": [
+        "人物",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A person you admire",
+      "topicZh": "你敬佩的人",
+      "question": "Describe a person you admire.",
+      "questionZh": "描述一个你敬佩的人。",
+      "bullets": [
+        "who the person is",
+        "how you first became aware of them",
+        "what qualities or achievements make them admirable",
+        "and explain why you admire this person"
+      ],
+      "tags": [
+        "人物",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A place you like to visit",
+      "topicZh": "你喜欢去的地方",
+      "question": "Describe a place you like to visit.",
+      "questionZh": "描述一个你喜欢去的地方。",
+      "bullets": [
+        "where it is",
+        "how often you go there",
+        "what you usually do there",
+        "and explain why you enjoy visiting this place"
+      ],
+      "tags": [
+        "地点",
+        "高频"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "An important decision",
+      "topicZh": "一个重要的决定",
+      "question": "Describe an important decision you have made.",
+      "questionZh": "描述你做过的一个重要决定。",
+      "bullets": [
+        "what the decision was",
+        "when and why you had to make it",
+        "who or what helped you decide",
+        "and explain how you feel about the decision now"
+      ],
+      "tags": [
+        "事件",
+        "进阶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A skill you want to learn",
+      "topicZh": "一项你想学习的技能",
+      "question": "Describe a skill you would like to learn.",
+      "questionZh": "描述一项你想学习的技能。",
+      "bullets": [
+        "what the skill is",
+        "why you want to learn it",
+        "how you would go about learning it",
+        "and explain how this skill might change your life"
+      ],
+      "tags": [
+        "个人",
+        "教育"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A memorable trip",
+      "topicZh": "一次难忘的旅行",
+      "question": "Describe a trip you remember well.",
+      "questionZh": "描述一次你记忆深刻的旅行。",
+      "bullets": [
+        "where you went",
+        "who you travelled with",
+        "what you did during the trip",
+        "and explain why the trip was memorable"
+      ],
+      "tags": [
+        "事件",
+        "地点"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A piece of technology you use",
+      "topicZh": "你常用的一件科技产品",
+      "question": "Describe a piece of technology you use often.",
+      "questionZh": "描述一件你经常使用的科技产品。",
+      "bullets": [
+        "what it is",
+        "how long you have had it",
+        "what you use it for",
+        "and explain why you find it useful"
+      ],
+      "tags": [
+        "科技",
+        "物品"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A book or film you enjoyed",
+      "topicZh": "一本你喜欢的书或一部电影",
+      "question": "Describe a book or film you enjoyed.",
+      "questionZh": "描述一本你喜欢的书或一部你喜欢的电影。",
+      "bullets": [
+        "what it was",
+        "when you read or watched it",
+        "what it was about",
+        "and explain why you enjoyed it"
+      ],
+      "tags": [
+        "文化",
+        "物品"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A childhood memory",
+      "topicZh": "一段童年记忆",
+      "question": "Describe a childhood memory you have.",
+      "questionZh": "描述一段你的童年记忆。",
+      "bullets": [
+        "what the memory is",
+        "how old you were at the time",
+        "who else was involved",
+        "and explain why you still remember it"
+      ],
+      "tags": [
+        "事件",
+        "个人"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A piece of good news",
+      "topicZh": "一个好消息",
+      "question": "Describe a piece of good news you received.",
+      "questionZh": "描述一个你收到的好消息。",
+      "bullets": [
+        "what the news was",
+        "how you received it",
+        "who you shared it with",
+        "and explain why it was good news"
+      ],
+      "tags": [
+        "事件",
+        "高频"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 2,
+      "topic": "A change you would like to make",
+      "topicZh": "一个你想做出的改变",
+      "question": "Describe a change you would like to make to your life.",
+      "questionZh": "描述一个你想在生活中做出的改变。",
+      "bullets": [
+        "what you would like to change",
+        "why you want to make this change",
+        "what might make it difficult",
+        "and explain how your life would be different after the change"
+      ],
+      "tags": [
+        "个人",
+        "社会"
+      ],
+      "difficulty": 2
+    },
+    {
+      "part": 3,
+      "topic": "A person you admire",
+      "topicZh": "你敬佩的人",
+      "question": "What kinds of people are admired in your country?",
+      "questionZh": "在你的国家，什么样的人受到敬佩？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A person you admire",
+      "topicZh": "你敬佩的人",
+      "question": "Why do young people and older people often admire different role models?",
+      "questionZh": "为什么年轻人和年长者往往敬佩不同的榜样？",
+      "tags": [
+        "抽象",
+        "人物"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A person you admire",
+      "topicZh": "你敬佩的人",
+      "question": "Do celebrities have a responsibility to behave well in public?",
+      "questionZh": "名人是否有责任在公众场合举止得体？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A person you admire",
+      "topicZh": "你敬佩的人",
+      "question": "Can admiration for someone ever have a negative effect on young people?",
+      "questionZh": "敬佩某人有时会对年轻人产生负面影响吗？",
+      "tags": [
+        "抽象",
+        "人物"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A place you like to visit",
+      "topicZh": "你喜欢去的地方",
+      "question": "What makes a place attractive to visitors?",
+      "questionZh": "是什么让一个地方对游客有吸引力？",
+      "tags": [
+        "抽象",
+        "地点"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A place you like to visit",
+      "topicZh": "你喜欢去的地方",
+      "question": "In what ways can tourism change the character of a place?",
+      "questionZh": "旅游业会如何改变一个地方的特质？",
+      "tags": [
+        "抽象",
+        "环境"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A place you like to visit",
+      "topicZh": "你喜欢去的地方",
+      "question": "Should local people have a say in how tourist sites are managed?",
+      "questionZh": "当地居民是否应该对旅游景点的管理有发言权？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A place you like to visit",
+      "topicZh": "你喜欢去的地方",
+      "question": "Are there any places that should be protected from tourism altogether?",
+      "questionZh": "有没有哪些地方应该完全禁止旅游？",
+      "tags": [
+        "抽象",
+        "环境"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "An important decision",
+      "topicZh": "一个重要的决定",
+      "question": "Why do some people find it hard to make important decisions?",
+      "questionZh": "为什么有些人觉得做重要决定很难？",
+      "tags": [
+        "抽象",
+        "个人"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "An important decision",
+      "topicZh": "一个重要的决定",
+      "question": "Should young people be encouraged to make decisions without their parents' help?",
+      "questionZh": "应该鼓励年轻人不依靠父母自己做决定吗？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "An important decision",
+      "topicZh": "一个重要的决定",
+      "question": "To what extent does the pressure to succeed affect the decisions people make?",
+      "questionZh": "追求成功所带来的压力在多大程度上影响人们所做的决定？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "An important decision",
+      "topicZh": "一个重要的决定",
+      "question": "Are there times when governments make unpopular decisions for good reasons?",
+      "questionZh": "政府有时会出于正当理由做出不受欢迎的决定吗？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A skill you want to learn",
+      "topicZh": "一项你想学习的技能",
+      "question": "Which skills are most valuable in today's job market?",
+      "questionZh": "在当今就业市场，哪些技能最有价值？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A skill you want to learn",
+      "topicZh": "一项你想学习的技能",
+      "question": "Should schools teach practical skills such as cooking and budgeting?",
+      "questionZh": "学校应该教授烹饪和预算等实用技能吗？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A skill you want to learn",
+      "topicZh": "一项你想学习的技能",
+      "question": "In what ways has technology changed how people learn new skills?",
+      "questionZh": "科技如何改变了人们学习新技能的方式？",
+      "tags": [
+        "抽象",
+        "科技"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A skill you want to learn",
+      "topicZh": "一项你想学习的技能",
+      "question": "Is it better to master one skill or to develop a wide range of them?",
+      "questionZh": "精通一项技能更好，还是广泛发展多项技能更好？",
+      "tags": [
+        "抽象",
+        "个人"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A memorable trip",
+      "topicZh": "一次难忘的旅行",
+      "question": "What attracts people to destinations that are very different from home?",
+      "questionZh": "是什么吸引人们前往与家乡差异很大的目的地？",
+      "tags": [
+        "抽象",
+        "文化"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A memorable trip",
+      "topicZh": "一次难忘的旅行",
+      "question": "What impact does mass tourism have on local communities?",
+      "questionZh": "大众旅游对当地社区有什么影响？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A memorable trip",
+      "topicZh": "一次难忘的旅行",
+      "question": "Can travel really make people more open-minded?",
+      "questionZh": "旅行真的能让人更加开明吗？",
+      "tags": [
+        "抽象",
+        "文化"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A memorable trip",
+      "topicZh": "一次难忘的旅行",
+      "question": "Should governments limit the number of visitors to popular destinations?",
+      "questionZh": "政府应该限制热门旅游目的地的游客数量吗？",
+      "tags": [
+        "抽象",
+        "环境"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of technology you use",
+      "topicZh": "你常用的一件科技产品",
+      "question": "In what ways has technology changed how people communicate?",
+      "questionZh": "科技如何改变了人们的交流方式？",
+      "tags": [
+        "抽象",
+        "科技"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of technology you use",
+      "topicZh": "你常用的一件科技产品",
+      "question": "Do the benefits of smartphones outweigh their disadvantages?",
+      "questionZh": "智能手机的好处大于弊端吗？",
+      "tags": [
+        "抽象",
+        "科技"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of technology you use",
+      "topicZh": "你常用的一件科技产品",
+      "question": "What responsibilities do technology companies have towards their users?",
+      "questionZh": "科技公司对其用户负有哪些责任？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of technology you use",
+      "topicZh": "你常用的一件科技产品",
+      "question": "Could relying on technology make people less capable in everyday life?",
+      "questionZh": "依赖科技是否会使人们在日常生活中能力下降？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A book or film you enjoyed",
+      "topicZh": "一本你喜欢的书或一部电影",
+      "question": "Why do stories play such an important role in human culture?",
+      "questionZh": "为什么故事在人类文化中扮演如此重要的角色？",
+      "tags": [
+        "抽象",
+        "文化"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A book or film you enjoyed",
+      "topicZh": "一本你喜欢的书或一部电影",
+      "question": "Should schools make more use of films and other visual media?",
+      "questionZh": "学校应该更多地使用电影和其他视觉媒介吗？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A book or film you enjoyed",
+      "topicZh": "一本你喜欢的书或一部电影",
+      "question": "How do books or films shape the way people see other cultures?",
+      "questionZh": "书籍或电影如何影响人们看待其他文化的方式？",
+      "tags": [
+        "抽象",
+        "文化"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A book or film you enjoyed",
+      "topicZh": "一本你喜欢的书或一部电影",
+      "question": "Is it a problem that fewer people seem to read long books nowadays?",
+      "questionZh": "如今阅读长篇书籍的人似乎变少了，这是一个问题吗？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A childhood memory",
+      "topicZh": "一段童年记忆",
+      "question": "How important are childhood experiences for a person's later development?",
+      "questionZh": "童年经历对一个人后来的发展有多重要？",
+      "tags": [
+        "抽象",
+        "个人"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A childhood memory",
+      "topicZh": "一段童年记忆",
+      "question": "Should parents protect children from every difficulty, or let them face challenges?",
+      "questionZh": "父母应该保护孩子免受一切困难，还是让他们面对挑战？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A childhood memory",
+      "topicZh": "一段童年记忆",
+      "question": "How have children's play habits changed compared with the past?",
+      "questionZh": "与过去相比，孩子们的玩耍习惯发生了哪些变化？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A childhood memory",
+      "topicZh": "一段童年记忆",
+      "question": "Do schools have a role in creating happy childhood memories?",
+      "questionZh": "学校在创造快乐童年记忆方面有作用吗？",
+      "tags": [
+        "抽象",
+        "教育"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of good news",
+      "topicZh": "一个好消息",
+      "question": "Why do people enjoy sharing good news with others?",
+      "questionZh": "为什么人们喜欢与他人分享好消息？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of good news",
+      "topicZh": "一个好消息",
+      "question": "How does social media affect the way good news spreads?",
+      "questionZh": "社交媒体如何影响好消息的传播方式？",
+      "tags": [
+        "抽象",
+        "科技"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of good news",
+      "topicZh": "一个好消息",
+      "question": "Should the media report more positive stories?",
+      "questionZh": "媒体应该报道更多正面新闻吗？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A piece of good news",
+      "topicZh": "一个好消息",
+      "question": "Is good news from strangers as meaningful as good news from people we know?",
+      "questionZh": "来自陌生人的好消息和来自熟人的好消息一样有意义吗？",
+      "tags": [
+        "抽象",
+        "个人"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A change you would like to make",
+      "topicZh": "一个你想做出的改变",
+      "question": "Why do some people find it difficult to change their habits?",
+      "questionZh": "为什么有些人觉得改变习惯很难？",
+      "tags": [
+        "抽象",
+        "个人"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A change you would like to make",
+      "topicZh": "一个你想做出的改变",
+      "question": "What could governments do to encourage more environmentally friendly lifestyles?",
+      "questionZh": "政府可以采取哪些措施来鼓励人们选择更环保的生活方式？",
+      "tags": [
+        "抽象",
+        "环境"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A change you would like to make",
+      "topicZh": "一个你想做出的改变",
+      "question": "Is it better for society to change gradually or through bold reforms?",
+      "questionZh": "社会逐步改变更好，还是通过大胆改革更好？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    },
+    {
+      "part": 3,
+      "topic": "A change you would like to make",
+      "topicZh": "一个你想做出的改变",
+      "question": "Do people have a responsibility to change in order to address global problems?",
+      "questionZh": "为了应对全球性问题，人们有责任做出改变吗？",
+      "tags": [
+        "抽象",
+        "社会"
+      ],
+      "difficulty": 3
+    }
+  ]
+}
