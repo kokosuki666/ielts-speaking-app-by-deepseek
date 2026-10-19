@@ -20,6 +20,11 @@ files:
   - '!node_modules/**/{test,tests,__tests__,docs,examples,*.md}'
   - '!**/*.map'
 
+# Shipped next to the exe so users can double-click a startup diagnostic.
+extraFiles:
+  - from: tools/diagnose.cmd
+    to: diagnose.cmd
+
 win:
   target:
     - target: nsis

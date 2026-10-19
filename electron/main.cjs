@@ -22,9 +22,31 @@ let updateConfig = { url: '', enabled: false };
 
 /* --------------------------------- helpers -------------------------------- */
 
+function startupLogFile() {
+  try {
+    return path.join(app.getPath('userData'), 'startup.log');
+  } catch {
+    return '';
+  }
+}
+
+function logLine(message) {
+  const file = startupLogFile();
+  if (!file) return;
+  try {
+    fs.appendFileSync(file, `[${new Date().toISOString()}] ${message}\n`, 'utf8');
+  } catch {
+    /* logging must never break startup */
+  }
+}
+
 function log(...args) {
+  const text = args.map((a) => (typeof a === 'string' ? a : JSON.stringify(a))).join(' ');
+  logLine(text);
   if (!app.isPackaged || SMOKE) console.log('[desktop]', ...args);
 }
+
+if (process.argv.includes('--smoke')) log(`startup version=${app.getVersion()} packaged=${app.isPackaged} port=${PORT}`);
 
 function readUpdateConfig() {
   try {
@@ -158,6 +180,8 @@ function setupUpdater() {
 /* --------------------------------- window --------------------------------- */
 
 function createWindow() {
+  // A missing icon must never prevent the window from opening.
+  const iconPath = path.join(app.getAppPath(), 'build', 'icon.png');
   mainWindow = new BrowserWindow({
     width: 1320,
     height: 900,
@@ -167,7 +191,7 @@ function createWindow() {
     backgroundColor: '#eef1f7',
     autoHideMenuBar: false,
     title: 'IELTS Speaking Studio',
-    icon: path.join(app.getAppPath(), 'build', 'icon.png'),
+    ...(fs.existsSync(iconPath) ? { icon: iconPath } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -178,12 +202,30 @@ function createWindow() {
   });
 
   mainWindow.loadURL(ORIGIN);
+  logLine(`window created, loading ${ORIGIN}`);
+
+  // If the renderer never becomes ready, show the window anyway instead of
+  // leaving an invisible process that also holds the single-instance lock.
+  const showFallback = setTimeout(() => {
+    if (!HIDDEN && mainWindow && !mainWindow.isVisible() && !mainWindow.isDestroyed()) {
+      logLine('ready-to-show timeout, showing window anyway');
+      mainWindow.show();
+    }
+  }, 8000);
 
   mainWindow.once('ready-to-show', () => {
+    clearTimeout(showFallback);
+    logLine('ready-to-show');
     if (!HIDDEN) {
       mainWindow.show();
       if (SMOKE) console.log('[desktop] window shown');
     }
+  });
+
+  mainWindow.webContents.on('did-finish-load', () => logLine('did-finish-load'));
+  mainWindow.webContents.on('did-fail-load', (_event, code, description, url) => {
+    logLine(`did-fail-load code=${code} ${description} url=${url}`);
+    if (!HIDDEN) dialog.showErrorBox('页面加载失败', `${description}（${code}）\n${url}`);
   });
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
@@ -353,6 +395,7 @@ function registerIpc() {
 
 const gotLock = app.requestSingleInstanceLock();
 if (!gotLock) {
+  logLine('another instance already holds the single-instance lock; quitting');
   app.quit();
 } else {
   app.setAppUserModelId(APP_ID);
@@ -379,13 +422,22 @@ if (!gotLock) {
 
     try {
       await ensureServer();
+      logLine(`server ready on ${ORIGIN}`);
     } catch (err) {
+      logLine(`server failed: ${err?.stack || err?.message || err}`);
       dialog.showErrorBox('启动失败', err?.message || String(err));
       app.quit();
       return;
     }
 
-    createWindow();
+    try {
+      createWindow();
+    } catch (err) {
+      logLine(`createWindow failed: ${err?.stack || err?.message || err}`);
+      dialog.showErrorBox('窗口创建失败', err?.message || String(err));
+      app.quit();
+      return;
+    }
 
     if (SMOKE) {
       const timeout = setTimeout(() => {
@@ -411,6 +463,10 @@ if (!gotLock) {
         }
       });
     }
+  }).catch((err) => {
+    logLine(`whenReady failed: ${err?.stack || err?.message || err}`);
+    dialog.showErrorBox('启动失败', err?.message || String(err));
+    app.quit();
   });
 
   app.on('activate', () => {

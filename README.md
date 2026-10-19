@@ -129,6 +129,24 @@ NSIS 运行时会先把自己解压到 `%TEMP%`（约 660MB），这一步失败
 
 3. 清理 `%TEMP%` 里的旧文件；确认 C 盘至少留有 2GB 空间
 
+**双击 exe 没反应 / 没有窗口？**
+
+1. 运行压缩包里的 **`diagnose.cmd`**（1.4.3 起随包提供），它会在控制台输出检查结果、smoke 启动日志和退出码
+2. 或者手动执行：
+
+   ```powershell
+   cd "解压目录"
+   $env:ELECTRON_ENABLE_LOGGING=1
+   & ".\IELTS Speaking Studio.exe" --smoke
+   echo "exit=$LASTEXITCODE"
+   ```
+
+3. 查看启动日志：`%APPDATA%\ielts-speaking-webapp\startup.log`（记录端口、服务启动、窗口创建、加载失败原因）
+4. 常见原因：
+   - 已经有一个实例在后台（单实例锁）→ 任务管理器结束所有 `IELTS Speaking Studio` 后重试
+   - 没有完整解压（缺 `resources`）→ 重新解压整个 ZIP
+   - 杀毒软件拦截了 `IELTS Speaking Studio.exe` → 加白名单
+
 打包注意：
 
 - 首次打包需要下载 Electron 与 NSIS 工具链；国内网络可设置镜像：
