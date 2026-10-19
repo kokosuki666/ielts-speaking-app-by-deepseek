@@ -130,6 +130,7 @@ export const DEFAULT_APPEARANCE: Appearance = {
   glassButtons: false,
   grain: false,
   motion: true,
+  bgImage: '',
 };
 
 export function themeById(id: ThemeId): ThemeDef {
@@ -157,7 +158,15 @@ export function applyAppearance(a: Appearance, mode: 'light' | 'dark'): void {
   const glassBase = dark ? '#121722' : '#ffffff';
 
   root.dataset.theme = dark ? 'dark' : 'light';
-  root.style.setProperty('--bg-image', theme.background);
+  if (a.bgImage) {
+    root.style.setProperty('--bg-image', `url("${a.bgImage}")`);
+    root.style.setProperty('--bg-size', 'cover');
+    root.style.setProperty('--bg-wash', dark ? 'rgba(8, 10, 16, 0.55)' : 'rgba(255, 255, 255, 0.3)');
+  } else {
+    root.style.setProperty('--bg-image', theme.background);
+    root.style.setProperty('--bg-size', 'auto');
+    root.style.setProperty('--bg-wash', 'transparent');
+  }
   root.style.setProperty('--bg-base', dark ? '#0b0f17' : '#eef1f7');
   root.style.setProperty('--glass', rgba(glassBase, alpha));
   root.style.setProperty('--glass-strong', rgba(glassBase, Math.min(0.97, alpha + 0.2)));

@@ -49,6 +49,28 @@ export default function Settings() {
   const [speechTest, setSpeechTest] = useState('');
   const [browserVoices, setBrowserVoices] = useState<ReturnType<typeof loadVoices>>([]);
   const fileRef = useRef<HTMLInputElement>(null);
+  const bgRef = useRef<HTMLInputElement>(null);
+
+  /** Downscales an uploaded image so it fits comfortably in localStorage. */
+  async function applyBgFile(file: File) {
+    try {
+      const bitmap = await createImageBitmap(file);
+      const max = 1600;
+      const scale = Math.min(1, max / Math.max(bitmap.width, bitmap.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(bitmap.width * scale);
+      canvas.height = Math.round(bitmap.height * scale);
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('浏览器不支持图片处理');
+      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+      if (dataUrl.length > 2 * 1024 * 1024) throw new Error('图片太大（压缩后仍超过 2MB），换一张小一点的');
+      patchSettings({ appearance: { ...settings.appearance, bgImage: dataUrl } });
+      notify('背景已更新', 'ok');
+    } catch (err) {
+      notify(`背景设置失败：${(err as Error).message}`, 'err');
+    }
+  }
 
   const diag = useMemo(() => keyDiagnostics(settings.ai.apiKey), [settings.ai.apiKey]);
 
@@ -157,7 +179,37 @@ export default function Settings() {
                   </span>
                 </button>
               ))}
+              <button className="bg-tile" onClick={() => bgRef.current?.click()} title="上传背景图片">
+                <span className="bg-thumb" style={{ display: 'grid', placeItems: 'center', background: 'var(--glass-soft)' }}>
+                  {settings.appearance.bgImage ? (
+                    <span style={{ position: 'absolute', inset: 0, backgroundImage: `url("${settings.appearance.bgImage}")`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+                  ) : (
+                    <span className="bg-plus"><Icon name="plus" size={18} /></span>
+                  )}
+                </span>
+                <span className="bg-name">{settings.appearance.bgImage ? '已上传背景' : '上传图片'}</span>
+              </button>
             </div>
+            <input
+              ref={bgRef}
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                e.target.value = '';
+                if (file) void applyBgFile(file);
+              }}
+            />
+            {settings.appearance.bgImage && (
+              <div className="row" style={{ marginTop: 6 }}>
+                <span className="tiny muted">已使用自定义背景</span>
+                <div className="spacer" />
+                <Button size="sm" variant="ghost" icon="trash" onClick={() => patchSettings({ appearance: { ...settings.appearance, bgImage: '' } })}>
+                  移除背景
+                </Button>
+              </div>
+            )}
 
             <div className="row" style={{ marginTop: 6 }}>
               <span className="small" style={{ fontWeight: 600 }}>强调色</span>
@@ -560,6 +612,17 @@ export default function Settings() {
         <div className="card-title">目标与偏好</div>
         <div className="stack" style={{ marginTop: 10 }}>
           <Field label={`目标分数 · ${settings.targetBand.toFixed(1)}`} hint="报告会按这个分数计算差距与计划">
+            <div className="chip-row" style={{ marginBottom: 8 }}>
+              {[6, 6.5, 7, 7.5, 8].map((b) => (
+                <button
+                  key={b}
+                  className={`chip ${settings.targetBand === b ? 'chip--on' : ''}`}
+                  onClick={() => patchSettings({ targetBand: b })}
+                >
+                  {b.toFixed(1)}
+                </button>
+              ))}
+            </div>
             <input className="range" type="range" min={4} max={9} step={0.5} value={settings.targetBand} onChange={(e) => patchSettings({ targetBand: Number(e.target.value) })} />
           </Field>
           <Field label="每日目标词卡数">

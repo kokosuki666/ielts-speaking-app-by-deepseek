@@ -245,6 +245,8 @@ export interface Appearance {
   glassButtons: boolean;
   grain: boolean;
   motion: boolean;
+  /** Data URL of an uploaded background image; empty = use the theme. */
+  bgImage: string;
 }
 
 export interface ExamItem {

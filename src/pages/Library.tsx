@@ -39,6 +39,7 @@ export default function Library() {
   const [topic, setTopic] = useState('all');
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState<SortKey>('recent');
+  const [shown, setShown] = useState(60);
   const [selected, setSelected] = useState<string[]>([]);
   const [importOpen, setImportOpen] = useState(false);
   const [genOpen, setGenOpen] = useState(false);
@@ -63,6 +64,10 @@ export default function Library() {
   useEffect(() => {
     setSelected((prev) => prev.filter((id) => questions.some((q) => q.id === id)));
   }, [questions]);
+
+  useEffect(() => {
+    setShown(60);
+  }, [bankId, part, topic, search, sort]);
 
   const allSelected = filtered.length > 0 && filtered.every((q) => selected.includes(q.id));
 
@@ -165,7 +170,7 @@ export default function Library() {
 
         {filtered.length ? (
           <div className="list">
-            {filtered.slice(0, 300).map((q) => (
+            {filtered.slice(0, shown).map((q) => (
               <QuestionRow
                 key={q.id}
                 q={q}
@@ -181,6 +186,13 @@ export default function Library() {
                 }}
               />
             ))}
+            {filtered.length > shown && (
+              <div className="center" style={{ padding: '10px 0' }}>
+                <Button size="sm" variant="ghost" onClick={() => setShown((n) => n + 60)}>
+                  加载更多（{filtered.length - shown}）
+                </Button>
+              </div>
+            )}
           </div>
         ) : (
           <Empty icon="library" title="没有匹配的题目" desc="换个筛选条件，或导入新的题库。" />

@@ -10,12 +10,19 @@ import { uid } from '../lib/id';
 import type { ChatMessage, ChatSession, ChatSummary } from '../types';
 
 const PRESETS = [
-  { topic: 'Coffee shop chat', topicZh: '咖啡店闲聊', scenario: '周末下午在街角咖啡店，和刚认识的朋友聊天' },
-  { topic: 'Weekend trip', topicZh: '周末旅行', scenario: '你在计划一个周末短途旅行，和同伴讨论目的地' },
-  { topic: 'Films & TV', topicZh: '电影电视', scenario: '聊最近看过的电影或剧集，互相推荐' },
-  { topic: 'Work & career', topicZh: '工作与职业', scenario: '聊工作内容、职业规划和通勤' },
-  { topic: 'Food', topicZh: '美食', scenario: '讨论常去的餐厅、家乡菜和做饭习惯' },
-  { topic: 'Technology', topicZh: '科技', scenario: '聊手机、AI 工具和新科技对生活的影响' },
+  { emoji: '☕', topic: 'Coffee shop chat', topicZh: '咖啡店闲聊', scenario: '周末下午在街角咖啡店，和刚认识的朋友聊天' },
+  { emoji: '🚂', topic: 'Weekend trip', topicZh: '周末旅行', scenario: '你在计划一个周末短途旅行，和同伴讨论目的地' },
+  { emoji: '🎬', topic: 'Films & TV', topicZh: '电影电视', scenario: '聊最近看过的电影或剧集，互相推荐' },
+  { emoji: '💼', topic: 'Work & career', topicZh: '工作与职业', scenario: '聊工作内容、职业规划和通勤' },
+  { emoji: '🍜', topic: 'Food', topicZh: '美食', scenario: '讨论常去的餐厅、家乡菜和做饭习惯' },
+  { emoji: '📱', topic: 'Technology', topicZh: '科技', scenario: '聊手机、AI 工具和新科技对生活的影响' },
+];
+
+const OPENERS = [
+  'How has your week been so far?',
+  'I have been meaning to ask you…',
+  'What do you usually do at weekends?',
+  'That reminds me of something.',
 ];
 
 export default function Chat() {
@@ -33,13 +40,61 @@ export default function Chat() {
   if (!active) {
     return (
       <div className="page">
-        <Card>
-          <Empty
-            icon="chat"
-            title="开始一段自由对话"
-            desc="AI 会像朋友一样和你聊天，结束时自动整理可用的口语表达。"
-            action={<Button variant="primary" icon="plus" onClick={() => setNewOpen(true)}>新建对话</Button>}
-          />
+        <Card className="fade-up">
+          <div className="row">
+            <div>
+              <div className="card-title">AI 对话</div>
+              <p className="card-desc">像和真人聊天一样练口语；结束时自动复盘、提炼话题词与更地道的说法。</p>
+            </div>
+            <div className="spacer" />
+            <Button icon="plus" onClick={() => setNewOpen(true)}>自定义话题</Button>
+          </div>
+          <div className="divider" />
+          <div className="grid g3">
+            {PRESETS.map((p) => (
+              <button
+                key={p.topic}
+                className="card card--hover"
+                style={{ textAlign: 'left' }}
+                onClick={() => {
+                  const session = createChat({ topic: p.topic, topicZh: p.topicZh, scenario: p.scenario, mode: 'casual' });
+                  setActiveId(session.id);
+                }}
+              >
+                <div className="row">
+                  <span style={{ fontSize: 22 }}>{p.emoji}</span>
+                  <div className="spacer" />
+                  <Tag>开始聊</Tag>
+                </div>
+                <div className="small" style={{ fontWeight: 600, marginTop: 8 }}>{p.topicZh}</div>
+                <div className="tiny dim">{p.topic}</div>
+                <div className="tiny muted" style={{ marginTop: 4 }}>{p.scenario}</div>
+              </button>
+            ))}
+          </div>
+          <div className="divider" />
+          <div className="row">
+            <div>
+              <div className="small" style={{ fontWeight: 600 }}>考官模式</div>
+              <div className="tiny muted">按 Part 1 → Part 2 → Part 3 的梯度提问，不打断、不评价</div>
+            </div>
+            <div className="spacer" />
+            <Button
+              size="sm"
+              icon="mic"
+              onClick={() => {
+                const session = createChat({
+                  topic: 'IELTS Speaking Test',
+                  topicZh: '全真考官模式',
+                  scenario: '按雅思口语 Part 1 → Part 2 → Part 3 提问',
+                  mode: 'ielts',
+                });
+                setActiveId(session.id);
+              }}
+            >
+              开始模考对话
+            </Button>
+          </div>
         </Card>
         <NewChatModal
           open={newOpen}
@@ -279,6 +334,15 @@ function ChatRoom({
       )}
 
       {session.summary && <SummaryCard summary={session.summary} />}
+
+      {messages.length === 0 && !streaming && (
+        <div className="row" style={{ gap: 6, flexWrap: 'wrap', marginTop: 8 }}>
+          <span className="tiny dim">不知道说什么？试试：</span>
+          {OPENERS.map((line) => (
+            <button key={line} className="chip" onClick={() => void send(line)}>{line}</button>
+          ))}
+        </div>
+      )}
 
       <div className="chat-input">
         <input
