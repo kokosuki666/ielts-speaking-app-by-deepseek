@@ -133,9 +133,13 @@ function Shell() {
   const isDesktop = typeof window !== 'undefined' && Boolean(window.desktop?.window);
 
   return (
-    <div className={isDesktop ? 'desktop-root' : undefined}>
-      {isDesktop && <DesktopTitlebar />}
-      <div className="shell">
+    <>
+      <div className="mesh" aria-hidden="true">
+        <span className="grain" />
+      </div>
+      <div className={isDesktop ? 'desktop-root' : undefined}>
+        {isDesktop && <DesktopTitlebar />}
+        <div className="shell">
       <aside className="sidebar no-print">
         <div className="side-card">
           <NavLink to="/" className="brand">
@@ -263,6 +267,7 @@ function Shell() {
       )}
       </div>
     </div>
+    </>
   );
 }
 

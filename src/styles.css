@@ -168,7 +168,7 @@ pointer-events:none}
 to{transform:translate3d(6vw,4vw,0) scale(1.12)}
 }
 .shell{display:grid;
-grid-template-columns:252px minmax(0,1fr);
+grid-template-columns:244px minmax(0,1fr);
 height:100dvh;
 gap:0}
 .sidebar{display:flex;
@@ -1429,12 +1429,12 @@ backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
 box-shadow:var(--shadow-md),var(--specular)}
 .ap-card .btn{cursor:default;
 pointer-events:none}
-[data-glass=on] .btn:not(.btn--ghost){background:var(--glass-btn);
+[data-glass=on] .btn:not(.btn--ghost):not(.btn--primary):not(.btn--danger){background:var(--glass-btn);
 backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
 -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
 border:1px solid var(--stroke);
 box-shadow:var(--shadow-sm),var(--specular)}
-[data-glass=on] .btn.btn--primary{background:linear-gradient(180deg,#ffffff57,#ffffff0d 52%,#fff0),linear-gradient(180deg,color-mix(in srgb,var(--accent) 90%,#fff),var(--accent));
+[data-glass=on] .btn.btn--primary{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 86%,#fff),var(--accent));
 color:#fff;
 border:1px solid rgba(255,255,255,.4);
 box-shadow:0 10px 26px -12px color-mix(in srgb,var(--accent) 85%,transparent),inset 0 1px #ffffff8c}
@@ -1560,3 +1560,26 @@ html[data-glass-buttons="on"] .nav-item.active{
   border:1px solid color-mix(in srgb,var(--line-strong) 52%,transparent);
   box-shadow:0 26px 70px -48px rgba(15,23,42,.5),var(--specular);
 }
+/* backgrounds must never swallow clicks */
+.mesh{pointer-events:none}
+
+/* quiet, thin scrollbars (sidebar + long lists) */
+*{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink-4) 34%,transparent) transparent}
+*::-webkit-scrollbar{width:6px;height:6px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--ink-4) 30%,transparent);border-radius:999px}
+*::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--ink-4) 48%,transparent)}
+*::-webkit-scrollbar-corner{background:transparent}
+
+/* gentle hover lift for clickable cards */
+.card--hover{transition:transform .18s var(--ease),box-shadow .18s var(--ease),border-color .18s var(--ease)}
+.card--hover:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg),var(--specular);border-color:color-mix(in srgb,var(--accent) 18%,var(--line-strong))}
+/* custom background: slightly blurred, never competing with the content */
+[data-bg-image=on] .mesh{filter:blur(2px) saturate(1.06);transform:scale(1.035);transform-origin:center}
+[data-bg-image=on] .mesh:before,[data-bg-image=on] .mesh:after{opacity:0}
+[data-bg-image=on] .side-card{border-color:color-mix(in srgb,var(--line-strong) 38%,transparent)}
+
+/* nav: quieter hover, clearer active pill */
+.nav-link{transition:background .16s var(--ease),color .16s var(--ease),transform .16s var(--ease)}
+.nav-link:hover{transform:translateX(1px)}
+.nav-link.active{box-shadow:0 8px 22px -16px rgba(15,23,42,.35)}

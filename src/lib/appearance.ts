@@ -23,7 +23,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#2563eb',
     accent2: '#7c3aed',
     background:
-      'radial-gradient(1100px 720px at 12% -8%, #dbeafe 0%, transparent 55%), radial-gradient(900px 640px at 92% 4%, #ede9fe 0%, transparent 52%), radial-gradient(800px 520px at 50% 108%, #e0f2fe 0%, transparent 60%), linear-gradient(180deg, #f6f8fe 0%, #eef1f7 100%)',
+      'radial-gradient(1000px 700px at 8% -10%, #bcd4ff 0%, transparent 58%), radial-gradient(900px 650px at 95% 0%, #d9c9ff 0%, transparent 55%), radial-gradient(700px 500px at 50% 112%, #bfe7ff 0%, transparent 60%), linear-gradient(180deg, #f2f6ff 0%, #e7ecf9 100%)',
     swatch: 'linear-gradient(135deg,#dbeafe,#ede9fe 80%)',
   },
   {
@@ -33,7 +33,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#38bdf8',
     accent2: '#a78bfa',
     background:
-      'radial-gradient(900px 600px at 15% 0%, rgba(56,189,248,.28) 0%, transparent 55%), radial-gradient(800px 520px at 88% 8%, rgba(167,139,250,.26) 0%, transparent 55%), linear-gradient(180deg, #0b1220 0%, #0e1628 100%)',
+      'radial-gradient(900px 600px at 12% 0%, rgba(45,212,191,.38) 0%, transparent 55%), radial-gradient(820px 560px at 90% 6%, rgba(139,92,246,.42) 0%, transparent 55%), linear-gradient(180deg, #060c18 0%, #0b1426 100%)',
     swatch: 'linear-gradient(135deg,#0b1220,#1e3a5f 70%,#7c3aed)',
   },
   {
@@ -43,7 +43,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#f97316',
     accent2: '#ec4899',
     background:
-      'radial-gradient(900px 600px at 8% 0%, #ffe4d6 0%, transparent 58%), radial-gradient(900px 620px at 92% 10%, #fde2f3 0%, transparent 55%), linear-gradient(180deg, #fff7f1 0%, #fdf1f6 100%)',
+      'radial-gradient(920px 620px at 4% -2%, #ffc9a8 0%, transparent 55%), radial-gradient(900px 640px at 96% 2%, #ffc2e2 0%, transparent 52%), linear-gradient(180deg, #fff2e6 0%, #ffe8f2 100%)',
     swatch: 'linear-gradient(135deg,#ffe4d6,#fde2f3)',
   },
   {
@@ -53,7 +53,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#0891b2',
     accent2: '#22d3ee',
     background:
-      'radial-gradient(900px 600px at 10% 0%, #d6f5f7 0%, transparent 58%), radial-gradient(900px 620px at 90% 6%, #e0f2fe 0%, transparent 55%), linear-gradient(180deg, #f2fbfc 0%, #eef7fb 100%)',
+      'radial-gradient(920px 620px at 6% -2%, #a9edf1 0%, transparent 55%), radial-gradient(900px 640px at 94% 2%, #b9ddff 0%, transparent 52%), linear-gradient(180deg, #ecfcff 0%, #e2f2fb 100%)',
     swatch: 'linear-gradient(135deg,#d6f5f7,#e0f2fe)',
   },
   {
@@ -63,7 +63,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#16a34a',
     accent2: '#65a30d',
     background:
-      'radial-gradient(900px 600px at 12% 0%, #dcfce7 0%, transparent 58%), radial-gradient(900px 620px at 90% 8%, #ecfccb 0%, transparent 55%), linear-gradient(180deg, #f5fdf7 0%, #eef7ef 100%)',
+      'radial-gradient(920px 620px at 6% -2%, #b3efc6 0%, transparent 55%), radial-gradient(900px 640px at 94% 2%, #d7f3a8 0%, transparent 52%), linear-gradient(180deg, #eefdf2 0%, #e5f4e8 100%)',
     swatch: 'linear-gradient(135deg,#dcfce7,#ecfccb)',
   },
   {
@@ -73,7 +73,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#db2777',
     accent2: '#a855f7',
     background:
-      'radial-gradient(900px 600px at 10% 0%, #fce7f3 0%, transparent 58%), radial-gradient(900px 620px at 90% 10%, #fae8ff 0%, transparent 55%), linear-gradient(180deg, #fff7fb 0%, #fdf2fa 100%)',
+      'radial-gradient(920px 620px at 6% -2%, #ffc2dc 0%, transparent 55%), radial-gradient(900px 640px at 94% 2%, #f2c4ff 0%, transparent 52%), linear-gradient(180deg, #fff0f7 0%, #fde6f4 100%)',
     swatch: 'linear-gradient(135deg,#fce7f3,#fae8ff)',
   },
   {
@@ -83,7 +83,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#7c3aed',
     accent2: '#c026d3',
     background:
-      'radial-gradient(900px 600px at 8% 0%, #ede9fe 0%, transparent 58%), radial-gradient(900px 620px at 92% 8%, #fae8ff 0%, transparent 55%), linear-gradient(180deg, #faf8ff 0%, #f4f0ff 100%)',
+      'radial-gradient(920px 620px at 6% -2%, #cbb8ff 0%, transparent 55%), radial-gradient(900px 640px at 94% 2%, #eeb6ff 0%, transparent 52%), linear-gradient(180deg, #f6f0ff 0%, #ede3ff 100%)',
     swatch: 'linear-gradient(135deg,#ede9fe,#fae8ff)',
   },
   {
@@ -93,7 +93,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#94a3b8',
     accent2: '#64748b',
     background:
-      'radial-gradient(900px 600px at 20% 0%, rgba(148,163,184,.16) 0%, transparent 60%), linear-gradient(180deg, #0b0e14 0%, #12161f 100%)',
+      'radial-gradient(900px 620px at 16% 0%, rgba(96,165,250,.26) 0%, transparent 58%), radial-gradient(700px 520px at 92% 18%, rgba(148,163,184,.14) 0%, transparent 60%), linear-gradient(180deg, #05070c 0%, #0e131d 100%)',
     swatch: 'linear-gradient(135deg,#0b0e14,#1a1f2b)',
   },
   {
@@ -103,7 +103,7 @@ export const THEMES: ThemeDef[] = [
     accent: '#a16207',
     accent2: '#b45309',
     background:
-      'radial-gradient(900px 600px at 10% 0%, #fdf6e3 0%, transparent 60%), linear-gradient(180deg, #fdfbf5 0%, #f7f1e3 100%)',
+      'radial-gradient(900px 620px at 8% 0%, #f7e3b0 0%, transparent 58%), radial-gradient(760px 520px at 94% 0%, #f2d9a6 0%, transparent 55%), repeating-linear-gradient(0deg, rgba(120,90,40,.04) 0 1px, transparent 1px 4px), linear-gradient(180deg, #fdf8ea 0%, #f4ead6 100%)',
     swatch: 'linear-gradient(135deg,#fdf6e3,#f7f1e3)',
   },
   {
@@ -112,7 +112,7 @@ export const THEMES: ThemeDef[] = [
     dark: false,
     accent: '#334155',
     accent2: '#64748b',
-    background: 'linear-gradient(180deg, #f5f6f8 0%, #eef0f3 100%)',
+    background: 'radial-gradient(900px 620px at 8% 0%, #e3e7ee 0%, transparent 55%), radial-gradient(760px 520px at 92% 2%, #eef1f5 0%, transparent 55%), linear-gradient(180deg, #f7f8fa 0%, #e9edf2 100%)',
     swatch: 'linear-gradient(135deg,#f5f6f8,#eef0f3)',
   },
 ];
@@ -155,23 +155,25 @@ export function applyAppearance(a: Appearance, mode: 'light' | 'dark'): void {
   const dark = theme.dark || mode === 'dark';
   const root = document.documentElement;
   const alpha = Math.min(0.96, Math.max(0.12, a.alpha / 100));
+  // A busy photo needs a little more milk glass for text to stay readable.
+  const glassAlpha = a.bgImage ? Math.max(alpha, 0.64) : alpha;
   const glassBase = dark ? '#121722' : '#ffffff';
 
   root.dataset.theme = dark ? 'dark' : 'light';
   if (a.bgImage) {
     root.style.setProperty('--bg-image', `url("${a.bgImage}")`);
     root.style.setProperty('--bg-size', 'cover');
-    root.style.setProperty('--bg-wash', dark ? 'rgba(8, 10, 16, 0.55)' : 'rgba(255, 255, 255, 0.3)');
+    root.style.setProperty('--bg-wash', dark ? 'rgba(6, 9, 15, 0.62)' : 'rgba(248, 250, 255, 0.44)');
   } else {
     root.style.setProperty('--bg-image', theme.background);
     root.style.setProperty('--bg-size', 'auto');
     root.style.setProperty('--bg-wash', 'transparent');
   }
   root.style.setProperty('--bg-base', dark ? '#0b0f17' : '#eef1f7');
-  root.style.setProperty('--glass', rgba(glassBase, alpha));
-  root.style.setProperty('--glass-strong', rgba(glassBase, Math.min(0.97, alpha + 0.2)));
-  root.style.setProperty('--glass-soft', rgba(glassBase, Math.max(0.08, alpha - 0.22)));
-  root.style.setProperty('--glass-btn', rgba(glassBase, Math.min(0.95, alpha + 0.06)));
+  root.style.setProperty('--glass', rgba(glassBase, glassAlpha));
+  root.style.setProperty('--glass-strong', rgba(glassBase, Math.min(0.97, glassAlpha + 0.2)));
+  root.style.setProperty('--glass-soft', rgba(glassBase, Math.max(0.08, glassAlpha - 0.22)));
+  root.style.setProperty('--glass-btn', rgba(glassBase, Math.min(0.95, glassAlpha + 0.06)));
   root.style.setProperty('--glass-blur', `${a.blur}px`);
   root.style.setProperty('--glass-sat', `${a.saturate}%`);
   root.style.setProperty('--stroke', dark ? `rgba(255,255,255,${Math.min(0.4, (a.border / 100) * 0.22)})` : `rgba(255,255,255,${Math.min(0.95, a.border / 100)})`);
@@ -184,6 +186,9 @@ export function applyAppearance(a: Appearance, mode: 'light' | 'dark'): void {
   root.style.setProperty('--accent-soft', rgba(theme.accent, dark ? 0.18 : 0.1));
   root.style.setProperty('--border-hi', `${a.border}%`);
   root.dataset.motion = a.motion ? 'on' : 'off';
+  // CSS uses [data-glass=on]; keep the old name too for compatibility.
+  root.dataset.glass = a.glassButtons ? 'on' : 'off';
+  root.dataset.bgImage = a.bgImage ? 'on' : 'off';
   root.dataset.glassButtons = a.glassButtons ? 'on' : 'off';
   root.dataset.grain = a.grain ? 'on' : 'off';
 }

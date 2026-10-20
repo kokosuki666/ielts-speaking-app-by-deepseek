@@ -121,7 +121,7 @@ export default function Settings() {
             size="sm"
             variant="primary"
             icon="sparkles"
-            onClick={() => patchSettings({ appearance: { ...settings.appearance, ...GLASS_PRESETS[0].value, glassButtons: true } })}
+            onClick={() => patchSettings({ appearance: { ...settings.appearance, ...GLASS_PRESETS[1].value, glassButtons: true } })}
           >
             一键毛玻璃
           </Button>
@@ -257,11 +257,18 @@ export default function Settings() {
               <span className="tiny dim">预设</span>
             </div>
             <div className="chip-row">
-              {GLASS_PRESETS.map((p) => (
-                <button key={p.name} className="chip" onClick={() => patchSettings({ appearance: { ...settings.appearance, ...p.value } })}>
-                  {p.name}
-                </button>
-              ))}
+              {GLASS_PRESETS.map((p) => {
+                const active = settings.appearance.alpha === p.value.alpha && settings.appearance.blur === p.value.blur;
+                return (
+                  <button
+                    key={p.name}
+                    className={`chip ${active ? 'chip--on' : ''}`}
+                    onClick={() => patchSettings({ appearance: { ...settings.appearance, ...p.value } })}
+                  >
+                    {p.name}
+                  </button>
+                );
+              })}
             </div>
 
             <Field label={`玻璃不透明度 · ${settings.appearance.alpha}%`} hint="越低越透，低于 30% 时按钮会自动保底可读">
