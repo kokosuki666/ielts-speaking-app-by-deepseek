@@ -130,9 +130,12 @@ function Shell() {
   const todayPracticed = reports.some((r) => new Date(r.createdAt).toDateString() === new Date().toDateString());
 
   const counts = { questions: questions.length, vocab: vocab.length };
+  const isDesktop = typeof window !== 'undefined' && Boolean(window.desktop?.window);
 
   return (
-    <div className="shell">
+    <div className={isDesktop ? 'desktop-root' : undefined}>
+      {isDesktop && <DesktopTitlebar />}
+      <div className="shell">
       <aside className="sidebar no-print">
         <div className="side-card">
           <NavLink to="/" className="brand">
@@ -258,6 +261,44 @@ function Shell() {
           {toast.text}
         </div>
       )}
+      </div>
+    </div>
+  );
+}
+
+function DesktopTitlebar() {
+  const api = window.desktop?.window;
+  const [maximized, setMaximized] = useState(false);
+
+  useEffect(() => {
+    if (!api) return;
+    void api.isMaximized().then(setMaximized).catch(() => undefined);
+    return api.onMaximized(setMaximized);
+  }, [api]);
+
+  if (!api) return null;
+
+  return (
+    <div className="desktop-titlebar">
+      <span className="desktop-mark">IS</span>
+      <span className="desktop-title">IELTS Speaking Studio</span>
+      <div className="spacer" />
+      <button className="dtb" title="最小化" aria-label="最小化" onClick={() => void api.minimize()}>
+        <span style={{ width: 10, height: 1, background: 'currentColor', display: 'block' }} />
+      </button>
+      <button className="dtb" title={maximized ? '还原' : '最大化'} aria-label="最大化" onClick={() => void api.toggleMaximize()}>
+        {maximized ? (
+          <span style={{ position: 'relative', width: 10, height: 10, display: 'block' }}>
+            <span style={{ position: 'absolute', right: 0, top: 0, width: 8, height: 8, border: '1px solid currentColor', borderRadius: 1 }} />
+            <span style={{ position: 'absolute', left: 0, bottom: 0, width: 8, height: 8, border: '1px solid currentColor', borderRadius: 1, background: 'var(--bg-base)' }} />
+          </span>
+        ) : (
+          <span style={{ width: 9, height: 9, border: '1px solid currentColor', borderRadius: 1, display: 'block' }} />
+        )}
+      </button>
+      <button className="dtb dtb--close" title="关闭" aria-label="关闭" onClick={() => void api.close()}>
+        <span style={{ fontSize: 12, lineHeight: 1 }}>✕</span>
+      </button>
     </div>
   );
 }

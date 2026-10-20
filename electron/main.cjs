@@ -188,9 +188,16 @@ function createWindow() {
     minWidth: 1024,
     minHeight: 680,
     show: false,
+    // Frameless + rounded corners: the app draws its own title bar, and Windows 11
+    // gives the window the same soft rounded outline as the harness UI.
+    frame: false,
+    thickFrame: true,
+    roundedCorners: true,
+    hasShadow: true,
     backgroundColor: '#eef1f7',
-    autoHideMenuBar: false,
+    autoHideMenuBar: true,
     title: 'IELTS Speaking Studio',
+    ...(process.platform === 'win32' ? { backgroundMaterial: 'acrylic' } : {}),
     ...(fs.existsSync(iconPath) ? { icon: iconPath } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
@@ -203,6 +210,21 @@ function createWindow() {
 
   mainWindow.loadURL(ORIGIN);
   logLine(`window created, loading ${ORIGIN}`);
+
+  mainWindow.setMenuBarVisibility(false);
+  mainWindow.on('maximize', () => mainWindow.webContents.send('window:maximized', true));
+  mainWindow.on('unmaximize', () => mainWindow.webContents.send('window:maximized', false));
+
+  // No native menu: keep the usual developer shortcut available.
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    const isDevTools =
+      input.type === 'keyDown' &&
+      (input.key === 'F12' || (input.control && input.shift && input.key.toLowerCase() === 'i'));
+    if (isDevTools) {
+      mainWindow.webContents.toggleDevTools();
+      event.preventDefault();
+    }
+  });
 
   // If the renderer never becomes ready, show the window anyway instead of
   // leaving an invisible process that also holds the single-instance lock.
@@ -389,6 +411,25 @@ function registerIpc() {
   });
 
   ipcMain.handle('app:open-data', () => shell.openPath(app.getPath('userData')));
+
+  // Custom title bar controls (the window is frameless).
+  const winOf = (event) => BrowserWindow.fromWebContents(event.sender);
+  ipcMain.handle('window:minimize', (event) => {
+    winOf(event)?.minimize();
+    return true;
+  });
+  ipcMain.handle('window:toggle-maximize', (event) => {
+    const win = winOf(event);
+    if (!win) return false;
+    if (win.isMaximized()) win.unmaximize();
+    else win.maximize();
+    return win.isMaximized();
+  });
+  ipcMain.handle('window:close', (event) => {
+    winOf(event)?.close();
+    return true;
+  });
+  ipcMain.handle('window:is-maximized', (event) => Boolean(winOf(event)?.isMaximized()));
 }
 
 /* ---------------------------------- boot ---------------------------------- */
@@ -417,7 +458,7 @@ if (!gotLock) {
     );
 
     registerIpc();
-    buildMenu();
+    Menu.setApplicationMenu(null);
     setupUpdater();
 
     try {
