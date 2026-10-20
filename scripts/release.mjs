@@ -275,6 +275,9 @@ async function request(urlString, { method = 'GET', headers = {}, body, json, fi
   const payload = json !== undefined ? Buffer.from(JSON.stringify(json)) : body;
   const finalHeaders = {
     'User-Agent': 'ielts-speaking-release-script',
+    // GitHub's edge rejects tunneled requests without an explicit Host header.
+    Host: url.host,
+    Connection: 'close',
     ...headers,
   };
   if (json !== undefined) finalHeaders['Content-Type'] = 'application/json; charset=utf-8';
