@@ -155,8 +155,6 @@ export function applyAppearance(a: Appearance, mode: 'light' | 'dark'): void {
   const dark = theme.dark || mode === 'dark';
   const root = document.documentElement;
   const alpha = Math.min(0.96, Math.max(0.12, a.alpha / 100));
-  // A busy photo needs a little more milk glass for text to stay readable.
-  const glassAlpha = a.bgImage ? Math.max(alpha, 0.64) : alpha;
   const glassBase = dark ? '#121722' : '#ffffff';
 
   root.dataset.theme = dark ? 'dark' : 'light';
@@ -170,10 +168,10 @@ export function applyAppearance(a: Appearance, mode: 'light' | 'dark'): void {
     root.style.setProperty('--bg-wash', 'transparent');
   }
   root.style.setProperty('--bg-base', dark ? '#0b0f17' : '#eef1f7');
-  root.style.setProperty('--glass', rgba(glassBase, glassAlpha));
-  root.style.setProperty('--glass-strong', rgba(glassBase, Math.min(0.97, glassAlpha + 0.2)));
-  root.style.setProperty('--glass-soft', rgba(glassBase, Math.max(0.08, glassAlpha - 0.22)));
-  root.style.setProperty('--glass-btn', rgba(glassBase, Math.min(0.95, glassAlpha + 0.06)));
+  root.style.setProperty('--glass', rgba(glassBase, alpha));
+  root.style.setProperty('--glass-strong', rgba(glassBase, Math.min(0.97, alpha + 0.2)));
+  root.style.setProperty('--glass-soft', rgba(glassBase, Math.max(0.08, alpha - 0.22)));
+  root.style.setProperty('--glass-btn', rgba(glassBase, Math.min(0.95, alpha + 0.06)));
   root.style.setProperty('--glass-blur', `${a.blur}px`);
   root.style.setProperty('--glass-sat', `${a.saturate}%`);
   root.style.setProperty('--stroke', dark ? `rgba(255,255,255,${Math.min(0.4, (a.border / 100) * 0.22)})` : `rgba(255,255,255,${Math.min(0.95, a.border / 100)})`);

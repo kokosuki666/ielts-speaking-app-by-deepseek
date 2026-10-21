@@ -1557,7 +1557,7 @@ html[data-glass-buttons="on"] .nav-item.active{
 
 /* softer card outline so the glass panel blends into the mesh background */
 .side-card{
-  border:1px solid color-mix(in srgb,var(--line-strong) 52%,transparent);
+  border:1px solid color-mix(in srgb, var(--stroke) 70%, var(--line-strong));
   box-shadow:0 26px 70px -48px rgba(15,23,42,.5),var(--specular);
 }
 /* backgrounds must never swallow clicks */

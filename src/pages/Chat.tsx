@@ -3,8 +3,9 @@ import { useApp } from '../store/useApp';
 import { Button, Card, Empty, Field, Input, Modal, Seg, Tag } from '../components/ui';
 import { Icon } from '../components/Icon';
 import { askJson, describeAiError, isConfigured, toConfig } from '../lib/ai';
+import { buildAsrConfig, transcribeAudio } from '../lib/asr';
 import { chatPrompt, chatSummaryPrompt } from '../lib/prompts';
-import { speak, stopSpeaking } from '../lib/speech';
+import { recognitionSupported, speak, startRecognition, startRecorder, stopSpeaking, type RecorderHandle } from '../lib/speech';
 import { relTime } from '../lib/format';
 import { uid } from '../lib/id';
 import type { ChatMessage, ChatSession, ChatSummary } from '../types';
@@ -182,15 +183,83 @@ function ChatRoom({
   const [draft, setDraft] = useState('');
   const [summaryBusy, setSummaryBusy] = useState(false);
   const [error, setError] = useState('');
+  const [recording, setRecording] = useState(false);
+  const [voiceBusy, setVoiceBusy] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const recorderRef = useRef<RecorderHandle | null>(null);
+  const stopRecognitionRef = useRef<(() => void) | null>(null);
   const started = useRef(false);
+  const patchSettings = useApp((s) => s.patchSettings);
 
   const messages = session.messages;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [messages.length, draft]);
+
+  useEffect(
+    () => () => {
+      stopRecognitionRef.current?.();
+      void recorderRef.current?.cancel();
+    },
+    [],
+  );
+
+  /** Voice input: browser speech recognition, or record + cloud transcription. */
+  async function toggleMic() {
+    if (voiceBusy) return;
+
+    if (recording) {
+      stopRecognitionRef.current?.();
+      stopRecognitionRef.current = null;
+      setRecording(false);
+      const handle = recorderRef.current;
+      recorderRef.current = null;
+      if (!handle) return;
+      setVoiceBusy(true);
+      try {
+        const out = await handle.stop();
+        if (!out?.blob) throw new Error('没有录到声音');
+        const text = await transcribeAudio(out.blob, { config: buildAsrConfig(settings), asr: settings.asr });
+        if (!text) throw new Error('没有识别到语音，再说一次试试');
+        setInput((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`);
+        if (settings.speech.autoTranscribe) void send(text);
+      } catch (err) {
+        notify((err as Error).message || '语音转写失败', 'err');
+      } finally {
+        setVoiceBusy(false);
+      }
+      return;
+    }
+
+    if (settings.asr.provider === 'browser') {
+      if (!recognitionSupported()) {
+        notify('当前浏览器不支持语音识别，请到设置里配置云端转写', 'err');
+        return;
+      }
+      setRecording(true);
+      stopRecognitionRef.current = startRecognition({
+        onFinal: (text) => {
+          if (!text) return;
+          setInput((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`);
+        },
+        onError: (message) => {
+          notify(message, 'err');
+          setRecording(false);
+        },
+        onEnd: () => setRecording(false),
+      });
+      return;
+    }
+
+    try {
+      recorderRef.current = await startRecorder();
+      setRecording(true);
+    } catch {
+      notify('无法访问麦克风，请检查系统权限', 'err');
+    }
+  }
 
   useEffect(() => {
     if (started.current || messages.length) return;
@@ -299,6 +368,13 @@ function ChatRoom({
           <div className="tiny muted">{session.mode === 'ielts' ? '考官模式' : '闲聊模式'} · {session.scenario}</div>
         </div>
         <div className="spacer" />
+        <button
+          className={`chip ${settings.speech.autoSpeak ? 'chip--on' : ''}`}
+          title="AI 回复后自动朗读"
+          onClick={() => patchSettings({ speech: { ...settings.speech, autoSpeak: !settings.speech.autoSpeak } })}
+        >
+          <Icon name="volume" size={13} /> 自动朗读
+        </button>
         <Button size="sm" variant="ghost" icon="sparkles" loading={summaryBusy} onClick={() => void summarize()}>生成复盘</Button>
       </div>
 
@@ -357,12 +433,22 @@ function ChatRoom({
             }
           }}
         />
+        <Button
+          variant={recording ? 'danger' : 'ghost'}
+          icon={recording ? 'stop' : 'mic'}
+          loading={voiceBusy}
+          title={settings.asr.provider === 'browser' ? '语音输入：用浏览器识别英文' : '语音输入：录音后走云端转写'}
+          onClick={() => void toggleMic()}
+        >
+          {voiceBusy ? '转写中' : recording ? '停止' : '语音'}
+        </Button>
         {streaming ? (
           <Button variant="ghost" icon="stop" onClick={() => abortRef.current?.abort()}>停止</Button>
         ) : (
           <Button variant="primary" icon="arrow-right" onClick={() => void send(input)}>发送</Button>
         )}
       </div>
+      {recording && <div className="tiny muted" style={{ padding: '6px 4px 0' }}>正在听…说完点「停止」，文字会填进输入框。</div>}
     </section>
   );
 }
