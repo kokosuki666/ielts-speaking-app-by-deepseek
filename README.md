@@ -1,16 +1,45 @@
 # IELTS Speaking Studio · 雅思口语工作台
 
 [![CI](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/actions/workflows/ci.yml/badge.svg)](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/kokosuki666/ielts-speaking-app-by-deepseek?color=2563eb)](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-一个完全本地运行的雅思口语学习与练习 Web App：**导入口语题库 → 自由组卷 → 限时模考 → AI 考官打分 → 话题词背诵**，形成完整训练闭环。
+一个完全本地运行的雅思口语学习与练习工作台：**导入口语题库 → 自由组卷 → 限时模考 → AI 考官打分 → 话题词背诵 → 自由对话**，形成完整训练闭环。
 
+- 本地题库支持 PDF / Word / Excel / JSON / CSV / 网页导入，也可让 AI 按话题出题
+- AI 对话支持**语音输入、自动朗读、复盘标签页**；复盘不会再挤掉聊天记录
+- 桌面版是**无边框窗口 + 自绘标题栏 + Windows 11 亚克力材质**，不再是原生菜单栏
+- 语音转写可独立配置（聊天用 DeepSeek、转写用 SiliconFlow，互不影响）
 
-界面采用「液态玻璃」风格（Apple 式排版 + 毛玻璃层次 + 柔和网格渐变），内置 **10 套主题背景**与可调节的毛玻璃参数，支持深色模式与移动端底部导航。
+界面采用「液态玻璃」风格（Apple 式排版 + 毛玻璃层次 + 柔和网格渐变），内置 **10 套主题背景**与可调节的毛玻璃参数，支持深色模式、自定义背景图与移动端底部导航。
+
+> 当前版本 **v1.4.9**，更新内容见 [Releases](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases)。
 
 ![首页](docs/new-home.png)
 
 ---
+
+## 下载与安装
+
+| 包 | 适用 | 说明 |
+| --- | --- | --- |
+| **`IELTS-Speaking-Studio-1.4.9-x64.zip`** | 大多数用户 | **推荐**：解压即用，不经过 NSIS，不受临时目录影响 |
+| `IELTS-Speaking-Studio-Setup-1.4.9.exe` | 想装到固定目录 | NSIS 安装版，会先解压约 660MB 到 `%TEMP%` |
+| `IELTS-Speaking-Studio-1.4.9-portable.exe` | 临时使用 | 免安装单文件，同样依赖 `%TEMP%` |
+
+下载地址：<https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases>
+
+**ZIP 版用法**
+
+1. 下载后右键 → **全部解压缩**（不要在压缩包里直接双击 exe）
+2. 解压后目录应包含 `resources\`、`locales\`、若干 DLL，约 **304 MB**
+3. 双击 **`start.cmd`**（推荐）或 `IELTS Speaking Studio.exe`
+4. 首次运行若提示「未知发布者」→ 更多信息 → 仍要运行
+
+`start.cmd` 会清掉可能干扰 Electron 的 `ELECTRON_RUN_AS_NODE`、开启日志，并在退出时打印 `startup.log`。压缩包里还附带 `diagnose.cmd`，启动异常时可先运行它。
+
+**数据位置**：`%APPDATA%\ielts-speaking-webapp`。换版本、换解压目录都不会丢；卸载 ZIP 版时删除程序目录即可，要彻底清数据再删这个目录。
+
 
 ## 功能
 
@@ -22,6 +51,10 @@
 - **5 个质感预设**：液态玻璃 / 毛玻璃 / 水晶 / 浓玻璃 / 亚克力
 - **开关**：毛玻璃按钮、胶片颗粒、背景缓动
 - **实时预览卡片** + 一键毛玻璃 / 随机搭配 / 恢复默认
+- **自定义背景图**：上传照片后自动压缩到 1600px，配合轻微模糊、白色/深色遮罩，保证正文可读
+- **目标分快捷档位**：6.0 / 6.5 / 7.0 / 7.5 / 8.0 一键选择，也可用滑杆微调
+- **桌面窗口**：无边框 + 自绘 34px 标题栏 + Windows 11 亚克力，移除原生菜单栏，整窗可拖动
+- 全局 **6px 细滚动条**、卡片 hover 上浮、玻璃预设选中态
 
 ### 1. 本地题库与组卷
 
@@ -53,8 +86,13 @@
 
 - 6 个日常场景（咖啡店闲聊、周末旅行、电影、工作、美食、科技）+ 任意自定义话题
 - 也可切到「考官模式」，由 AI 按 Part 1 → Part 3 的梯度提问
-- 流式回复、逐句朗读（TTS）、麦克风输入
-- 结束对话后自动复盘：
+- 流式回复、自动朗读开关、每条 AI 消息可单独朗读
+- **语音输入**：输入框左侧「语音」按钮
+  - 浏览器识别：Web Speech API（Chrome → Google，Edge → Microsoft）
+  - 兼容接口转写：录音后走本地 `/api/asr` → SiliconFlow SenseVoice / OpenAI whisper
+  - 开启「设置 → 语音 → 自动转写」后，转写完成会自动发送
+- **复盘标签页**：生成复盘后自动切到「复盘」，内容独立滚动，可完整查看；切回「对话」时聊天记录原样保留
+- 复盘内容：
   - 你说得好的表达（引用原句）
   - 2–4 条「你说 → 更地道」的改写与原因
   - **10–12 个口语化话题词**（含习语与话语标记），一键加入背诵
@@ -65,7 +103,9 @@
 - **导入自己的词单**：PDF / Word / Excel / CSV / JSON / TXT / Markdown / HTML，也可以直接粘贴、粘贴网址或手动逐条添加；导入后作为一个独立词单出现在话题列表里，可整单删除
 - 三种模式：翻转卡片复习、拼写自测（看中文写英文 + 例句挖空）、浏览词库
 - 间隔重复（Leitner 5 盒，答对后间隔 1 → 2 → 4 → 7 → 15 → 30 天）
-- 可基于题库话题用 AI 生成更多话题词，或从对话复盘 / 模考报告导入
+- 可基于题库话题用 AI 生成话题词：选话题 / 数量 / 难度，预览后加入词库（自动避开重复）
+- **AI 生成入口**在背诵页顶部，和 1.3.0 的布局一致
+- 到期仪表盘、开始复习 20 张、打乱顺序、本范围近期词条（点卡片听发音）
 - 掌握度、到期数量、今日复习统计
 
 ### 5. 其他
@@ -73,10 +113,14 @@
 - 首页：目标分进度、练习热力图（12 周）、分数趋势、最近成绩、下一步建议
 - 全部数据存于浏览器 `localStorage`，支持整库导出 / 导入备份
 - 打印样式：成绩报告可直接打印或另存 PDF
+- 桌面版：无边框窗口、自绘标题栏、Win11 亚克力、窗口按钮（最小化 / 最大化 / 关闭）
+- 内置 `start.cmd` / `diagnose.cmd`，方便排查启动问题
 
 ---
 
-## 快速开始
+## 从源码运行
+
+> 只想使用的话，直接看上面的「下载与安装」即可；本节面向开发与二次修改。
 
 需要 Node.js ≥ 18（开发时使用 Node 24 验证）。
 
@@ -109,10 +153,12 @@ npm run desktop:build   # 构建 + 生成 Windows 安装包与便携版（输出
 
 产物：
 
-- `release/IELTS Speaking Studio-Setup-1.4.0.exe`（NSIS 安装包）
-- `release/IELTS Speaking Studio-1.4.0-portable.exe`（免安装单文件）
-- `release/IELTS Speaking Studio-1.4.0-x64.zip`（免 NSIS 的 ZIP 便携版，解压即用）
+- `release/IELTS Speaking Studio-Setup-1.4.9.exe`（NSIS 安装包）
+- `release/IELTS Speaking Studio-1.4.9-portable.exe`（免安装单文件）
+- `release/IELTS Speaking Studio-1.4.9-x64.zip`（免 NSIS 的 ZIP 便携版，解压即用）
 - `release/win-unpacked/`（解包目录，便于排查）
+
+> 版本号以 `package.json` 为准；发布时脚本会自动改这三处文件名。
 
 桌面版主进程是 `electron/main.cjs`：启动时用当前 Node 拉起 `server/index.mjs`（端口 47119），再用窗口加载 `http://127.0.0.1:47119`，因此文档解析、AI 代理、神经语音全部可用，不依赖外部服务。
 
@@ -124,7 +170,7 @@ NSIS 运行时会先把自己解压到 `%TEMP%`（约 660MB），这一步失败
 2. 把临时目录指到可写位置后再运行：
 
    ```bat
-   set TEMP=D:\temp&& set TMP=D:\temp&& start "" "IELTS Speaking Studio-Setup-1.4.0.exe"
+   set TEMP=D:\temp&& set TMP=D:\temp&& start "" "IELTS Speaking Studio-Setup-1.4.9.exe"
    ```
 
 3. 清理 `%TEMP%` 里的旧文件；确认 C 盘至少留有 2GB 空间
@@ -168,7 +214,7 @@ npm run backup -- D:\bak  # 指定目录
 ### 发布新版本（一条命令）
 
 ```bash
-npm run release -- 1.4.1 "支持导入 Anki 词单"
+npm run release -- 1.4.9 "说明文字"
 ```
 
 脚本 `scripts/release.mjs` 会依次完成：
@@ -176,7 +222,7 @@ npm run release -- 1.4.1 "支持导入 Anki 词单"
 1. 校验分支、工作区干净、版本号递增、标签不重复
 2. 跑 `typecheck` + `build`
 3. 改 `package.json` / `package-lock.json` 版本号并提交
-4. 打标签 `v1.4.1`，推送 `main` 与标签
+4. 打标签 `v1.4.9`，推送 `main` 与标签
 5. 创建 GitHub Release（自动生成说明）
 6. 上传 `release/` 下的安装包，并生成 `SHA256SUMS.txt`
 
@@ -189,8 +235,8 @@ npm run release -- 1.4.1 "支持导入 Anki 词单"
 常用参数：
 
 ```bash
-npm run release -- 1.4.1 --dry-run    # 只检查并打印计划
-npm run release -- 1.4.1 --no-push    # 提交打 tag，不推送
+npm run release -- 1.4.9 --dry-run    # 只检查并打印计划
+npm run release -- 1.4.9 --no-push    # 提交打 tag，不推送
 ```
 
 ---
@@ -436,7 +482,8 @@ resilience 韧性
 | --- | --- | --- | --- |
 | 题库 / 组卷 / 背诵 / 报告 | ✅ | ✅ | ✅ |
 | 语音合成（朗读） | ✅ | ✅ | ✅ |
-| 语音识别（自动转写） | ✅（需联网） | ⚠️ 部分版本 | ❌ |
+| 浏览器语音识别 | ✅（Chrome→Google / Edge→Microsoft） | ⚠️ 部分版本 | ❌ |
+| 云端转写（SiliconFlow / whisper） | ✅ | ✅ | ✅ |
 | 麦克风录音回放 | ✅ | ✅ | ✅ |
 
 不支持语音识别时，可直接用键盘输入作答文本，评分照常进行。
@@ -447,61 +494,78 @@ resilience 韧性
 
 | 引擎 | 音质 | 需要 Key | 需要联网 | 说明 |
 | --- | --- | --- | --- | --- |
-| **Edge 神经音色**（默认） | ★★★★★ 接近真人 | ❌ 免费 | ✅ | 微软 Edge「大声朗读」同一套神经网络音色（Sonia / Ryan / Aria…），由本地服务负责合成 |
+| **Edge 神经音色**（默认） | ★★★★★ 接近真人 | ❌ 免费 | ✅ | 微软 Edge「大声朗读」同一套神经网络音色（Ava / Andrew / Emma / Sonia…），由本地服务负责合成 |
 | OpenAI 兼容 TTS | ★★★★ | ✅ 用你的 TTS 额度 | ✅ | 走 `POST /audio/speech`，支持 OpenAI `tts-1` / `gpt-4o-mini-tts`、SiliconFlow CosyVoice 等 |
 | 系统音色（离线） | ★★ 较机械 | ❌ | ❌ | 浏览器 Web Speech API，调用 Windows SAPI 语音，完全离线 |
 
-默认用 Edge 神经音色，所以听到的是接近真人的朗读，而不是老的 Hazel/David 机械音。实现要点（`src/lib/speech.ts`、`server/index.mjs`）：
+默认用 Edge 神经音色，**默认音色是 Ava（多语自然女声）**，也可以在设置里换 Andrew / Emma / Sonia。实现要点（`src/lib/speech.ts`、`src/lib/ttsText.ts`、`server/index.mjs`）：
 
-- **服务端合成 + 缓存**：`POST /api/tts` 返回 MP3；同一句话第二次直接命中内存缓存（约 5ms）。
-- **连接复用**：Edge 的 WebSocket 握手约 1 秒，服务端按音色池化复用，热态首次合成约 300–500ms。
-- **串行 + 退避重试**：微软接口对突发请求会返回 429，服务端把合成请求排队、保持 250ms 间隔，并对 429 做 1s/2s 退避重试。
-- **自动降级**：云端音色失败（断网、被限流、服务没启动）会自动改用系统音色继续读，并提示一次，不会静默无声。
-- **预热**：背诵卡片切换时预取该词条的音频，点喇叭几乎立即出声。
-- **系统音色兜底**：本地音色优先，避开需要访问 Google 的在线音色；同时修掉了 Chrome 里 `cancel()` + `speak()` 同任务调用吞掉语音的问题。
+- **朗读前清洗文本**：去掉双引号 / 弯引号 / Markdown / 箭头 / 括号，`&` 读作 and，`e.g.` 展开为 for example，避免 TTS 把符号或“quote”念出来
+- **服务端 XML 转义**：`& < >` 不转义会让 Edge 收到非法 XML 并直接断流，这是之前偶发“合成失败”的根因
+- **不重复加速**：以前合成时应用一次语速、播放时 `playbackRate` 又应用一次；现在云端只合成一次，声音不再被拉慢/拉扁
+- **音高微调**：Edge 合成加入 `pitch -2Hz`，减少机械感
+- **标点停顿**：Edge 免费端点不接受 SSML `<break>`（会断流），因此停顿依赖句读与标点，而不是强制插入标签
+- **服务端合成 + 缓存**：`POST /api/tts` 返回 MP3；同一句话第二次直接命中内存缓存（约 5ms）
+- **连接复用**：Edge 的 WebSocket 握手约 1 秒，服务端按音色池化复用，热态首次合成约 300–500ms
+- **串行 + 退避重试**：微软接口对突发请求会返回 429，服务端把合成请求排队、保持 250ms 间隔，并对 429 做 1s/2s 退避重试
+- **自动降级**：云端音色失败（断网、被限流、服务没启动）会自动改用系统音色继续读，并提示一次，不会静默无声
+- **预热**：背诵卡片切换时预取该词条的音频，点喇叭几乎立即出声
+- **系统音色兜底**：本地音色优先，避开需要访问 Google 的在线音色；同时修掉了 Chrome 里 `cancel()` + `speak()` 同任务调用吞掉语音的问题
 
 如果没声音或音质不对：
 
 1. 设置 → 语音 → 点「测试朗读」，看状态（正在播放 / 失败原因）；
 2. 「Edge 神经音色」需要本地服务运行（`npm run dev` 或 `npm start`），纯静态打开时会自动退回系统音色；
 3. 播放中但听不到 → 检查 Windows 音量、输出设备、标签页是否被静音；
-4. 想换口音/性别 → 在「神经音色」里选 Sonia（英式女声，接近考官）、Ryan（英式男声）、Aria（美式女声）等；
-5. 有 OpenAI / SiliconFlow 的 Key → 选「OpenAI 兼容 TTS」，模型填 `tts-1` 或 `FunAudioLLM/CosyVoice2-0.5B`，音色填 `alloy` / `nova` 等。
+4. 想更自然 → 音色选 **Ava**，语速调到 **0.95** 左右；英式口音选 Sonia / Ryan，美式男声选 Andrew；
+5. 有 OpenAI / SiliconFlow 的 Key → 选「OpenAI 兼容 TTS」，模型填 `tts-1` 或 `gpt-4o-mini-tts`，音色填 `alloy` / `nova` 等。
 
-> Edge 神经音色走的是微软 Read Aloud 的公开接口，不是官方付费 API，可能随微软策略变化或限流；出现问题时切到 OpenAI TTS 或系统音色即可。
+> Edge 神经音色走的是微软 Read Aloud 的公开接口，不是官方付费 API，可能随微软策略变化或限流；测试中也遇到过连接超时，出现问题时切到 OpenAI TTS 或系统音色即可。
 
 ### 语音识别（语音转文字）
 
-模考里的转写有两条通道，可在「设置 → 语音识别」切换：
+模考和 AI 对话里的转写有两条通道，在「设置 → 语音识别」切换：
 
 | 方式 | 原理 | 适用 |
 | --- | --- | --- |
-| 浏览器识别（默认） | Web Speech API：Chrome 把音频发往 **Google 服务器**，Edge 走 Microsoft | 能访问 Google 时最快；国内通常不可用 |
-| 兼容接口转写 | 录音后上传到本地服务，转发给 `/audio/transcriptions`（OpenAI whisper-1、SiliconFlow SenseVoice 等） | 国内推荐；可独立配置 Base URL / Key，留空则复用「AI 模型」 |
+| 浏览器识别 | Web Speech API：Chrome 把音频发往 **Google 服务器**，Edge 走 Microsoft | 能访问 Google 时最快；国内通常不可用 |
+| 兼容接口转写 | 录音后上传到本地服务，转发给 `/audio/transcriptions`（OpenAI whisper-1、SiliconFlow SenseVoice 等） | **国内推荐**；可独立配置 Base URL / Key，留空则复用「AI 模型」 |
 
-**为什么 Chrome 提示“需要联网”但网是通的？**
+**最快配置（推荐 SiliconFlow）**
 
-Chrome 的语音识别不是本地识别，音频要送到 Google 的语音服务；国内网络到不了那台服务器，于是返回 `network` 错误。这不是断网，也不是麦克风问题。解决办法：
+1. 设置 → 语音识别 → 识别方式选 **兼容接口转写**
+2. 点快速配置里的 **SiliconFlow**
+3. 填入硅基流动的 Key（<https://cloud.siliconflow.cn> → API 密钥）
+4. 确认下方显示：`https://api.siliconflow.cn/v1/audio/transcriptions`
 
-1. 用 **Edge** 打开应用（Edge 走 Microsoft 服务，国内通常可用）；或
-2. 「设置 → 语音识别」选 **兼容接口转写**，模型填：
-   - OpenAI：`whisper-1`
-   - SiliconFlow：`FunAudioLLM/SenseVoiceSmall`
-   - 其他兼容实现：填它们文档里的模型名
+| 服务 | Base URL | 模型 |
+| --- | --- | --- |
+| SiliconFlow | `https://api.siliconflow.cn/v1` | `FunAudioLLM/SenseVoiceSmall` |
+| OpenAI | `https://api.openai.com/v1` | `whisper-1` |
+| 本机 whisper | `http://127.0.0.1:8000/v1` | `whisper-1` |
 
-兼容接口模式下，作答过程中照常录音，点「结束这道题」时会把音频发到本地 `/api/asr` 转写，再写入作答文本和报告。
+「独立 Base URL / Key」留空时会复用 AI 配置，所以可以**聊天用 DeepSeek、转写用 SiliconFlow**；如果聊天本身就是 SiliconFlow，Key 可以留空复用。
 
-「独立 Base URL / Key」留空时复用 AI 配置；填了就用它自己的，因此可以**聊天用 DeepSeek、转写用 SiliconFlow**：
+**转写报 404？**
 
-- Base URL：`https://api.siliconflow.cn/v1`
-- Key：硅基流动的 Key
-- 模型：`FunAudioLLM/SenseVoiceSmall`
+- 最常见原因：ASR 的 Base URL 留空，回退到了 DeepSeek —— DeepSeek 没有 `/audio/transcriptions`
+- 其次：Base URL 少写 `/v1`，或把完整端点（`.../v1/audio/transcriptions`）填进了 Base URL
+- 1.4.8 起会自动去掉误填的端点、给 openai.com / siliconflow.cn 补 `/v1`；如果仍在复用 DeepSeek，点语音时会直接提示去配 SiliconFlow
+- 错误信息会附带实际请求地址，按地址检查即可
+
+**“需要联网”但网是通的？**
+
+Chrome 的语音识别不是本地识别，音频要送到 Google 的语音服务；国内网络到不了那台服务器，于是返回 `network` 错误。这不是断网，也不是麦克风问题。解决办法：用 **Edge** 打开应用，或改用上面的 SiliconFlow 云端转写。
+
+开启「设置 → 语音 → 自动转写」后，录音结束会自动转写并发送，接近语音对话。
 
 ## 隐私
 
-- 题库、作答、录音、成绩、词卡全部保存在本机浏览器
-- 只有当你配置了 AI 并主动触发评分 / 对话时，作答文本才会发送到你指定的模型服务
-- 录音文件不会上传（语音识别由浏览器自带服务完成，取决于浏览器实现）
+- 题库、作答、成绩、词卡、聊天记录全部保存在本机浏览器（桌面版在 `%APPDATA%\ielts-speaking-webapp`）
+- 只有当你配置了 AI 并主动触发评分 / 对话 / 出题时，相关文本才会发送到你指定的模型服务
+- **浏览器识别**：音频由浏览器直接发往 Google / Microsoft 的语音服务
+- **兼容接口转写**：音频经本地服务转发给你配置的 ASR 服务（如 SiliconFlow）；如果配的是本机 whisper，音频不出本机
+- 项目没有统计、埋点或远程日志；API Key 只存在本机，不会进入打包产物
 
 ## 稳定性与断线恢复
 
@@ -531,31 +595,54 @@ API Key 保存在浏览器 `localStorage`（桌面版存在应用数据目录）
 
 ```
 ielts-speaking-webapp/
-├─ server/index.mjs          # 本地 AI 代理 + 文档解析（PDF/Word/Excel）+ 神经语音合成 + 静态服务
-├─ scripts/dev.mjs           # 一条命令同时起前端与服务
+├─ server/index.mjs          # 本地 AI 代理 + 文档解析 + Edge/OpenAI TTS + /api/asr 转写 + 静态服务
+├─ electron/                 # 无边框窗口、自绘标题栏、更新与备份 IPC
+├─ scripts/
+│  ├─ dev.mjs                # 同时起前端与本地服务，崩溃自动重启
+│  └─ release.mjs            # 一条命令：改版本 → 构建 → 提交 → 打 tag → 建 Release → 上传资产
+├─ tools/                    # start.cmd / diagnose.cmd（随桌面包分发）
 ├─ src/
 │  ├─ pages/                 # Home / Library / Papers / Builder / Exam / Reports / Chat / Vocab / Settings
-│  ├─ components/            # 设计系统与基础组件（Icon / ui / AppearancePanel 外观面板）
-│  ├─ lib/                   # 评分、提示词、导入解析、语音、SRS、本地估算
-│  │  ├─ appearance.ts       # 主题背景预设、毛玻璃变量、强调色推导
-│  │  ├─ importBank.ts       # 按扩展名分发：JSON / 表格 / 文档
-│  │  ├─ parseDocument.ts    # PDF/Word 文字 → 题目结构识别
-│  │  └─ document.ts         # 调用本地 /api/extract
+│  ├─ components/            # 设计系统与基础组件（Icon / ui / 外观面板）
+│  ├─ lib/
+│  │  ├─ appearance.ts       # 10 套主题、毛玻璃变量、自定义背景
+│  │  ├─ ai.ts / prompts.ts  # 模型调用与评分 / 对话 / 出题 / 复盘提示词
+│  │  ├─ asr.ts              # 语音转写、Base URL 规范化、独立 ASR 配置
+│  │  ├─ speech.ts           # TTS 引擎、缓存、降级
+│  │  ├─ ttsText.ts          # 朗读文本清洗（去引号/Markdown/符号）
+│  │  ├─ importBank.ts       # 题库导入：JSON / 表格 / 文档 / 网页
+│  │  └─ srs.ts              # Leitner 间隔重复
 │  ├─ store/useApp.ts        # zustand + localStorage 持久化
-│  ├─ data/                  # 内置题库与词库（JSON）
-│  └─ styles.css             # 液态玻璃设计系统（外观由 CSS 变量驱动）
+│  ├─ data/                  # 内置题库与词库（106 题 / 144 词）
+│  └─ styles.css             # 液态玻璃设计系统
 └─ docs/                     # 界面截图
 ```
 
 ## 已知限制
 
 - 离线评分是**启发式估算**，用于没有 Key 时给出方向性反馈，不等同于真实考官评分
-- 语音识别依赖浏览器的在线服务，识别质量与网络相关；识别结果可手动编辑
+- 浏览器语音识别依赖 Google / Microsoft 的在线服务，国内网络下 Chrome 通常不可用
+- 云端转写需要你自己的 ASR Key，费用由对应平台计算
+- Edge 神经音色走微软免费公开接口，可能限流或连接超时；失败会自动降级为系统音色
 - 单次模考录音只保留当前会话（刷新后录音不可回放，转写文本会保留在报告中）
 - 数据存放在浏览器，清理站点数据会丢失；请定期在「设置」里导出备份
 - **扫描版（图片型）PDF 无法提取文字**，需先 OCR；导入时会提示「没有提取到文字」
 - 旧版 `.doc` / `.ppt` 不支持，请在 Office 里另存为 `.docx` / 导出 PDF
 - 文档结构识别是启发式的：版式特别复杂（多栏、表格混排、答案与题目混在一起）时，建议用 CSV/JSON 模板，或导入后在题库里少量手动修正
+
+## 更新记录
+
+| 版本 | 主要变化 |
+| --- | --- |
+| **v1.4.9** | 复盘改为「对话 / 复盘」双标签、独立滚动；语音清洗引号与符号、修复 `&` 导致 Edge 断流、去掉重复语速、默认 Ava 音色 |
+| v1.4.8 | ASR Base URL 规范化、SiliconFlow/OpenAI/本机 whisper 快速配置、404 可操作提示 |
+| v1.4.7 | AI 对话语音输入与自动朗读；修复外观滑杆（不透明度钳制、边框高光） |
+| v1.4.6 | 补回 `.mesh` 背景层，10 套主题真正生效；修复自定义背景与「一键毛玻璃」按钮变白 |
+| v1.4.5 | 桌面无边框窗口、自绘标题栏、Win11 亚克力、柔化卡片描边 |
+| v1.4.4 | 背诵页对齐 1.3.0：AI 生成话题词、复习仪表盘、20 张批量；对话场景卡；自定义背景 |
+| v1.4.3 | 修复桌面启动无窗口：图标缺失兜底、启动日志、8 秒窗口兜底、diagnose.cmd |
+
+完整说明见 [Releases](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases)。
 
 ## 截图
 
@@ -563,7 +650,11 @@ ielts-speaking-webapp/
 | --- | --- |
 | ![首页](docs/new-home.png) | ![背诵](docs/new-vocab.png) |
 
-| 题库 | 设置（外观面板） |
+| 设置（主题与自定义背景） | AI 对话（语音输入） |
 | --- | --- |
-| ![题库](docs/new-library.png) | ![设置](docs/new-settings.png) |
+| ![设置](docs/new-settings.png) | ![对话](docs/chat-voice.png) |
+
+| 复盘标签页 | 桌面标题栏 |
+| --- | --- |
+| ![复盘](docs/review-tab.png) | ![桌面](docs/desktop-titlebar.png) |
 
