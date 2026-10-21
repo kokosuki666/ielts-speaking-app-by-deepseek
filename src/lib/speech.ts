@@ -1,4 +1,5 @@
 import type { SpeechSettings } from '../types';
+import { toSpeechText } from './ttsText';
 
 export const TTS_ERROR_EVENT = 'ielts:tts-error';
 export const TTS_FALLBACK_EVENT = 'ielts:tts-fallback';
@@ -199,7 +200,7 @@ export interface SpeakOptions {
 }
 
 export async function speak(text: string, options: SpeakOptions = {}): Promise<void> {
-  const clean = text.trim();
+  const clean = toSpeechText(text);
   if (!clean) return;
   const rate = options.rate ?? runtime.rate;
   stopSpeaking();
@@ -212,7 +213,9 @@ export async function speak(text: string, options: SpeakOptions = {}): Promise<v
   try {
     const url = await requestSpeechUrl(clean);
     if (options.signal?.aborted) return;
-    await playUrl(url, rate);
+    // The cloud engine already applies `rate` during synthesis; applying it a
+    // second time here slowed speech and made it sound more robotic.
+    await playUrl(url, 1);
   } catch (err) {
     const message = (err as Error).message || '神经网络语音不可用';
     window.dispatchEvent(
@@ -223,7 +226,7 @@ export async function speak(text: string, options: SpeakOptions = {}): Promise<v
 }
 
 export async function prewarmSpeech(text: string): Promise<void> {
-  const clean = text.trim();
+  const clean = toSpeechText(text);
   if (!clean || runtime.provider === 'browser') return;
   try {
     await requestSpeechUrl(clean);

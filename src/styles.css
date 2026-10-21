@@ -1583,3 +1583,6 @@ html[data-glass-buttons="on"] .nav-item.active{
 .nav-link{transition:background .16s var(--ease),color .16s var(--ease),transform .16s var(--ease)}
 .nav-link:hover{transform:translateX(1px)}
 .nav-link.active{box-shadow:0 8px 22px -16px rgba(15,23,42,.35)}
+/* review has its own scroll area; the conversation stays intact in the other tab */
+.chat-review{flex:1;min-height:0;overflow-y:auto;padding:4px 2px 18px;scrollbar-gutter:stable}
+.chat-review .card{margin-top:0}

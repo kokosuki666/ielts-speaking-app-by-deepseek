@@ -310,14 +310,16 @@ const TTS_MAX_CHARS = 1200;
 const TTS_CACHE_LIMIT = 160;
 const ttsCache = new Map();
 
-const EDGE_DEFAULT_VOICE = 'en-GB-SoniaNeural';
+const EDGE_DEFAULT_VOICE = 'en-US-AvaMultilingualNeural';
 
 function ttsCacheKey(parts) {
   return crypto.createHash('sha1').update(parts.join('|')).digest('hex');
 }
 
 async function synthesizeEdgeOnce(tts, text, rate) {
-  const { audioStream } = tts.toStream(text, { rate });
+  // `toStream` accepts raw SSML inside its prosody wrapper, so sentence and
+  // clause breaks can be added without an extra dependency.
+  const { audioStream } = tts.toStream(escapeXml(text), { rate, pitch: '-2Hz' });
   const chunks = [];
   const buffer = await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('语音合成超时')), 45000);
@@ -463,6 +465,33 @@ async function synthesizeOpenAi(text, { baseUrl, apiKey, model, voice, speed }) 
   }
 }
 
+/** Strip the characters that make TTS read "quote" or spell out markup. */
+function cleanSpeechText(input) {
+  return String(input || '')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/["\u201C\u201D\u00AB\u00BB\u201E\u201A]/g, '')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[*_~#|]+/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s*(?:→|⇒|->)\s*/g, ' to ')
+    .replace(/\s*&\s*/g, ' and ')
+    .replace(/[<>]/g, ' ')
+    .replace(/\.{3,}/g, '. ')
+    .replace(/[()\[\]{}]/g, ', ')
+    .replace(/,(\s*,)+/g, ', ')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\s*\n\s*/g, '. ')
+    .trim();
+}
+
+function escapeXml(value) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 async function handleTts(req, res) {
   let payload;
   try {
@@ -471,7 +500,7 @@ async function handleTts(req, res) {
     return sendJSON(res, err.status || 400, { error: '请求格式错误', detail: err.message });
   }
 
-  const text = String(payload.text || '').replace(/\s+/g, ' ').trim().slice(0, TTS_MAX_CHARS);
+  const text = cleanSpeechText(String(payload.text || '')).slice(0, TTS_MAX_CHARS);
   if (!text) return sendJSON(res, 400, { error: '缺少要朗读的文本' });
 
   const provider = payload.provider === 'openai' ? 'openai' : 'edge';

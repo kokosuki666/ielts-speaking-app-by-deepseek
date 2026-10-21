@@ -25,6 +25,9 @@ const PRESETS = [
 ];
 
 const EDGE_VOICES = [
+  { id: 'en-US-AvaMultilingualNeural', label: 'Ava · 美式女声（自然，推荐）' },
+  { id: 'en-US-AndrewMultilingualNeural', label: 'Andrew · 美式男声（自然）' },
+  { id: 'en-US-EmmaMultilingualNeural', label: 'Emma · 美式女声（轻快）' },
   { id: 'en-GB-SoniaNeural', label: 'Sonia · 英式女声' },
   { id: 'en-GB-RyanNeural', label: 'Ryan · 英式男声' },
   { id: 'en-GB-LibbyNeural', label: 'Libby · 英式女声（轻快）' },

@@ -105,7 +105,7 @@ const DEFAULT_SETTINGS: Settings = {
   speech: {
     provider: 'edge',
     voiceURI: '',
-    cloudVoice: 'en-GB-SoniaNeural',
+    cloudVoice: 'en-US-AvaMultilingualNeural',
     ttsModel: 'tts-1',
     rate: 1,
     autoSpeak: true,

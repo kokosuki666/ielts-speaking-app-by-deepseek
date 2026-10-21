@@ -185,6 +185,7 @@ function ChatRoom({
   const [error, setError] = useState('');
   const [recording, setRecording] = useState(false);
   const [voiceBusy, setVoiceBusy] = useState(false);
+  const [view, setView] = useState<'chat' | 'review'>('chat');
   const bottomRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   const recorderRef = useRef<RecorderHandle | null>(null);
@@ -193,6 +194,10 @@ function ChatRoom({
   const patchSettings = useApp((s) => s.patchSettings);
 
   const messages = session.messages;
+
+  useEffect(() => {
+    setView('chat');
+  }, [session.id]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -367,6 +372,7 @@ function ChatRoom({
         temperature: 0.4,
       });
       onUpdate({ summary: raw });
+      setView('review');
       notify('复盘已生成', 'ok');
     } catch (err) {
       setError(describeAiError(err));
@@ -383,6 +389,16 @@ function ChatRoom({
           <div className="tiny muted">{session.mode === 'ielts' ? '考官模式' : '闲聊模式'} · {session.scenario}</div>
         </div>
         <div className="spacer" />
+        {session.summary && (
+          <Seg
+            value={view}
+            onChange={(v) => setView(v as 'chat' | 'review')}
+            options={[
+              { value: 'chat', label: '对话' },
+              { value: 'review', label: '复盘' },
+            ]}
+          />
+        )}
         <button
           className={`chip ${settings.speech.autoSpeak ? 'chip--on' : ''}`}
           title="AI 回复后自动朗读"
@@ -393,7 +409,13 @@ function ChatRoom({
         <Button size="sm" variant="ghost" icon="sparkles" loading={summaryBusy} onClick={() => void summarize()}>生成复盘</Button>
       </div>
 
-      <div className="chat-log">
+      {view === 'review' && session.summary ? (
+        <div className="chat-review">
+          <SummaryCard summary={session.summary} />
+        </div>
+      ) : (
+        <>
+          <div className="chat-log">
         {messages.map((m) => (
           <div key={m.id} className={`msg ${m.role === 'user' ? 'msg--user' : 'msg--ai'}`}>
             <div className="msg-avatar">{m.role === 'user' ? '你' : 'AI'}</div>
@@ -423,8 +445,6 @@ function ChatRoom({
           <div className="small">{error}</div>
         </div>
       )}
-
-      {session.summary && <SummaryCard summary={session.summary} />}
 
       {messages.length === 0 && !streaming && (
         <div className="row" style={{ gap: 6, flexWrap: 'wrap', marginTop: 8 }}>
@@ -464,6 +484,8 @@ function ChatRoom({
         )}
       </div>
       {recording && <div className="tiny muted" style={{ padding: '6px 4px 0' }}>正在听…说完点「停止」，文字会填进输入框。</div>}
+        </>
+      )}
     </section>
   );
 }
