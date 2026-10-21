@@ -776,7 +776,10 @@ async function handleAsr(req, res) {
   form.append('response_format', 'json');
   if (payload.language) form.append('language', String(payload.language));
 
-  const endpoint = `${cfg.baseUrl.replace(/\/+$/, '')}/audio/transcriptions`;
+  // Accept both a base URL and a full endpoint; known providers need /v1.
+  let base = String(cfg.baseUrl || '').trim().replace(/\/+$/, '').replace(/\/audio\/transcriptions$/i, '');
+  if (/^https?:\/\/api\.(openai|siliconflow)\.com$/i.test(base)) base += '/v1';
+  const endpoint = `${base}/audio/transcriptions`;
   const headers = {};
   if (cfg.apiKey) headers.Authorization = `Bearer ${cfg.apiKey}`;
 
@@ -793,8 +796,19 @@ async function handleAsr(req, res) {
       } catch {
         /* keep raw */
       }
+      if (!detail) detail = '该地址没有返回错误详情';
       const status = up.status === 401 || up.status === 403 ? 401 : up.status === 429 ? 429 : 502;
-      return sendJSON(res, status, { error: `转写服务返回 ${up.status}`, detail });
+      return sendJSON(res, status, {
+        error: `转写服务返回 ${up.status}`,
+        detail,
+        endpoint,
+        hint:
+          up.status === 404
+            ? '接口不存在：检查 Base URL 是否包含 /v1，或该服务是否支持 /audio/transcriptions'
+            : up.status === 401 || up.status === 403
+              ? 'Key 无效或未填写'
+              : undefined,
+      });
     }
     let data = {};
     try {

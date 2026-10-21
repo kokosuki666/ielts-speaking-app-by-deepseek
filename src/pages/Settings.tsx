@@ -3,6 +3,7 @@ import { useApp } from '../store/useApp';
 import { Button, Card, Field, Input, Seg, Switch, Tag } from '../components/ui';
 import { Icon } from '../components/Icon';
 import { describeAiError, isLocalBaseUrl, keyDiagnostics, sanitizeApiKey, testConnection, toConfig } from '../lib/ai';
+import { normalizeAsrBaseUrl } from '../lib/asr';
 import { speak, configureTts, loadVoices, ttsRuntime, TTS_VOICES_EVENT } from '../lib/speech';
 import { downloadJSON } from '../lib/format';
 import { ACCENTS, DEFAULT_APPEARANCE, THEMES, themeById } from '../lib/appearance';
@@ -536,6 +537,30 @@ export default function Settings() {
 
           {settings.asr.provider === 'openai' ? (
             <>
+              <div className="row" style={{ gap: 6 }}>
+                <span className="tiny dim">快速配置：</span>
+                <button
+                  className="chip"
+                  onClick={() =>
+                    patchSettings({ asr: { provider: 'openai', baseUrl: 'https://api.siliconflow.cn/v1', model: 'FunAudioLLM/SenseVoiceSmall', language: 'en' } })
+                  }
+                >
+                  SiliconFlow
+                </button>
+                <button
+                  className="chip"
+                  onClick={() => patchSettings({ asr: { provider: 'openai', baseUrl: 'https://api.openai.com/v1', model: 'whisper-1', language: 'en' } })}
+                >
+                  OpenAI whisper
+                </button>
+                <button
+                  className="chip"
+                  onClick={() => patchSettings({ asr: { provider: 'openai', baseUrl: 'http://127.0.0.1:8000/v1', model: 'whisper-1', language: 'en' } })}
+                >
+                  本机 whisper
+                </button>
+              </div>
+
               <div className="grid g2">
                 <Field label="转写模型" hint="OpenAI: whisper-1；SiliconFlow: FunAudioLLM/SenseVoiceSmall">
                   <Input
@@ -571,9 +596,18 @@ export default function Settings() {
               </Field>
 
               <div className="hint">
-                请求 <code>{(settings.asr.baseUrl.trim() || settings.ai.baseUrl || '').replace(/\/+$/, '') + '/audio/transcriptions'}</code>
+                请求 <code>{normalizeAsrBaseUrl(settings.asr.baseUrl || settings.ai.baseUrl) + '/audio/transcriptions'}</code>
                 ；录音结束后上传转写，不依赖 Google。
               </div>
+              {!settings.asr.baseUrl.trim() && (
+                <div className="card card--flat card--pad-sm" style={{ background: 'var(--warn-soft, var(--glass-soft))' }}>
+                  <div className="tiny">
+                    当前未填独立 Base URL，会复用 AI 地址 <code>{settings.ai.baseUrl}</code>。如果它不支持
+                    <code>/audio/transcriptions</code>（例如 DeepSeek），就会返回 <strong>404</strong>。转写请点上面的
+                    「SiliconFlow」或「OpenAI whisper」。
+                  </div>
+                </div>
+              )}
             </>
           ) : (
             <div className="hint">

@@ -209,6 +209,15 @@ function ChatRoom({
   /** Voice input: browser speech recognition, or record + cloud transcription. */
   async function toggleMic() {
     if (voiceBusy) return;
+    if (
+      !recording &&
+      settings.asr.provider === 'openai' &&
+      !settings.asr.baseUrl.trim() &&
+      /deepseek/i.test(settings.ai.baseUrl)
+    ) {
+      notify('DeepSeek 没有转写接口：请在 设置 → 语音识别 点「SiliconFlow」，填上硅基流动的 Key 再试', 'err');
+      return;
+    }
 
     if (recording) {
       stopRecognitionRef.current?.();
@@ -226,7 +235,13 @@ function ChatRoom({
         setInput((prev) => `${prev}${prev && !prev.endsWith(' ') ? ' ' : ''}${text}`);
         if (settings.speech.autoTranscribe) void send(text);
       } catch (err) {
-        notify((err as Error).message || '语音转写失败', 'err');
+        const message = (err as Error).message || '语音转写失败';
+        const hint = /404/.test(message)
+          ? '。请在设置 → 语音识别点「SiliconFlow」（Base URL https://api.siliconflow.cn/v1，模型 FunAudioLLM/SenseVoiceSmall）'
+          : /401|403/.test(message)
+            ? '。请检查语音识别的 API Key'
+            : '';
+        notify(`${message}${hint}`, 'err');
       } finally {
         setVoiceBusy(false);
       }

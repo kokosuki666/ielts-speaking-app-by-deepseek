@@ -34,8 +34,12 @@ export async function transcribeAudio(
     signal: opts.signal,
   });
 
-  const data = (await res.json().catch(() => ({}))) as { text?: string; error?: string; detail?: string };
-  if (!res.ok) throw new Error(data.detail || data.error || `转写失败（HTTP ${res.status}）`);
+  const data = (await res.json().catch(() => ({}))) as { text?: string; error?: string; detail?: string; endpoint?: string };
+  if (!res.ok) {
+    const base = data.detail || data.error || `转写失败（HTTP ${res.status}）`;
+    const endpoint = data.endpoint ? `（请求地址：${data.endpoint}）` : '';
+    throw new Error(`${base}${endpoint}`);
+  }
   return String(data.text || '').trim();
 }
 
@@ -44,12 +48,25 @@ export function asrReady(asr: AsrSettings): boolean {
 }
 
 /**
+ * Normalises common Base URL typos:
+ * - a full `/audio/transcriptions` endpoint is trimmed back to its base
+ * - known providers without `/v1` get it added
+ */
+export function normalizeAsrBaseUrl(raw: string): string {
+  let base = raw.trim().replace(/\/+$/, '');
+  if (!base) return '';
+  base = base.replace(/\/audio\/transcriptions$/i, '');
+  if (/^https?:\/\/api\.(openai|siliconflow)\.com$/i.test(base)) base += '/v1';
+  return base;
+}
+
+/**
  * ASR can run on its own provider (e.g. SiliconFlow for transcription while
  * chat stays on DeepSeek). An empty Base URL falls back to the AI config;
  * once a Base URL is set, its key is used as-is (local servers need none).
  */
 export function buildAsrConfig(settings: Settings): AiConfig {
-  const base = settings.asr.baseUrl.trim();
+  const base = normalizeAsrBaseUrl(settings.asr.baseUrl);
   if (!base) return toConfig(settings.ai);
   return {
     ...toConfig(settings.ai),
