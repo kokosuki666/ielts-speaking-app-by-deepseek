@@ -14,6 +14,7 @@ files:
   - dist/**/*
   - server/**/*
   - electron/**/*
+  - build/icon.png
   - package.json
   - node_modules/**/*
   - '!node_modules/.bin'
@@ -27,6 +28,9 @@ extraFiles:
   - from: tools/start.cmd
     to: start.cmd
 
+# Pure-JS icon/version embedding; avoids winCodeSign symlink extraction issues.
+afterPack: scripts/after-pack.cjs
+
 win:
   target:
     - target: nsis
@@ -36,8 +40,9 @@ win:
     - target: zip
       arch: [x64]
   artifactName: ${productName}-${version}-${arch}.${ext}
-  # Signing is not configured for this project; skip the sign/rename step so
-  # `electron-builder --dir` works on machines without a certificate.
+  # Draw the icon ourselves after packing (scripts/after-pack.cjs): the default
+  # rcedit path needs winCodeSign, whose extraction requires symlink privileges.
+  icon: build/icon.ico
   signAndEditExecutable: false
   sign: null
 
@@ -48,6 +53,9 @@ nsis:
   createDesktopShortcut: true
   createStartMenuShortcut: true
   shortcutName: IELTS Speaking Studio
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
   artifactName: ${productName}-Setup-${version}.${ext}
   deleteAppDataOnUninstall: false
 

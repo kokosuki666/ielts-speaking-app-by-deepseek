@@ -13,7 +13,7 @@
 
 界面采用「液态玻璃」风格（Apple 式排版 + 毛玻璃层次 + 柔和网格渐变），内置 **10 套主题背景**与可调节的毛玻璃参数，支持深色模式、自定义背景图与移动端底部导航。
 
-> 当前版本 **v1.4.9**，更新内容见 [Releases](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases)。
+> 当前版本 **v1.4.10**，更新内容见 [Releases](https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases)。
 
 ![首页](docs/new-home.png)
 
@@ -23,9 +23,9 @@
 
 | 包 | 适用 | 说明 |
 | --- | --- | --- |
-| **`IELTS-Speaking-Studio-1.4.9-x64.zip`** | 大多数用户 | **推荐**：解压即用，不经过 NSIS，不受临时目录影响 |
-| `IELTS-Speaking-Studio-Setup-1.4.9.exe` | 想装到固定目录 | NSIS 安装版，会先解压约 660MB 到 `%TEMP%` |
-| `IELTS-Speaking-Studio-1.4.9-portable.exe` | 临时使用 | 免安装单文件，同样依赖 `%TEMP%` |
+| **`IELTS-Speaking-Studio-1.4.10-x64.zip`** | 大多数用户 | **推荐**：解压即用，不经过 NSIS，不受临时目录影响 |
+| `IELTS-Speaking-Studio-Setup-1.4.10.exe` | 想装到固定目录 | NSIS 安装版，会先解压约 660MB 到 `%TEMP%` |
+| `IELTS-Speaking-Studio-1.4.10-portable.exe` | 临时使用 | 免安装单文件，同样依赖 `%TEMP%` |
 
 下载地址：<https://github.com/kokosuki666/ielts-speaking-app-by-deepseek/releases>
 
@@ -153,9 +153,9 @@ npm run desktop:build   # 构建 + 生成 Windows 安装包与便携版（输出
 
 产物：
 
-- `release/IELTS Speaking Studio-Setup-1.4.9.exe`（NSIS 安装包）
-- `release/IELTS Speaking Studio-1.4.9-portable.exe`（免安装单文件）
-- `release/IELTS Speaking Studio-1.4.9-x64.zip`（免 NSIS 的 ZIP 便携版，解压即用）
+- `release/IELTS Speaking Studio-Setup-1.4.10.exe`（NSIS 安装包）
+- `release/IELTS Speaking Studio-1.4.10-portable.exe`（免安装单文件）
+- `release/IELTS Speaking Studio-1.4.10-x64.zip`（免 NSIS 的 ZIP 便携版，解压即用）
 - `release/win-unpacked/`（解包目录，便于排查）
 
 > 版本号以 `package.json` 为准；发布时脚本会自动改这三处文件名。
@@ -170,7 +170,7 @@ NSIS 运行时会先把自己解压到 `%TEMP%`（约 660MB），这一步失败
 2. 把临时目录指到可写位置后再运行：
 
    ```bat
-   set TEMP=D:\temp&& set TMP=D:\temp&& start "" "IELTS Speaking Studio-Setup-1.4.9.exe"
+   set TEMP=D:\temp&& set TMP=D:\temp&& start "" "IELTS Speaking Studio-Setup-1.4.10.exe"
    ```
 
 3. 清理 `%TEMP%` 里的旧文件；确认 C 盘至少留有 2GB 空间
@@ -214,7 +214,7 @@ npm run backup -- D:\bak  # 指定目录
 ### 发布新版本（一条命令）
 
 ```bash
-npm run release -- 1.4.9 "说明文字"
+npm run release -- 1.4.10 "说明文字"
 ```
 
 脚本 `scripts/release.mjs` 会依次完成：
@@ -222,7 +222,7 @@ npm run release -- 1.4.9 "说明文字"
 1. 校验分支、工作区干净、版本号递增、标签不重复
 2. 跑 `typecheck` + `build`
 3. 改 `package.json` / `package-lock.json` 版本号并提交
-4. 打标签 `v1.4.9`，推送 `main` 与标签
+4. 打标签 `v1.4.10`，推送 `main` 与标签
 5. 创建 GitHub Release（自动生成说明）
 6. 上传 `release/` 下的安装包，并生成 `SHA256SUMS.txt`
 
@@ -235,8 +235,8 @@ npm run release -- 1.4.9 "说明文字"
 常用参数：
 
 ```bash
-npm run release -- 1.4.9 --dry-run    # 只检查并打印计划
-npm run release -- 1.4.9 --no-push    # 提交打 tag，不推送
+npm run release -- 1.4.10 --dry-run    # 只检查并打印计划
+npm run release -- 1.4.10 --no-push    # 提交打 tag，不推送
 ```
 
 ---
@@ -634,7 +634,8 @@ ielts-speaking-webapp/
 
 | 版本 | 主要变化 |
 | --- | --- |
-| **v1.4.9** | 复盘改为「对话 / 复盘」双标签、独立滚动；语音清洗引号与符号、修复 `&` 导致 Edge 断流、去掉重复语速、默认 Ava 音色 |
+| **v1.4.10** | 修复拼写自测检测不到词卡；exe / 安装包 / 任务栏写入品牌图标（IS），不再显示默认 Electron 图标 |
+| v1.4.9 | 复盘改为「对话 / 复盘」双标签、独立滚动；语音清洗引号与符号、修复 `&` 导致 Edge 断流、去掉重复语速、默认 Ava 音色 |
 | v1.4.8 | ASR Base URL 规范化、SiliconFlow/OpenAI/本机 whisper 快速配置、404 可操作提示 |
 | v1.4.7 | AI 对话语音输入与自动朗读；修复外观滑杆（不透明度钳制、边框高光） |
 | v1.4.6 | 补回 `.mesh` 背景层，10 套主题真正生效；修复自定义背景与「一键毛玻璃」按钮变白 |

@@ -39,6 +39,7 @@ export default function Vocab() {
   const [mode, setMode] = useState<'review' | 'spell' | 'browse'>('review');
   const [session, setSession] = useState<string[] | null>(null);
   const [index, setIndex] = useState(0);
+  const [spellIndex, setSpellIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [answer, setAnswer] = useState('');
   const [checked, setChecked] = useState<null | boolean>(null);
@@ -73,19 +74,24 @@ export default function Vocab() {
   const dueTotal = vocab.filter((v) => isDue(progress[v.id])).length;
 
   const current = session ? vocab.find((v) => v.id === session[index]) : null;
+  // Spelling mode has its own cursor: it must work without starting a review session.
+  const spellPool = dueList.length ? dueList : scope;
+  const spellCard = spellPool.length ? spellPool[spellIndex % spellPool.length] : null;
   const recent = (dueList.length ? dueList : scope).slice(0, 6);
 
   useEffect(() => {
     setSession(null);
     setIndex(0);
+    setSpellIndex(0);
     setFlipped(false);
     setAnswer('');
     setChecked(null);
   }, [topic, mode]);
 
   useEffect(() => {
-    if (current) void prewarmSpeech(current.term);
-  }, [current?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    const card = mode === 'spell' ? spellCard : current;
+    if (card) void prewarmSpeech(card.term);
+  }, [mode, current?.id, spellCard?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function startSession(shuffle = false) {
     const pool = dueList.length ? dueList : scope;
@@ -128,11 +134,11 @@ export default function Vocab() {
   }
 
   function checkSpelling() {
-    if (!current) return;
+    if (!spellCard) return;
     const normalize = (s: string) => s.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
-    const ok = normalize(answer) === normalize(current.term);
+    const ok = normalize(answer) === normalize(spellCard.term);
     setChecked(ok);
-    reviewVocab(current.id, ok ? 'good' : 'again');
+    reviewVocab(spellCard.id, ok ? 'good' : 'again');
   }
 
   return (
@@ -350,12 +356,12 @@ export default function Vocab() {
           <div className="deck-bar">
             <span className="tiny muted">拼写自测 · 本范围 {scope.length} 张</span>
             <div className="spacer" />
-            <Tag tone="accent">{current ? TYPE_LABEL[current.type] : '—'}</Tag>
+            <Tag tone="accent">{spellCard ? TYPE_LABEL[spellCard.type] : '—'}</Tag>
           </div>
-          {current ? (
+          {spellCard ? (
             <>
-              <div className="small muted" style={{ marginTop: 10 }}>{current.meaningZh}</div>
-              {current.exampleZh && <div className="tiny dim">{current.exampleZh}</div>}
+              <div className="small muted" style={{ marginTop: 10 }}>{spellCard.meaningZh}</div>
+              {spellCard.exampleZh && <div className="tiny dim">{spellCard.exampleZh}</div>}
               <Input
                 style={{ marginTop: 12 }}
                 placeholder="写出英文词条"
@@ -365,13 +371,24 @@ export default function Vocab() {
               />
               <div className="row" style={{ marginTop: 10, gap: 8 }}>
                 <Button variant="primary" onClick={checkSpelling}>检查</Button>
-                <Button variant="ghost" onClick={() => { setChecked(true); setFlipped(true); }}>看答案</Button>
-                <Button size="sm" variant="ghost" onClick={() => { const pool = dueList.length ? dueList : scope; const i = pool.findIndex((v) => v.id === current.id); setIndex(i < 0 ? 0 : Math.min(i + 1, pool.length - 1)); setAnswer(''); setChecked(null); }}>下一张</Button>
+                <Button variant="ghost" onClick={() => { setChecked(false); setFlipped(true); }}>看答案</Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => {
+                    setSpellIndex((n) => (spellPool.length ? (n + 1) % spellPool.length : 0));
+                    setAnswer('');
+                    setChecked(null);
+                    setFlipped(false);
+                  }}
+                >
+                  下一张
+                </Button>
               </div>
               {checked !== null && (
                 <div className="card card--flat card--pad-sm" style={{ marginTop: 10, background: checked ? 'var(--ok-soft)' : 'var(--bad-soft)' }}>
-                  <div className="small">{checked ? '正确！' : `正确答案：${current.term}`}</div>
-                  <div className="tiny muted" style={{ marginTop: 2 }}>{current.example}</div>
+                  <div className="small">{checked ? '正确！' : `正确答案：${spellCard.term}`}</div>
+                  <div className="tiny muted" style={{ marginTop: 2 }}>{spellCard.example}</div>
                 </div>
               )}
             </>
